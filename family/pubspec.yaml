@@ -1,0 +1,102 @@
+name: family
+description: "Family."
+# Die folgende Zeile verhindert, dass das Paket versehentlich veröffentlicht wird
+# pub.dev mit „Flutter Pub Publish“. Dies wird bei privaten Paketen bevorzugt.
+publish_to: 'none' # Entfernen Sie diese Zeile, wenn Sie auf pub.dev veröffentlichen möchten
+
+# Im Folgenden werden die Versions- und Build-Nummer für Ihre Anwendung definiert.
+# Eine Versionsnummer besteht aus drei durch Punkte getrennten Zahlen, z. B. 1.2.43
+# gefolgt von einer optionalen Build-Nummer, getrennt durch ein +.
+# Sowohl die Versions- als auch die Builder-Nummer können im Flattern überschrieben werden
+# Build durch Angabe von --build-name bzw. --build-number.
+# In Android wird Build-Name als Versionsname verwendet, während Build-Nummer als Versionscode verwendet wird.
+# Weitere Informationen zur Android-Versionierung finden Sie unter https://developer.android.com/studio/publish/versioning
+# In iOS wird Build-Name als CFBundleShortVersionString verwendet, während Build-Nummer als CFBundleVersion verwendet wird.
+# Weitere Informationen zur iOS-Versionierung finden Sie unter
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows wird Build-Name als Haupt-, Neben- und Patch-Teil verwendet
+# der Produkt- und Dateiversionen, während Build-Nummer als Build-Suffix verwendet wird.
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+# Abhängigkeiten geben andere Pakete an, die Ihr Paket benötigt, um zu funktionieren.
+# Um Ihre Paketabhängigkeiten automatisch auf die neuesten Versionen zu aktualisieren
+# Erwägen Sie die Ausführung von „flutter pub upgrade --major-versions“. Alternative,
+# Abhängigkeiten können manuell aktualisiert werden, indem die Versionsnummern unten in geändert werden
+# die neueste Version, die auf pub.dev verfügbar ist. Um zu sehen, welche Abhängigkeiten neuer sind
+# Versionen verfügbar, führen Sie „flutter pub outdated“ aus.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # Im Folgenden wird Ihrer Anwendung die Schriftart „Cupertino Icons“ hinzugefügt.
+  # Verwendung mit der CupertinoIcons-Klasse für iOS-Stilsymbole.
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_launcher_icons: "^0.13.1"
+
+
+  # Das Paket „flutter_lints“ unten enthält eine Reihe empfohlener Lints für
+  # Gute Codierungspraktiken fördern. Das im Paket enthaltene Flusenset ist
+  # aktiviert in der Datei „analysis_options.yaml“ im Stammverzeichnis Ihres
+  # Paket. Informationen zum Deaktivieren bestimmter Flusen finden Sie in dieser Datei
+  # Regeln und Aktivierung weiterer Regeln.
+  flutter_lints: ^3.0.0
+flutter_launcher_icons:
+  image_path: "lib/assets/Hauptlogo.png"
+  android: "launcher_icon"
+  ios: true
+  min_sdk_android: 21
+# Informationen zum generischen Dart-Teil dieser Datei finden Sie im
+# Folgende Seite: https://dart.dev/tools/pub/pubspec
+
+# Der folgende Abschnitt bezieht sich speziell auf Flutter-Pakete.
+flutter:
+  assets:
+  - lib/assets/Hauptlogo.png
+  - lib/assets/Logo_2.png
+
+  # Die folgende Zeile stellt sicher, dass die Schriftart „Material Icons“ lautet
+  # in Ihrer Anwendung enthalten, damit Sie die Symbole darin verwenden können
+  # die Material-Icons-Klasse.
+  uses-material-design: true
+
+  # Um Ihrer Anwendung Assets hinzuzufügen, fügen Sie einen Assets-Abschnitt wie diesen hinzu:
+  # Vermögenswerte:
+  # - images/a_dot_burr.jpeg
+  # - images/a_dot_ham.jpeg
+
+  # Ein Bild-Asset kann auf eine oder mehrere auflösungsspezifische „Varianten“ verweisen, siehe
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # Einzelheiten zum Hinzufügen von Assets aus Paketabhängigkeiten finden Sie unter
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # Um Ihrer Anwendung benutzerdefinierte Schriftarten hinzuzufügen, fügen Sie hier einen Schriftartenabschnitt hinzu.
+  # in diesem Abschnitt „Flattern“. Jeder Eintrag in dieser Liste sollte eine haben
+  # Schlüssel „Familie“ mit dem Namen der Schriftfamilie und ein Schlüssel „Schriftarten“ mit a
+  # Liste mit dem Asset und anderen Deskriptoren für die Schriftart. Für
+  # Beispiel:
+  # Schriftarten:
+  # - Familie: Schyler
+  # Schriftarten:
+  # - Asset: Schriftarten/Schyler-Regular.ttf
+  # - Asset: Schriftarten/Schyler-Italic.ttf
+  # Stil: kursiv
+  # - Familie: Trajan Pro
+  # Schriftarten:
+  # - Asset: Schriftarten/TrajanPro.ttf
+  # - Asset: Schriftarten/TrajanPro_Bold.ttf
+  # Gewicht: 700
+  #
+  # Einzelheiten zu Schriftarten aus Paketabhängigkeiten finden Sie unter
+  # siehe https://flutter.dev/custom-fonts/#from-packages
+
