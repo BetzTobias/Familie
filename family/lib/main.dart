@@ -134,7 +134,7 @@ class ErsteSeite extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ForgotPasswordPage()),
+                            builder: (context) => PasswortVergessen()),
                       );
                     },
                     child: Text('Passwort vergessen?'),
@@ -166,30 +166,36 @@ class BenutzerRegistrierungNeu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Image.asset(
-        'lib/assets/Hauptlogo.png', // Logo Pfad
-        height: 100, // Höhe des Logos
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'lib/assets/Hauptlogo.png', // Logo Pfad
+              height: 100, // Höhe des Logos
+            ),
+            Text('Neuen Benutzer Registrieren'),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context); // Zurück zur vorherigen Seite
+              },
+              child: Text('Zurück'),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: AppColor.Schrift, // Schriftfarbe des Button
+                backgroundColor:
+                    AppColor.Startbutton, // Hintergrundfarbe des Button
+              ),
+            ),
+          ],
+        ),
       ),
-      Text('Neuen Benutzer registrieren'),
-      SizedBox(height: 20),
-      ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context); // Zurück zur vorherhigen Seite
-          },
-          child: Text('Zurück'),
-          style: ElevatedButton.styleFrom(
-            foregroundColor: AppColor.Schrift, // Schriftfarbe des Button
-            backgroundColor: AppColor.Startbutton, //Hintergrundfarbe des Button
-          ))
-    ])));
+    );
   }
 }
 
 // Neue Seite für das Zurücksetzen des Passworts
-class ForgotPasswordPage extends StatelessWidget {
+class PasswortVergessen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
