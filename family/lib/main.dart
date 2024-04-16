@@ -169,7 +169,11 @@ class RegistrationPage extends StatelessWidget {
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text('Hier können Sie einen neuen Benutzer registrieren'),
+      Image.asset(
+        'lib/assets/Hauptlogo.png', // Passe den Pfad zu deinem Logo an
+        height: 100, // Höhe des Logos
+      ),
+      Text('Neuen Benutzer registrieren'),
       SizedBox(height: 20),
       ElevatedButton(
           onPressed: () {
