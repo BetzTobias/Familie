@@ -170,15 +170,14 @@ class RegistrationPage extends StatelessWidget {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Image.asset(
-        'lib/assets/Hauptlogo.png', // Passe den Pfad zu deinem Logo an
+        'lib/assets/Hauptlogo.png', // Logo Pfad
         height: 100, // Höhe des Logos
       ),
       Text('Neuen Benutzer registrieren'),
       SizedBox(height: 20),
       ElevatedButton(
           onPressed: () {
-            // Zurück zur vorherhigen Seite
-            Navigator.pop(context);
+            Navigator.pop(context); // Zurück zur vorherhigen Seite
           },
           child: Text('Zurück'),
           style: ElevatedButton.styleFrom(
@@ -199,15 +198,14 @@ class ForgotPasswordPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'lib/assets/Hauptlogo.png', // Passe den Pfad zu deinem Logo an
+              'lib/assets/Hauptlogo.png', // Logo Pfad
               height: 100, // Höhe des Logos
             ),
             Text('Passwort zurücksetzen'),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Zurück zur vorherigen Seite
-                Navigator.pop(context);
+                Navigator.pop(context); // Zurück zur vorherigen Seite
               },
               child: Text('Zurück'),
               style: ElevatedButton.styleFrom(
