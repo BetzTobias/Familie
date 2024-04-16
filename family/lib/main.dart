@@ -162,237 +162,26 @@ class ErsteSeite extends StatelessWidget {
 }
 
 // Neue Seite für die Benutzerregistrierung
-class AppColor {
-  static const Schrift = Colors.black;
-  static const Startbutton = Colors.blue;
-  static const Hintergrund = Colors.white;
-}
-
-class Family extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.red,
-        colorScheme:
-            ThemeData.light().colorScheme.copyWith(primary: Colors.red),
-      ),
-      home: RegistrationPage(),
-    );
-  }
-}
-
 class RegistrationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'lib/assets/Hauptlogo.png',
-              height: 100,
-            ),
-            Text('Neuen Benutzer registrieren'),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Zurück'),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: AppColor.Schrift,
-                backgroundColor: AppColor.Startbutton,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class PasswortFeld extends StatelessWidget {
-  final String hintText;
-  final String? errorMessage;
-  final TextEditingController controller;
-  final String passwordConstraint;
-  final PasswordDecoration passwordDecoration;
-  final PasswordBorder border;
-  final Function(String) onChanged;
-
-  const PasswortFeld({
-    Key? key,
-    required this.hintText,
-    required this.controller,
-    required this.passwordConstraint,
-    required this.passwordDecoration,
-    required this.border,
-    required this.onChanged,
-    this.errorMessage,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      onChanged: onChanged,
-      decoration: InputDecoration(
-        hintText: hintText,
-        errorText: errorMessage,
-        border: border.border,
-        focusedBorder: border.focusedBorder,
-        focusedErrorBorder: border.focusedErrorBorder,
-      ),
-    );
-  }
-}
-
-class PasswordDecoration {
-  final EdgeInsetsGeometry? inputPadding;
-  final Widget? suffixIcon;
-  final TextStyle? inputStyle;
-
-  const PasswordDecoration({
-    this.inputPadding,
-    this.suffixIcon,
-    this.inputStyle,
-  });
-}
-
-class PasswordBorder {
-  final OutlineInputBorder border;
-  final OutlineInputBorder focusedBorder;
-  final OutlineInputBorder focusedErrorBorder;
-
-  const PasswordBorder({
-    required this.border,
-    required this.focusedBorder,
-    required this.focusedErrorBorder,
-  });
-}
-
-class Passwort extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
-      child: Scaffold(
-        body: ListView(
-          children: <Widget>[
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: PasswortFeld(
-                hintText: 'Passwort',
-                controller: TextEditingController(text: 'passwort'),
-                errorMessage:
-                    'Erforderlich sind mindestens 1 Buchstabe und eine Zahl mit mehr als 5 Zeichen',
-                passwordConstraint: r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$',
-                passwordDecoration: PasswordDecoration(
-                  inputPadding: const EdgeInsets.symmetric(horizontal: 10),
-                  suffixIcon: const Icon(
-                    Icons.not_accessible,
-                    color: Colors.grey,
-                  ),
-                  inputStyle: const TextStyle(
-                    fontSize: 14,
-                  ),
-                ),
-                onChanged: (x) {
-                  print(x);
-                },
-                border: PasswordBorder(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide:
-                        BorderSide(width: 2, color: Colors.red.shade200),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: PasswortFeld(
-                hintText: 'Passwort',
-                passwordConstraint: r'.*[@$#.*].*',
-                passwordDecoration: PasswordDecoration(),
-                border: PasswordBorder(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.blue.shade100,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.blue.shade100,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide:
-                        BorderSide(width: 2, color: Colors.red.shade200),
-                  ),
-                ),
-                errorMessage: 'muss auch Sonderzeichen enthalten. * @ # \$',
-                controller: TextEditingController(),
-                onChanged: (x) {
-                  print(x);
-                },
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: PasswortFeld(
-                hintText: 'Standard-Passwortbeschränkung ',
-                passwordDecoration: PasswordDecoration(
-                  inputPadding: const EdgeInsets.symmetric(horizontal: 20),
-                ),
-                border: PasswordBorder(
-                  border: OutlineInputBorder(
-                      borderSide:
-                          const BorderSide(width: 0, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(25.7)),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 0, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(25.7),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 0, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(25.7),
-                  ),
-                  focusedErrorBorder: null,
-                ),
-                controller: TextEditingController(),
-                onChanged: (x) {
-                  print(x);
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+        body: Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Text('Hier können Sie einen neuen Benutzer registrieren'),
+      SizedBox(height: 20),
+      ElevatedButton(
+          onPressed: () {
+            // Zurück zur vorherhigen Seite
+            Navigator.pop(context);
+          },
+          child: Text('Zurück'),
+          style: ElevatedButton.styleFrom(
+            foregroundColor: AppColor.Schrift, // Schriftfarbe des Button
+            backgroundColor: AppColor.Startbutton, //Hintergrundfarbe des Button
+          ))
+    ])));
   }
 }
 
