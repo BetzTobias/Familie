@@ -12,7 +12,7 @@ import 'package:family/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Erstellen Sie unsere App und lösen Sie einen Frame aus.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const Family());
 
     // Überprüfen Sie, ob unser Zähler bei 0 beginnt.
     expect(find.text('0'), findsOneWidget);

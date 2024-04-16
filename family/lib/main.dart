@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'farben/farben.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Family());
 }
 
 // Startseiten hintergrund
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Family extends StatelessWidget {
+  const Family({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +112,7 @@ class ErsteSeite extends StatelessWidget {
                   // Beispiel: Navigieren zur nächsten Seite
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => NextPage1()),
+                    MaterialPageRoute(builder: (context) => Hauptseite1()),
                   );
                 },
                 child: Text('Anmelden'),
@@ -146,7 +146,7 @@ class ErsteSeite extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => RegistrationPage()),
+                            builder: (context) => BenutzerRegistrierungNeu()),
                       );
                     },
                     child: Text('Neu registrieren'),
@@ -162,7 +162,7 @@ class ErsteSeite extends StatelessWidget {
 }
 
 // Neue Seite für die Benutzerregistrierung
-class RegistrationPage extends StatelessWidget {
+class BenutzerRegistrierungNeu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -222,7 +222,7 @@ class ForgotPasswordPage extends StatelessWidget {
 }
 
 // Hintergrundseite für alle Kategorien
-class NextPage1 extends StatelessWidget {
+class Hauptseite1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
