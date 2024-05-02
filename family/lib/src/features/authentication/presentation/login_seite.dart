@@ -17,7 +17,7 @@ class LoginSeite extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(bottom: 20.0),
                 child: Image.asset(
-                  'lib/assets/Logo_2.png', // Pfad zum Logo-Bild
+                  'assets/Logo_2.png', // Pfad zum Logo-Bild
                   width: 500, // Breite des Logos
                   height: 100, // Höhe des Logos
                 ),

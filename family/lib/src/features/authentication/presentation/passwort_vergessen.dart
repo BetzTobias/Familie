@@ -11,7 +11,7 @@ class PasswortVergessen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'lib/assets/Hauptlogo.png', // Logo Pfad
+              'assets/Hauptlogo.png', // Logo Pfad
               height: 100, // Höhe des Logos
             ),
             const Text('Passwort zurücksetzen'),

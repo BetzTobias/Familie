@@ -14,7 +14,7 @@ class NeuRegistrierung extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
-              'lib/assets/Hauptlogo.png', // Logo Pfad
+              'assets/Hauptlogo.png', // Logo Pfad
               height: 250,
               width: 100, // Höhe des Logos
             ),

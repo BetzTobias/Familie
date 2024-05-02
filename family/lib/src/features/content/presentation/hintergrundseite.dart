@@ -22,7 +22,7 @@ class Hintergrundseite extends StatelessWidget {
               child: Opacity(
                 opacity: 0.15,
                 child: Image.asset(
-                  'lib/assets/Hauptlogo.png',
+                  'assets/Hauptlogo.png',
                   width: 200,
                   height: 210.63,
                 ),
@@ -38,7 +38,7 @@ class Hintergrundseite extends StatelessWidget {
               child: Opacity(
                 opacity: 0.15,
                 child: Image.asset(
-                  'lib/assets/Hauptlogo.png', // Pfad zum Bild
+                  'assets/Hauptlogo.png', // Pfad zum Bild
                   width: 200, // Breite des Bildes
                   height: 210.63, // Höhe des Bildes
                 ),
@@ -54,7 +54,7 @@ class Hintergrundseite extends StatelessWidget {
               child: Opacity(
                 opacity: 0.15,
                 child: Image.asset(
-                  'lib/assets/Hauptlogo.png', // Pfad zum Bild
+                  'assets/Hauptlogo.png', // Pfad zum Bild
                   width: 200, // Breite des Bildes
                   height: 240, // Höhe des Bildes
                 ),
@@ -70,7 +70,7 @@ class Hintergrundseite extends StatelessWidget {
               child: Opacity(
                 opacity: 0.15,
                 child: Image.asset(
-                  'lib/assets/Hauptlogo.png', // Pfad zum Bild
+                  'assets/Hauptlogo.png', // Pfad zum Bild
                   width: 200, // Breite des Bildes
                   height: 246.9, // Höhe des Bildes
                 ),
@@ -86,7 +86,7 @@ class Hintergrundseite extends StatelessWidget {
               child: Opacity(
                 opacity: 0.15,
                 child: Image.asset(
-                  'lib/assets/Hauptlogo.png', // Pfad zum Bild
+                  'assets/Hauptlogo.png', // Pfad zum Bild
                   width: 200, // Breite des Bildes
                   height: 240, // Höhe des Bildes
                 ),
@@ -102,7 +102,7 @@ class Hintergrundseite extends StatelessWidget {
               child: Opacity(
                 opacity: 0.15,
                 child: Image.asset(
-                  'lib/assets/Hauptlogo.png', // Pfad zum Bild
+                  'assets/Hauptlogo.png', // Pfad zum Bild
                   width: 200, // Breite des Bildes
                   height: 246.9, // Höhe des Bildes
                 ),
@@ -118,7 +118,7 @@ class Hintergrundseite extends StatelessWidget {
               child: Opacity(
                 opacity: 0.15,
                 child: Image.asset(
-                  'lib/assets/Hauptlogo.png', // Pfad zum Bild
+                  'assets/Hauptlogo.png', // Pfad zum Bild
                   width: 180, // Breite des Bildes
                   height: 246.9, // Höhe des Bildes
                 ),
@@ -134,7 +134,7 @@ class Hintergrundseite extends StatelessWidget {
               child: Opacity(
                 opacity: 0.15,
                 child: Image.asset(
-                  'lib/assets/Hauptlogo.png', // Pfad zum Bild
+                  'assets/Hauptlogo.png', // Pfad zum Bild
                   width: 200, // Breite des Bildes
                   height: 246.9, // Höhe des Bildes
                 ),
