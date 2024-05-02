@@ -1,8 +1,6 @@
-import 'package:family/Src/Screens/startseiten_hintergrund.dart';
-import 'package:family/Src/Screens/Hintergrundseite.dart';
-import 'package:family'
+import 'package:family/src/app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Family());
+  runApp(const App());
 }

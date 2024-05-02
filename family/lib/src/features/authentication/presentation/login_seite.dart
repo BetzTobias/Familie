@@ -1,10 +1,9 @@
-import 'package:family/Src/Farben/farben.dart';
-import 'package:family/Src/Screens/Anmelden/neu_registrierung.dart';
-import 'package:family/Src/Screens/Anmelden/passwort_vergessen.dart';
+import 'package:family/src/features/authentication/presentation/neu_registrierung.dart';
+import 'package:family/src/features/authentication/presentation/passwort_vergessen.dart';
 import 'package:flutter/material.dart';
 
-class ErsteSeite extends StatelessWidget {
-  const ErsteSeite({super.key});
+class LoginSeite extends StatelessWidget {
+  const LoginSeite({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +15,7 @@ class ErsteSeite extends StatelessWidget {
             children: [
               // Logo im oberen Bereich
               Container(
-                padding: EdgeInsets.only(bottom: 20.0),
+                padding: const EdgeInsets.only(bottom: 20.0),
                 child: Image.asset(
                   'lib/assets/Logo_2.png', // Pfad zum Logo-Bild
                   width: 500, // Breite des Logos
@@ -24,20 +23,20 @@ class ErsteSeite extends StatelessWidget {
                 ),
               ),
               // Benutzername Eingabefeld
-              TextField(
+              const TextField(
                 decoration: InputDecoration(
                   hintText: 'Benutzername:',
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               // Passwort Eingabefeld
-              TextField(
+              const TextField(
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Passwort:',
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               // Anmelde-Button
               ElevatedButton(
                 onPressed: () {
@@ -45,17 +44,16 @@ class ErsteSeite extends StatelessWidget {
                   // Beispiel: Navigieren zur nächsten Seite
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => NeuRegistrierung()),
+                    MaterialPageRoute(
+                        builder: (context) => const NeuRegistrierung()),
                   );
                 },
-                child: Text('Anmelden'),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: AppColor.Schrift, // Schriftfarbe des Button
-                  backgroundColor:
-                      AppColor.Startbutton, // Hintergrundfarbe des Button
-                ),
+
+                // Hintergrundfarbe des Button
+
+                child: const Text('Anmelden'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Passwort vergessen und Neu registrieren Aktionen
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,10 +65,10 @@ class ErsteSeite extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => PasswortVergessen()),
+                            builder: (context) => const PasswortVergessen()),
                       );
                     },
-                    child: Text('Passwort vergessen?'),
+                    child: const Text('Passwort vergessen?'),
                   ),
                   TextButton(
                     onPressed: () {
@@ -79,10 +77,10 @@ class ErsteSeite extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => NeuRegistrierung()),
+                            builder: (context) => const NeuRegistrierung()),
                       );
                     },
-                    child: Text('Neu registrieren'),
+                    child: const Text('Neu registrieren'),
                   ),
                 ],
               ),

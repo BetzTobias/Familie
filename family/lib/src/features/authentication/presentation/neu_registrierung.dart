@@ -1,28 +1,15 @@
-import 'package:family/Src/Farben/farben.dart';
-import 'package:family/main.dart';
+import 'package:family/src/features/authentication/presentation/login_seite.dart';
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'NeuRegistrieren',
-      theme: ThemeData(
-        backgroundColor: AppColor.Hintergrund,
-      ),
-      home: NeuRegistrierung(),
-    );
-  }
-}
-
 class NeuRegistrierung extends StatelessWidget {
+  const NeuRegistrierung({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Registrieren',
+        title: const Text('Registrieren',
             style: TextStyle(decoration: TextDecoration.underline)),
-        backgroundColor: AppColor.Hintergrund,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -41,53 +28,45 @@ class NeuRegistrierung extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildTextFieldWithIcon("Benutzername", Icons.person),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildTextFieldWithIcon("Telefonnummer", Icons.phone),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildTextFieldWithIcon("E-Mail Adresse", Icons.email),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildTextFieldWithIconAndSuffix(
                 "Passwort",
                 Icons.lock,
                 Icons.visibility,
                 obscureText: true,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildTextFieldWithIconAndSuffix(
                 "Passwort wiederholen",
                 Icons.lock,
                 Icons.visibility,
                 obscureText: true,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Hauptseite1()),
+                    MaterialPageRoute(builder: (context) => const LoginSeite()),
                   );
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.Startbutton,
-                  foregroundColor: AppColor.Schrift,
-                ),
-                child: Text('Benutzer erstellen'),
+                child: const Text('Benutzer erstellen'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(
                     context,
-                    MaterialPageRoute(builder: (context) => ErsteSeite()),
+                    MaterialPageRoute(builder: (context) => const LoginSeite()),
                   );
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.AbbruchButton,
-                  foregroundColor: AppColor.Schrift,
-                ),
-                child: Text('Abbruch'),
+                child: const Text('Abbruch'),
               ),
             ],
           ),
@@ -101,7 +80,7 @@ class NeuRegistrierung extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(iconData),
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
     );
   }
@@ -115,7 +94,7 @@ class NeuRegistrierung extends StatelessWidget {
         labelText: labelText,
         prefixIcon: Icon(prefixIconData),
         suffixIcon: Icon(suffixIconData),
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
     );
   }

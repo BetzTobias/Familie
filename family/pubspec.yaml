@@ -61,8 +61,8 @@ flutter_launcher_icons:
 # Der folgende Abschnitt bezieht sich speziell auf Flutter-Pakete.
 flutter:
   assets:
-  - lib/assets/Hauptlogo.png
-  - lib/assets/Logo_2.png
+  - assets/
+
 
   # Die folgende Zeile stellt sicher, dass die Schriftart „Material Icons“ lautet
   # in Ihrer Anwendung enthalten, damit Sie die Symbole darin verwenden können

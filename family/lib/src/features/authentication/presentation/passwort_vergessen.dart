@@ -1,7 +1,8 @@
-import 'package:family/Src/Farben/farben.dart';
 import 'package:flutter/material.dart';
 
 class PasswortVergessen extends StatelessWidget {
+  const PasswortVergessen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,18 +14,13 @@ class PasswortVergessen extends StatelessWidget {
               'lib/assets/Hauptlogo.png', // Logo Pfad
               height: 100, // Höhe des Logos
             ),
-            Text('Passwort zurücksetzen'),
-            SizedBox(height: 20),
+            const Text('Passwort zurücksetzen'),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context); // Zurück zur vorherigen Seite
               },
-              child: Text('Zurück'),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: AppColor.Schrift, // Schriftfarbe des Button
-                backgroundColor:
-                    AppColor.Startbutton, // Hintergrundfarbe des Button
-              ),
+              child: const Text('Zurück'),
             ),
           ],
         ),
