@@ -1,3 +1,4 @@
+import 'package:family/src/domain/undertopic.dart';
 import 'package:family/src/features/content/presentation/categories_page.dart';
 import 'package:family/src/domain/categorie.dart';
 import 'package:family/src/domain/user.dart';
@@ -15,11 +16,11 @@ class MockDatabase implements DatabaseRepository {
     ])
   ];
 
-  void loginBenutzer(User currentUser) {
+  void loginUser(User currentUser) {
     this.currentUser = currentUser;
   }
 
-  User? getBenutzer() {
+  User? getUser() {
     return currentUser;
   }
 
@@ -27,7 +28,7 @@ class MockDatabase implements DatabaseRepository {
     currentUser = null;
   }
 
-  List<Categorie> getCategorie() {
+  List<CategoriesPage> getCategorie() {
     return categorie;
   }
 }
