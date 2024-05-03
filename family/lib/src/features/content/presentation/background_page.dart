@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 // Hintergrundseite für alle Kategorien
-class Hintergrundseite extends StatelessWidget {
+class BackgroundPage extends StatelessWidget {
   final Widget child;
 
-  const Hintergrundseite({super.key, required this.child});
+  const BackgroundPage({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

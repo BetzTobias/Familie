@@ -1,15 +1,17 @@
-import 'package:family/src/features/authentication/presentation/login_seite.dart';
+import 'package:family/src/features/authentication/presentation/login_page.dart';
+import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
-class NeuRegistrierung extends StatelessWidget {
-  const NeuRegistrierung({super.key});
+class NewRegistration extends StatelessWidget {
+  const NewRegistration({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Registrieren',
-            style: TextStyle(decoration: TextDecoration.underline)),
+            style: TextStyle(decoration: TextDecoration.underline),
+            selectionColor: Colors.blue),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -51,9 +53,10 @@ class NeuRegistrierung extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginSeite()),
+                    MaterialPageRoute(
+                        builder: (context) => const MainSelectionPage()),
                   );
                 },
                 child: const Text('Benutzer erstellen'),
@@ -63,7 +66,7 @@ class NeuRegistrierung extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginSeite()),
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
                 child: const Text('Abbruch'),

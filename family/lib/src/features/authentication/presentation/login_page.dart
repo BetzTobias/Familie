@@ -1,9 +1,10 @@
-import 'package:family/src/features/authentication/presentation/neu_registrierung.dart';
-import 'package:family/src/features/authentication/presentation/passwort_vergessen.dart';
+import 'package:family/src/features/authentication/presentation/forgot_password.dart';
+import 'package:family/src/features/authentication/presentation/new_registration.dart';
+import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
-class LoginSeite extends StatelessWidget {
-  const LoginSeite({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,10 +43,10 @@ class LoginSeite extends StatelessWidget {
                 onPressed: () {
                   // Hier ist die Anmelde-Logik
                   // Beispiel: Navigieren zur nächsten Seite
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const NeuRegistrierung()),
+                        builder: (context) => const MainSelectionPage()),
                   );
                 },
 
@@ -62,10 +63,10 @@ class LoginSeite extends StatelessWidget {
                     onPressed: () {
                       // Aktion für Passwort vergessen
                       // Hier navigieren Sie zur Seite, um das Passwort zurückzusetzen
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const PasswortVergessen()),
+                            builder: (context) => const ForgotPassword()),
                       );
                     },
                     child: const Text('Passwort vergessen?'),
@@ -74,10 +75,10 @@ class LoginSeite extends StatelessWidget {
                     onPressed: () {
                       // Aktion für Neu registrieren
                       // Hier navigieren Sie zur Seite zur Benutzerregistrierung
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NeuRegistrierung()),
+                            builder: (context) => const NewRegistration()),
                       );
                     },
                     child: const Text('Neu registrieren'),

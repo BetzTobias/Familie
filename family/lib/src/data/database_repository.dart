@@ -1,3 +1,5 @@
+import '../domain/register.dart';
+
 abstract class DatabaseRepository {
-  void loginBenutzer(Benutzer jetztigerBenutzer);
+  void loginUser(User currentUser);
 }

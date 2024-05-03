@@ -1,31 +1,33 @@
-import 'package:family/src/data/database_repository.dart';
+import 'package:family/src/features/content/presentation/categories_page.dart';
+import 'package:family/src/domain/categorie.dart';
+import 'package:family/src/domain/user.dart';
+import 'database_repository.dart';
+import 'package:family/src/domain/suptopic.dart';
 
 class MockDatabase implements DatabaseRepository {
-  Benutzer? jetzigerBenutzer =
-      Benutzer('Tobias', '151042020', 'betztobias605@gmail.com');
+  User? currentUser = User('Tobias', '151042020', 'betztobias605@gmail.com');
 
-  List<Kategorie> kategorien = [
-    Kategorie('Unterhaltung', [
-      NebenThema('Basteln', [
-        UnterThema('Sommer', [Inhalt()])
+  List<CategoriesPage> categorie = [
+    Categorie('Unterhaltung', [
+      Subtopic('Basteln', [
+        UnderTopic('Sommer', [Contents()])
       ])
     ])
   ];
 
-  @override
-  void loginBenutzer(Benutzer jetztigerBenutzer) {
-    jetzigerBenutzer = jetztigerBenutzer;
+  void loginBenutzer(User currentUser) {
+    this.currentUser = currentUser;
   }
 
-  Benutzer? getBenutzer() {
-    return jetzigerBenutzer;
+  User? getBenutzer() {
+    return currentUser;
   }
 
-  void removedBenutzer() {
-    jetzigerBenutzer = null;
+  void removedUser() {
+    currentUser = null;
   }
 
-  List<Kategorie> getKategorien() {
-    return kategorien;
+  List<Categorie> getCategorie() {
+    return categorie;
   }
 }

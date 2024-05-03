@@ -1,5 +1,5 @@
 import 'package:family/src/common/logo.dart';
-import 'package:family/src/features/authentication/presentation/login_seite.dart';
+import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyHomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const LoginSeite()),
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
                 );
               },
               //Schriftfarbe und Hintergrundfarbe vom Button
