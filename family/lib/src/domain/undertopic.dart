@@ -1,3 +1,5 @@
+import 'package:family/src/domain/content.dart';
+
 class UnderTopic {
   String underName;
   List<Content> contents;

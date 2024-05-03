@@ -55,7 +55,7 @@ class LoginPage extends StatelessWidget {
                 child: const Text('Anmelden'),
               ),
               const SizedBox(height: 20),
-              // Passwort vergessen und Neu registrieren Aktionen
+              // Passwort vergessen und Neuen Account erstellen Aktionen
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -73,7 +73,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      // Aktion für Neu registrieren
+                      // Aktion für Neuen Account erstellen
                       // Hier navigieren Sie zur Seite zur Benutzerregistrierung
                       Navigator.pushReplacement(
                         context,
@@ -81,7 +81,7 @@ class LoginPage extends StatelessWidget {
                             builder: (context) => const NewRegistration()),
                       );
                     },
-                    child: const Text('Neu registrieren'),
+                    child: const Text('Neuen Account erstellen'),
                   ),
                 ],
               ),
