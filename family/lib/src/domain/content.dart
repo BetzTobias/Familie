@@ -1,3 +1,6 @@
-class Inhalt {
-  
+class Content {
+  String Content,
+  List<
+
+
 }
