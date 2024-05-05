@@ -7,25 +7,36 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Logo(),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                );
-              },
-              //Schriftfarbe und Hintergrundfarbe vom Button
-
-              child: const Text('Drück mich'),
-            ),
-          ],
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: const Color.fromRGBO(207, 250, 255, 1),
+      ),
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Logo(),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color(0XFFEBE216),
+                  ),
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                    Colors.black, // Schriftfarbe des Buttons
+                  ),
+                ),
+                child: const Text('Drück mich'),
+              ),
+            ],
+          ),
         ),
       ),
     );

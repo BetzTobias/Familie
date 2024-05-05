@@ -149,6 +149,26 @@ class CategoriesPage extends StatelessWidget {
             ),
           ),
         ),
+        GestureDetector(
+          onTap: () {
+            // TODO: Funktion für die Aktion Einstellungen einfügen
+          },
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                  color: Colors.black), // Rahmen um das Container-Widget
+            ),
+            child: const Text(
+              'Einstellungen',
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
       ]),
     );
   }

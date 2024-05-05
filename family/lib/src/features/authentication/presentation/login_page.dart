@@ -24,16 +24,16 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               // Benutzername Eingabefeld
-              const TextField(
-                decoration: InputDecoration(
+              TextFormField(
+                decoration: const InputDecoration(
                   hintText: 'Benutzername:',
                 ),
               ),
               const SizedBox(height: 40),
               // Passwort Eingabefeld
-              const TextField(
+              TextFormField(
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Passwort:',
                 ),
               ),

@@ -1,6 +1,8 @@
 class Content {
-  String Content,
-  List<
-
-
+  final String title;
+  final String description;
+  Content({
+    required this.title,
+    required this.description,
+  });
 }
