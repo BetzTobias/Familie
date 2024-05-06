@@ -51,7 +51,7 @@ dev_dependencies:
   # Regeln und Aktivierung weiterer Regeln.
   flutter_lints: ^3.0.0
 flutter_launcher_icons:
-  image_path: "lib/assets/Hauptlogo.png"
+  image_path: "assets/Hauptlogo.png"
   android: "launcher_icon"
   ios: true
   min_sdk_android: 21

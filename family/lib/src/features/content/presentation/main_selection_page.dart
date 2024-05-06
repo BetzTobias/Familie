@@ -1,5 +1,5 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/categories_page.dart';
+import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class MainSelectionPage extends StatelessWidget {
@@ -17,13 +17,12 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const CategoriesPage()),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
               child: Column(
                 children: [
-                  Image.asset('assets/categories.png'),
+                  Image.asset('assets/Menue.png'),
                 ],
               ),
             ),

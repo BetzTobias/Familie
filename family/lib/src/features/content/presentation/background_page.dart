@@ -11,6 +11,7 @@ class BackgroundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
       body: Stack(
         children: [
           //Logo für oben RECHTS
