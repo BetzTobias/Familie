@@ -1,5 +1,4 @@
 import 'package:family/src/domain/categorie.dart';
-import 'package:family/src/domain/content.dart';
 import 'package:family/src/domain/undertopic.dart';
 import 'package:family/src/domain/user.dart';
 import 'package:family/src/features/content/presentation/categories_page.dart';
@@ -11,8 +10,8 @@ class MockDatabase implements DatabaseRepository {
 
   List<CategoriesPage> categorie = [
     Categorie('Unterhaltung', [
-      Subtopic('Basteln', [
-        UnderTopic('Sommer', [Content(title: '', description: '')])
+      Suptopic('Basteln', [
+        UnderTopic('Sommer', [Content()])
       ])
     ])
   ];

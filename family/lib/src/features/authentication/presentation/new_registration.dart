@@ -11,7 +11,7 @@ class NewRegistration extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Registrieren',
             style: TextStyle(decoration: TextDecoration.underline),
-            selectionColor: Colors.blue),
+            selectionColor: Color.fromRGBO(207, 250, 255, 1)),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -50,13 +50,14 @@ class NewRegistration extends StatelessWidget {
                 Icons.visibility,
                 obscureText: true,
               ),
+              //Aktion zur nächsten Seite
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage()),
+                        builder: (context) => MainSelectionPage()),
                   );
                 },
                 child: const Text('Benutzer erstellen'),

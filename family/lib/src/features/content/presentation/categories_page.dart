@@ -7,8 +7,7 @@ class CategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundPage(
-      child: Stack(
-        children: [
+      child: Stack(children: [
         GestureDetector(
           onTap: () {
             // TODO: Funktion für die Aktion Lernen einfügen

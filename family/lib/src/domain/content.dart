@@ -1,8 +1,10 @@
 class Content {
-  final String title;
-  final String description;
+  final String contents;
+  final String suptopic;
+  final String undertopic;
   Content({
-    required this.title,
-    required this.description,
+    required this.contents,
+    required this.suptopic,
+    required this.undertopic,
   });
 }

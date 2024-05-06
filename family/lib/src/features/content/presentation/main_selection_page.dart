@@ -17,7 +17,7 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => CategoriesPage),
+                  MaterialPageRoute(builder: (context) => CategoriesPage()),
                 );
               },
               child: Column(
