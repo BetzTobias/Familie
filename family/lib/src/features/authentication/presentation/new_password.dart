@@ -1,9 +1,9 @@
+import 'package:family/src/features/authentication/presentation/forgot_password.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
-import 'package:family/src/features/authentication/presentation/new_password.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+class NewPassword extends StatelessWidget {
+  const NewPassword({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class ForgotPassword extends StatelessWidget {
               // Benutzername Eingabefeld
               TextFormField(
                 decoration: const InputDecoration(
-                  hintText: 'Benutzername:',
+                  hintText: 'Neues Passwort:',
                 ),
               ),
               const SizedBox(height: 40),
@@ -35,7 +35,7 @@ class ForgotPassword extends StatelessWidget {
               TextFormField(
                 obscureText: true,
                 decoration: const InputDecoration(
-                  hintText: 'E-Mail Adresse/ Telefonnummer:',
+                  hintText: 'Neues Passwort wiederholen:',
                 ),
               ),
               const SizedBox(height: 40),
@@ -46,8 +46,7 @@ class ForgotPassword extends StatelessWidget {
                   // Beispiel: Navigieren zur nächsten Seite
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const NewPassword()),
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
                 style: ButtonStyle(
@@ -60,7 +59,7 @@ class ForgotPassword extends StatelessWidget {
                 ),
                 // Hintergrundfarbe des Button
 
-                child: const Text('Passwort zurücksetzten'),
+                child: const Text('Bestätigen'),
               ),
               const SizedBox(
                 height: 30,
@@ -71,7 +70,8 @@ class ForgotPassword extends StatelessWidget {
                   // Beispiel: Navigieren zur nächsten Seite
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                    MaterialPageRoute(
+                        builder: (context) => const ForgotPassword()),
                   );
                 },
 

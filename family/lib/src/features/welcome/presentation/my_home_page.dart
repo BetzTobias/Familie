@@ -8,10 +8,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: const Color.fromRGBO(207, 250, 255, 1),
-      ),
+      theme: ThemeData(),
       home: Scaffold(
+        backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

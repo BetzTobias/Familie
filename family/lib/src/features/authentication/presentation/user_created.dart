@@ -1,9 +1,8 @@
 import 'package:family/src/features/authentication/presentation/login_page.dart';
-import 'package:family/src/features/authentication/presentation/new_password.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+class UserCreated extends StatelessWidget {
+  const UserCreated({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,22 +22,18 @@ class ForgotPassword extends StatelessWidget {
                   height: 200, // Höhe des Logos
                 ),
               ),
-
               // Benutzername Eingabefeld
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Benutzername:',
+              const Text(
+                'Benutzer erfolgreich erstellt',
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontSize: 18,
+                  color: Colors.black,
                 ),
               ),
+
               const SizedBox(height: 40),
-              // Passwort Eingabefeld
-              TextFormField(
-                obscureText: true,
-                decoration: const InputDecoration(
-                  hintText: 'E-Mail Adresse/ Telefonnummer:',
-                ),
-              ),
-              const SizedBox(height: 40),
+
               // Anmelde-Button
               ElevatedButton(
                 onPressed: () {
@@ -46,8 +41,7 @@ class ForgotPassword extends StatelessWidget {
                   // Beispiel: Navigieren zur nächsten Seite
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const NewPassword()),
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
                 style: ButtonStyle(
@@ -60,32 +54,7 @@ class ForgotPassword extends StatelessWidget {
                 ),
                 // Hintergrundfarbe des Button
 
-                child: const Text('Passwort zurücksetzten'),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Hier ist die Anmelde-Logik
-                  // Beispiel: Navigieren zur nächsten Seite
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
-                  );
-                },
-
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    const Color(0XFF16972A),
-                  ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
-                    Colors.black, // Schriftfarbe des Buttons
-                  ),
-                ),
-                // Hintergrundfarbe des Button
-
-                child: const Text('zurück'),
+                child: const Text('Bestätigen'),
               ),
             ],
           ),

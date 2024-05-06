@@ -1,5 +1,5 @@
 import 'package:family/src/features/authentication/presentation/login_page.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
+import 'package:family/src/features/authentication/presentation/user_created.dart';
 import 'package:flutter/material.dart';
 
 class NewRegistration extends StatelessWidget {
@@ -8,10 +8,12 @@ class NewRegistration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
       appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
         title: const Text('Registrieren',
             style: TextStyle(decoration: TextDecoration.underline),
-            selectionColor: Color.fromRGBO(207, 250, 255, 1)),
+            selectionColor: Color.fromRGBO(158, 245, 255, 1)),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -57,19 +59,35 @@ class NewRegistration extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MainSelectionPage()),
+                        builder: (context) => const UserCreated()),
                   );
                 },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color(0XFFEBE216),
+                  ),
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                    Colors.black, // Schriftfarbe des Buttons
+                  ),
+                ),
                 child: const Text('Benutzer erstellen'),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color(0XFF16972A),
+                  ),
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                    Colors.black, // Schriftfarbe des Buttons
+                  ),
+                ),
                 child: const Text('Abbruch'),
               ),
             ],

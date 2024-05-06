@@ -3,7 +3,7 @@ import 'package:family/src/features/content/presentation/categories_page.dart';
 import 'package:flutter/material.dart';
 
 class MainSelectionPage extends StatelessWidget {
-  const MainSelectionPage({required Key key}) : super(key: key);
+  const MainSelectionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,56 +11,56 @@ class MainSelectionPage extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: 50,
-            left: 50,
+            top: 100,
+            left: 5,
             child: GestureDetector(
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => CategoriesPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const CategoriesPage()),
                 );
               },
               child: Column(
                 children: [
                   Image.asset('assets/categories.png'),
-                  const Text('Categories')
                 ],
               ),
             ),
           ),
           Positioned(
-            top: 150,
-            left: 150,
+            top: 215,
+            left: 5,
             child: Image.asset('assets/learn.png'),
           ),
           Positioned(
-            top: 250,
-            left: 250,
+            top: 180,
+            left: 180,
             child: Image.asset('assets/hygiene.png'),
           ),
           Positioned(
-            top: 250,
-            left: 250,
+            top: 380,
+            left: 5,
             child: Image.asset('assets/entertainment.png'),
           ),
           Positioned(
-            top: 250,
-            left: 250,
+            top: 370,
+            left: 180,
             child: Image.asset('assets/nature.png'),
           ),
           Positioned(
-            top: 250,
-            left: 250,
+            top: 520,
+            left: 5,
             child: Image.asset('assets/story_bags.png'),
           ),
           Positioned(
-            top: 250,
-            left: 250,
+            top: 490,
+            left: 130,
             child: Image.asset('assets/logical_thinking.png'),
           ),
           Positioned(
-            top: 250,
-            left: 250,
+            top: 690,
+            left: 90,
             child: Image.asset('assets/understanding.png'),
           ),
         ],

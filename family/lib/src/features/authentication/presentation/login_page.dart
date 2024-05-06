@@ -8,6 +8,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -16,11 +17,11 @@ class LoginPage extends StatelessWidget {
             children: [
               // Logo im oberen Bereich
               Container(
-                padding: const EdgeInsets.only(bottom: 20.0),
+                padding: const EdgeInsets.only(bottom: 100.0),
                 child: Image.asset(
                   'assets/Logo_2.png', // Pfad zum Logo-Bild
-                  width: 500, // Breite des Logos
-                  height: 100, // Höhe des Logos
+                  width: 600, // Breite des Logos
+                  height: 200, // Höhe des Logos
                 ),
               ),
               // Benutzername Eingabefeld
@@ -46,10 +47,17 @@ class LoginPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MainSelectionPage()),
+                        builder: (context) => const MainSelectionPage()),
                   );
                 },
-
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color(0XFFEBE216),
+                  ),
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                    Colors.black, // Schriftfarbe des Buttons
+                  ),
+                ),
                 // Hintergrundfarbe des Button
 
                 child: const Text('Anmelden'),
@@ -81,7 +89,7 @@ class LoginPage extends StatelessWidget {
                             builder: (context) => const NewRegistration()),
                       );
                     },
-                    child: const Text('Neuen Account erstellen'),
+                    child: const Text('Neuer Account'),
                   ),
                 ],
               ),

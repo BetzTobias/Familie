@@ -2,7 +2,7 @@ import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesPage extends StatelessWidget {
-  const CategoriesPage({required Key key}) : super(key: key);
+  const CategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
