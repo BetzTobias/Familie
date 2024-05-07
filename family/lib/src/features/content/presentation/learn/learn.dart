@@ -1,11 +1,11 @@
 import 'package:family/src/features/authentication/presentation/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/categorie.dart';
+import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
-class MenuPage extends StatelessWidget {
-  const MenuPage({super.key});
+class LearnPage extends StatelessWidget {
+  const LearnPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,16 @@ class MenuPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  buildMenuButton(context, 'Hauptmenü', () {
+                  buildMenuButton(context, 'Motorik', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MotorSkillsPage(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildMenuButton(context, 'Farben', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -28,16 +37,7 @@ class MenuPage extends StatelessWidget {
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildMenuButton(context, 'Kategorien', () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CategoriesPage(),
-                      ),
-                    );
-                  }),
-                  const SizedBox(height: 10),
-                  buildMenuButton(context, 'Profil verwalten', () {
+                  buildMenuButton(context, 'Formen', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -45,8 +45,6 @@ class MenuPage extends StatelessWidget {
                       ),
                     );
                   }),
-                  const SizedBox(height: 10),
-                  buildMenuButton(context, 'Einstellungen'),
                 ],
               ),
             ),

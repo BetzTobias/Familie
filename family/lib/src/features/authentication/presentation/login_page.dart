@@ -1,6 +1,6 @@
 import 'package:family/src/features/authentication/presentation/forgot_password.dart';
 import 'package:family/src/features/authentication/presentation/new_registration.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
+import 'package:family/src/features/welcome/presentation/patient.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -42,12 +42,10 @@ class LoginPage extends StatelessWidget {
               // Anmelde-Button
               ElevatedButton(
                 onPressed: () {
-                  // Hier ist die Anmelde-Logik
-                  // Beispiel: Navigieren zur nächsten Seite
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage()),
+                        builder: (context) => const PatientPage()),
                   );
                 },
                 style: ButtonStyle(
@@ -69,8 +67,6 @@ class LoginPage extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      // Aktion für Passwort vergessen
-                      // Hier navigieren Sie zur Seite, um das Passwort zurückzusetzen
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
@@ -81,8 +77,6 @@ class LoginPage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      // Aktion für Neuen Account erstellen
-                      // Hier navigieren Sie zur Seite zur Benutzerregistrierung
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

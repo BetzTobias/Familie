@@ -1,4 +1,5 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
+import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,19 @@ class MainSelectionPage extends StatelessWidget {
           Positioned(
             top: 215,
             left: 5,
-            child: Image.asset('assets/learn.png'),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LearnPage()),
+                );
+              },
+              child: Column(
+                children: [
+                  Image.asset('assets/learn.png'),
+                ],
+              ),
+            ),
           ),
           Positioned(
             top: 180,
