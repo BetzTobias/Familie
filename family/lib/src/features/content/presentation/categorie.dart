@@ -1,11 +1,9 @@
-import 'package:family/src/features/authentication/presentation/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/categorie.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
+import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
-class MenuPage extends StatelessWidget {
-  const MenuPage({super.key});
+class CategoriesPage extends StatelessWidget {
+  const CategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,36 +17,31 @@ class MenuPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  buildMenuButton(context, 'Hauptmenü', () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
-                      ),
-                    );
-                  }),
-                  const SizedBox(height: 10),
-                  buildMenuButton(context, 'Kategorien', () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CategoriesPage(),
-                      ),
-                    );
-                  }),
-                  const SizedBox(height: 10),
-                  buildMenuButton(context, 'Profil verwalten', () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ManageProfile(),
-                      ),
-                    );
-                  }),
-                  const SizedBox(height: 10),
-                  buildMenuButton(context, 'Einstellungen'),
-                  const SizedBox(height: 10),
-                  buildMenuButton(context, 'Abmelden'),
+                  buildCategoryButton(context, 'Lernen'),
+                  const SizedBox(
+                      height:
+                          10), // Abstand zwischen dem Lernen und der Hygiene
+                  buildCategoryButton(context, 'Hygiene'),
+                  const SizedBox(
+                      height:
+                          10), // Abstand zwischen der Hygiene und der Unterhaltung
+                  buildCategoryButton(context, 'Unterhaltung'),
+                  const SizedBox(
+                      height:
+                          10), // Abstand zwischen der Unterhaltung und der Natur
+                  buildCategoryButton(context, 'Natur'),
+                  const SizedBox(
+                      height:
+                          10), // Abstand zwischen der Natur und der Sprachentwicklung
+                  buildCategoryButton(context, 'Sprachentwicklung'),
+                  const SizedBox(
+                      height:
+                          10), // Abstand zwischen der Sprachentwicklung und dem Logischen Denken
+                  buildCategoryButton(context, 'Logisches Denken'),
+                  const SizedBox(
+                      height:
+                          10), // Abstand zwischen dem Logischen Denken und dem Verständnis
+                  buildCategoryButton(context, 'Verständnis'),
                 ],
               ),
             ),
@@ -57,14 +50,14 @@ class MenuPage extends StatelessWidget {
             bottom: 60,
             right: 20,
             child: SizedBox(
-              height: 50,
-              width: 100,
+              height: 50, // Variable Höhe
+              width: 100, // Feste Breite
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MainSelectionPage(),
+                      builder: (context) => const MenuPage(),
                     ),
                   );
                 },
@@ -86,10 +79,9 @@ class MenuPage extends StatelessWidget {
     );
   }
 
-  Widget buildMenuButton(BuildContext context, String category,
-      [VoidCallback? onPressed]) {
+  Widget buildCategoryButton(BuildContext context, String category) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: () {},
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.black,
         backgroundColor: const Color.fromARGB(255, 239, 138, 138),

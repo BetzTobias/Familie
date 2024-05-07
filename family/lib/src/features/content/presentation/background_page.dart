@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 class BackgroundPage extends StatelessWidget {
   final Widget child;
 
-  const BackgroundPage({super.key, required this.child});
+  const BackgroundPage({
+    super.key,
+    required this.child,
+  });
 
   @override
   Widget build(BuildContext context) {
