@@ -1,10 +1,10 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/learn/learn.dart';
-import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page1.dart';
+import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page2.dart';
+import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page4.dart';
 import 'package:flutter/material.dart';
 
-class LearnColorsPage extends StatelessWidget {
-  const LearnColorsPage({super.key});
+class LearnColorsPage3 extends StatelessWidget {
+  const LearnColorsPage3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class LearnColorsPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Das Lernen von Farben mit unseren kleinen Sprösslinge kann durch kreative und spielerische Aktivitäten erfolgen. Hier sind einige Tipps, wie du Farben auf eine leicht verständliche Weise vermitteln kannst:',
+                'Malen und Basteln: Lass dein kind mit Fingerfarben, Buntstiften oder Kreide malen. Benutze Papier in verschiedenen Farben und erkläre, während es malt, welche Farben es gerade verwendet.',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LearnPage(),
+                              builder: (context) => const LearnColorsPage2(),
                             ),
                           );
                         },
@@ -67,7 +67,7 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LearnColorsPage1(),
+                              builder: (context) => const LearnColorsPage4(),
                             ),
                           );
                         },

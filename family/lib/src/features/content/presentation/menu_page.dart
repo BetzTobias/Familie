@@ -1,4 +1,4 @@
-import 'package:family/src/features/authentication/presentation/manage_profile.dart';
+import 'package:family/src/features/authentication/presentation/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/categorie.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';

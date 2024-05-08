@@ -1,10 +1,10 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/learn/learn.dart';
-import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page1.dart';
+import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page3.dart';
+import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page5.dart';
 import 'package:flutter/material.dart';
 
-class LearnColorsPage extends StatelessWidget {
-  const LearnColorsPage({super.key});
+class LearnColorsPage4 extends StatelessWidget {
+  const LearnColorsPage4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class LearnColorsPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Das Lernen von Farben mit unseren kleinen Sprösslinge kann durch kreative und spielerische Aktivitäten erfolgen. Hier sind einige Tipps, wie du Farben auf eine leicht verständliche Weise vermitteln kannst:',
+                'Farbige Bauklötze: Spiele mit verschiedenen Farben. Fordere dein Kind auf, Türme aus Blöcken in derselben Farbe zu bauen oder die Farben zu benennen, während es spielt.',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LearnPage(),
+                              builder: (context) => const LearnColorsPage3(),
                             ),
                           );
                         },
@@ -67,7 +67,7 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LearnColorsPage1(),
+                              builder: (context) => const LearnColorsPage5(),
                             ),
                           );
                         },

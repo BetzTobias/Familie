@@ -1,5 +1,7 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
+import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors_page.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page.dart';
+import 'package:family/src/features/content/presentation/learn/to_form/to_form_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +33,7 @@ class LearnPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const LearnColorsPage(),
                       ),
                     );
                   }),
@@ -40,7 +42,7 @@ class LearnPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const ToFormPage(),
                       ),
                     );
                   }),
