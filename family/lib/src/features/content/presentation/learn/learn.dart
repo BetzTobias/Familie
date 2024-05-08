@@ -1,4 +1,3 @@
-import 'package:family/src/features/authentication/presentation/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -23,7 +22,7 @@ class LearnPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MotorSkillsPage(),
+                        builder: (context) => const MotorSkillsPage(),
                       ),
                     );
                   }),
@@ -41,7 +40,7 @@ class LearnPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ManageProfile(),
+                        builder: (context) => const MainSelectionPage(),
                       ),
                     );
                   }),

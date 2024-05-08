@@ -1,11 +1,11 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
-import 'package:family/src/features/content/presentation/language_development/language_development.dart';
 import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:family/src/features/content/presentation/nature/nature.dart';
+import 'package:family/src/features/content/presentation/story_bag/story_bags.dart';
 import 'package:family/src/features/content/presentation/understanding/understanding.dart';
 import 'package:flutter/material.dart';
 
@@ -87,7 +87,7 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LanguageDevelopment()),
+                            builder: (context) => const StoryPage()),
                       );
                     },
                   ),

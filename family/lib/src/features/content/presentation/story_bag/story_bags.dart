@@ -2,8 +2,8 @@ import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
-class LanguageDevelopment extends StatelessWidget {
-  const LanguageDevelopment({super.key});
+class StoryPage extends StatelessWidget {
+  const StoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {

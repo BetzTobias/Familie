@@ -1,10 +1,10 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/learn/learn.dart';
-import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page6.dart';
+import 'package:family/src/features/content/presentation/learn/to_form/to_form_page3.dart';
+import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
-class MotorSkillsPage7 extends StatelessWidget {
-  const MotorSkillsPage7({super.key});
+class ToFormPage4 extends StatelessWidget {
+  const ToFormPage4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class MotorSkillsPage7 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Alltägliche Aktivitäten nutzen: Integriere motorische Übungen in den Alltag, z.B. beim Anziehen, Essen oder Aufräumen. Lass das Kind selbständig Aufgaben erledigen, um die Feinmotorik zu fördern.',
+                'Sandkasten oder Teig formen: Nutze Sand oder Modelliermasse, um verschiedene Formen zu erstellen. Kinder können Spaß daran haben, mit den Händen zu formen und dabei verschiedene Formen zu entdecken.',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class MotorSkillsPage7 extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const MotorSkillsPage6(),
+                              builder: (context) => const ToFormPage3(),
                             ),
                           );
                         },
@@ -67,7 +67,7 @@ class MotorSkillsPage7 extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LearnPage(),
+                              builder: (context) => const MainSelectionPage(),
                             ),
                           );
                         },
