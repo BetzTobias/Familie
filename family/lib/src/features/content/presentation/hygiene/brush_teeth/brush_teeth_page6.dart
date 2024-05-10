@@ -1,6 +1,3 @@
-
-
-
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/brush_teeth/brush_teeth_page5.dart';
@@ -23,7 +20,7 @@ class BrushTeethPage6 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Bunte Gegenstände: Zeige deinem Kind verschiedene bunte Gegenstände wie Spielzeug, Kleidung oder Früchte. Benenne dabei die Farben deutlich. "Schau, das ist eine rote Erdbeere" oder "Dieses Auto ist blau".',
+                    'Gemeinsame Belohnung: Setze ein gemeinsames Ziel für die Familie, wie z. B. eine besondere Aktivität oder Belohnung, wenn alle konsequent ihre Zähne putzen.',
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
@@ -43,7 +40,7 @@ class BrushTeethPage6 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const MainSelectionPage(),
+                                builder: (context) => const BrushTeethPage5(),
                               ),
                             );
                           },
@@ -67,7 +64,7 @@ class BrushTeethPage6 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const BrushTeethPage5(),
+                                builder: (context) => const MainSelectionPage(),
                               ),
                             );
                           },

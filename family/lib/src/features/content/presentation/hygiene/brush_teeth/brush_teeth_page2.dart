@@ -20,7 +20,7 @@ class BrushTeethPage2 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Lustige Zahnbürsten und Zahnputzlieder:Spiele während des Zähneputzens fröhliche Lieder oder erstelle eigene Zahnputzlieder. Das kann den Prozess für das Kind interessanter machen und die Zeit angenehmer gestalten.',
+                    'Lustige Zahnbürsten und Zahnputzlieder: Spiele während des Zähneputzens fröhliche Lieder oder erstelle eigene Zahnputzlieder. Das kann den Prozess für das Kind interessanter machen und die Zeit angenehmer gestalten.',
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,

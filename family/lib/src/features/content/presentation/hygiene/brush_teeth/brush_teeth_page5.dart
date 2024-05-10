@@ -23,7 +23,7 @@ class BrushTeethPage5 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Zahnpflege als Spiel gestalten:Baue das Zähneputzen in ein Spiel ein. Zum Beispiel könnten die Zähne die Burg eines Drachens sein, und die Zahnbürste ist der Ritter, der die Burg sauber hält.',
+                    'Zahnpflege als Spiel gestalten: Baue das Zähneputzen in ein Spiel ein. Zum Beispiel könnten die Zähne die Burg eines Drachens sein, und die Zahnbürste ist der Ritter, der die Burg sauber hält.',
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,

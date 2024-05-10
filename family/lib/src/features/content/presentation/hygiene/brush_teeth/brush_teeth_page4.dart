@@ -23,7 +23,7 @@ class BrushTeethPage4 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Belohnungssystem einführen:Erstelle ein Belohnungssystem, bei dem das Kind für regelmäßiges und gründliches Zähneputzen kleine Belohnungen erhalten kann. Dies kann die Motivation steigern.',
+                    'Belohnungssystem einführen: Erstelle ein Belohnungssystem, bei dem das Kind für regelmäßiges und gründliches Zähneputzen kleine Belohnungen erhalten kann. Dies kann die Motivation steigern.',
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,

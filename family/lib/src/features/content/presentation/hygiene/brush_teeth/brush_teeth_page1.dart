@@ -23,7 +23,7 @@ class BrushTeethPage1 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Kinderfreundliche Zahnbürste und Zahnpasta:Verwende eine weiche, kinderfreundliche Zahnbürste und eine Kinderzahnpasta mit angenehmem Geschmack. Lass dein Kind die Zahnbürste und Pasta selbst aussuchen, um die Motivation zu steigern.',
+                    'Kinderfreundliche Zahnbürste und Zahnpasta: Verwende eine weiche, kinderfreundliche Zahnbürste und eine Kinderzahnpasta mit angenehmem Geschmack. Lass dein Kind die Zahnbürste und Pasta selbst aussuchen, um die Motivation zu steigern.',
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,

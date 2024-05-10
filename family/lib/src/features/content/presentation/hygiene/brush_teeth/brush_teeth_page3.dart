@@ -23,7 +23,7 @@ class BrushTeethPage3 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Zusammen putzen:Putze gemeinsam mit deinem Kind die Zähne. Kinder lernen oft durch Nachahmung, und es kann ihnen helfen, die richtige Technik zu verstehen.',
+                    'Zusammen putzen: Putze gemeinsam mit deinem Kind die Zähne. Kinder lernen oft durch Nachahmung, und es kann ihnen helfen, die richtige Technik zu verstehen.',
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
