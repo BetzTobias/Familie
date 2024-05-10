@@ -1,8 +1,10 @@
+import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors_page.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page.dart';
 import 'package:family/src/features/content/presentation/learn/to_form/to_form_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
+import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LearnPage extends StatelessWidget {
@@ -76,6 +78,18 @@ class LearnPage extends StatelessWidget {
                   style: TextStyle(fontSize: 14),
                 ),
               ),
+            ),
+          ),
+          Positioned(
+            top: 100,
+            left: 20,
+            child: MenuButton(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                );
+              },
             ),
           ),
         ],

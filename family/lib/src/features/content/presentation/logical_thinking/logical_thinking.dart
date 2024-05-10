@@ -1,5 +1,7 @@
+import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
+import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LogicalThinkingPage extends StatelessWidget {
@@ -56,6 +58,18 @@ class LogicalThinkingPage extends StatelessWidget {
                   style: TextStyle(fontSize: 14),
                 ),
               ),
+            ),
+          ),
+          Positioned(
+            top: 100,
+            left: 20,
+            child: MenuButton(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                );
+              },
             ),
           ),
         ],

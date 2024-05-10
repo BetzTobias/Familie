@@ -1,8 +1,7 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page3.dart';
-import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page2.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
+import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page2.dart';
+import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +20,9 @@ class LearnColorsPage1 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Spiel und Spaß: Integriere motorische Übungen in spielerische Aktivitäten. Spiele wie Fangen, Verstecken oder Ballspiele können die Motorik verbessern, während Kinder Spaß haben.',
+                    'Bunte Gegenstände: Zeige deinem Kind verschiedene bunte Gegenstände wie Spielzeug, Kleidung oder Früchte. Benenne dabei die Farben deutlich. "Schau, das ist eine rote Erdbeere" oder "Dieses Auto ist blau".',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.justify,
@@ -41,7 +40,7 @@ class LearnColorsPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const MainSelectionPage(),
+                                builder: (context) => const LearnColorsPage(),
                               ),
                             );
                           },
@@ -65,7 +64,7 @@ class LearnColorsPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const LearnColorsPage3(),
+                                builder: (context) => const LearnColorsPage2(),
                               ),
                             );
                           },

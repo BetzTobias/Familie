@@ -1,12 +1,15 @@
+
+
+
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page5.dart';
-import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page7.dart';
+import 'package:family/src/features/content/presentation/hygiene/brush_teeth/brush_teeth_page5.dart';
+import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
-class MotorSkillsPage6 extends StatelessWidget {
-  const MotorSkillsPage6({super.key});
+class BrushTeethPage6 extends StatelessWidget {
+  const BrushTeethPage6({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +23,9 @@ class MotorSkillsPage6 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Geeignetes Spielzeug: Wähle Spielzeug aus, das die Motorik unterstützt. Bauklötze, Puzzles, Spielzeugautos oder einfache Musikinstrumente können dazu beitragen, die verschiedenen motorischen Fähigkeiten zu entwickeln.',
+                    'Bunte Gegenstände: Zeige deinem Kind verschiedene bunte Gegenstände wie Spielzeug, Kleidung oder Früchte. Benenne dabei die Farben deutlich. "Schau, das ist eine rote Erdbeere" oder "Dieses Auto ist blau".',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.justify,
@@ -40,7 +43,7 @@ class MotorSkillsPage6 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const MotorSkillsPage5(),
+                                builder: (context) => const MainSelectionPage(),
                               ),
                             );
                           },
@@ -64,7 +67,7 @@ class MotorSkillsPage6 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const MotorSkillsPage7(),
+                                builder: (context) => const BrushTeethPage5(),
                               ),
                             );
                           },
