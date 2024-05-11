@@ -2,6 +2,9 @@ import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
+import 'package:family/src/features/content/presentation/nature/animals/animals_page.dart';
+import 'package:family/src/features/content/presentation/nature/flowers/flowers_page.dart';
+import 'package:family/src/features/content/presentation/nature/trees/trees_page.dart';
 import 'package:flutter/material.dart';
 
 class NaturePage extends StatelessWidget {
@@ -23,7 +26,7 @@ class NaturePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const AnimalsPage(),
                       ),
                     );
                   }),
@@ -32,7 +35,7 @@ class NaturePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const TreesPage(),
                       ),
                     );
                   }),
@@ -41,7 +44,7 @@ class NaturePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const FlowersPage(),
                       ),
                     );
                   }),

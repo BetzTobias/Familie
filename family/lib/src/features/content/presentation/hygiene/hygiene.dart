@@ -1,6 +1,8 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/brush_teeth/brush_teeth_page.dart';
+import 'package:family/src/features/content/presentation/hygiene/toilet_training/toilet_training_page.dart';
+import 'package:family/src/features/content/presentation/hygiene/wash/wash_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,7 @@ class HygienePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const ToiletTrainingPage(),
                       ),
                     );
                   }),
@@ -42,7 +44,7 @@ class HygienePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const WashPage(),
                       ),
                     );
                   }),
