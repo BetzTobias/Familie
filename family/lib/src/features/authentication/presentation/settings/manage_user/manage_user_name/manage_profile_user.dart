@@ -1,9 +1,6 @@
-
-
-
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
+import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
-
 import 'package:flutter/material.dart';
 
 class ManageProfileUserPage extends StatelessWidget {
@@ -11,25 +8,8 @@ class ManageProfileUserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
-        title: const Text('Profil verwalten',
-            style: TextStyle(decoration: TextDecoration.underline),
-            selectionColor: Color.fromRGBO(158, 245, 255, 1)),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              'assets/Hauptlogo.png', // Logo Pfad
-              height: 250,
-              width: 100, // Höhe des Logos
-            ),
-          ),
-        ],
-      ),
-      body: Center(
+    return BackgroundPage(
+      child: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -40,7 +20,7 @@ class ManageProfileUserPage extends StatelessWidget {
               _buildTextFieldWithIcon("Alter Benutzername", Icons.person),
               const SizedBox(height: 10),
               _buildTextFieldWithIcon("Neuer Benutzername", Icons.person),
-          
+
               //Aktion zur nächsten Seite
               const SizedBox(height: 10),
               ElevatedButton(
@@ -66,7 +46,8 @@ class ManageProfileUserPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const ManageProfilePage()),
+                    MaterialPageRoute(
+                        builder: (context) => const ManageProfilePage()),
                   );
                 },
                 style: ButtonStyle(
