@@ -21,6 +21,9 @@ class ManageProfileEmailPage extends StatelessWidget {
               const SizedBox(height: 10),
               _buildTextFieldWithIcon("Neue E-Mail Adresse", Icons.email),
               const SizedBox(height: 10),
+              _buildTextFieldWithIcon(
+                  "Neue E-Mail Adresse wiederholen", Icons.email),
+              const SizedBox(height: 10),
 
               //Aktion zur nächsten Seite
               const SizedBox(height: 10),

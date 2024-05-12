@@ -14,7 +14,7 @@ class PatientPage extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Text(
-            'Seit Geduldig jedes Kind entwickelt sich unterschiedlich. Sei geduldig und ermutige das Kind, auch wenn es manche Dinge nicht sofort kann. Positive Verstärkung und Lob sind wichtig, um das Selbstvertrauen zu stärken.',
+            'Seid Geduldig jedes Kind entwickelt sich unterschiedlich. Sei geduldig und ermutige das Kind, auch wenn es manche Dinge nicht sofort kann. Positive Verstärkung und Lob sind wichtig, um das Selbstvertrauen zu stärken.',
             style: TextStyle(
               fontSize: 21,
               fontWeight: FontWeight.bold,
