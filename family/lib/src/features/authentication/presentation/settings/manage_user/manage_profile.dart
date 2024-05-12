@@ -1,11 +1,13 @@
-import 'package:family/src/features/authentication/presentation/settings/settings_page.dart';
+import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_user_email/manage_profile_email.dart';
+import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_user_name/manage_profile_user.dart';
+import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_user_number/manage_profile_number.dart';
+import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_user_password/manage_profile_password.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/categorie.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
-class MenuPage extends StatelessWidget {
-  const MenuPage({super.key});
+class ManageProfilePage extends StatelessWidget {
+  const ManageProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,30 +20,39 @@ class MenuPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 50),
-                  buildMenuButton(context, 'Hauptmenü', () {
+                  const SizedBox(height: 10),
+                  buildMenuButton(context, 'Benutzername ändern', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const ManageProfileUserPage(),
                       ),
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildMenuButton(context, 'Kategorien', () {
+                  buildMenuButton(context, 'Telefonnummer', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CategoriesPage(),
+                        builder: (context) => const ManageProfileNumberPage(),
                       ),
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildMenuButton(context, 'Einstellungen', () {
+                  buildMenuButton(context, 'E-Mail Adresse ändern', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SettingsPage(),
+                        builder: (context) => const ManageProfileEmailPage(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildMenuButton(context, 'Passwort ändern', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ManageProfilePasswordPage(),
                       ),
                     );
                   }),

@@ -2,6 +2,8 @@ import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
+import 'package:family/src/features/content/presentation/understanding/clean_table/clean_table_page.dart';
+import 'package:family/src/features/content/presentation/understanding/regulate/regulate_page.dart';
 import 'package:flutter/material.dart';
 
 class UnderstandingPage extends StatelessWidget {
@@ -23,7 +25,7 @@ class UnderstandingPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MainSelectionPage(),
+                          builder: (context) => const RegulatePage(),
                         ),
                       );
                     }),
@@ -32,7 +34,7 @@ class UnderstandingPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MainSelectionPage(),
+                          builder: (context) => const CleanTablePage(),
                         ),
                       );
                     }),

@@ -1,9 +1,13 @@
+
+
+
+import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
-import 'package:family/src/features/content/presentation/menu_page.dart';
+
 import 'package:flutter/material.dart';
 
-class ManageProfile extends StatelessWidget {
-  const ManageProfile({super.key});
+class ManageProfileUserPage extends StatelessWidget {
+  const ManageProfileUserPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class ManageProfile extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -36,35 +40,7 @@ class ManageProfile extends StatelessWidget {
               _buildTextFieldWithIcon("Alter Benutzername", Icons.person),
               const SizedBox(height: 10),
               _buildTextFieldWithIcon("Neuer Benutzername", Icons.person),
-              const SizedBox(height: 10),
-              _buildTextFieldWithIcon("Alte Telefonnummer", Icons.phone),
-              const SizedBox(height: 10),
-              _buildTextFieldWithIcon("Neue Telefonnummer", Icons.phone),
-              const SizedBox(height: 10),
-              _buildTextFieldWithIcon("Alte E-Mail Adresse", Icons.email),
-              const SizedBox(height: 10),
-              _buildTextFieldWithIcon("Neue E-Mail Adresse", Icons.email),
-              const SizedBox(height: 10),
-              _buildTextFieldWithIconAndSuffix(
-                "Altes Passwort",
-                Icons.lock,
-                Icons.visibility,
-                obscureText: true,
-              ),
-              const SizedBox(height: 10),
-              _buildTextFieldWithIconAndSuffix(
-                "Neues Passwort",
-                Icons.lock,
-                Icons.visibility,
-                obscureText: true,
-              ),
-              const SizedBox(height: 10),
-              _buildTextFieldWithIconAndSuffix(
-                "Neues Passwort wiederholen",
-                Icons.lock,
-                Icons.visibility,
-                obscureText: true,
-              ),
+          
               //Aktion zur nächsten Seite
               const SizedBox(height: 10),
               ElevatedButton(
@@ -90,7 +66,7 @@ class ManageProfile extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const MenuPage()),
+                    MaterialPageRoute(builder: (context) => const ManageProfilePage()),
                   );
                 },
                 style: ButtonStyle(
