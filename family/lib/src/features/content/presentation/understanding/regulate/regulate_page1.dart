@@ -1,12 +1,13 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
+import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
-import 'package:family/src/features/content/presentation/understanding/regulate/regulate_page.dart';
-import 'package:family/src/features/content/presentation/understanding/regulate/regulate_page2.dart';
 import 'package:flutter/material.dart';
 
 class RegulatePage1 extends StatelessWidget {
-  const RegulatePage1({super.key});
+  final int rulesNumber;
+  final String xy;
+  const RegulatePage1({super.key, required this.xy, required this.rulesNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,10 @@ class RegulatePage1 extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
-                    style: TextStyle(
+                  Text(
+                    // Tipp Inhalt
+                    xy,
+                    style: const TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
@@ -37,12 +39,8 @@ class RegulatePage1 extends StatelessWidget {
                         width: 100,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const RegulatePage(),
-                              ),
-                            );
+                            // gehe eins zurueck
+                            Navigator.pop(context);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0XFF16972A),
@@ -64,7 +62,30 @@ class RegulatePage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const RegulatePage2(),
+                                builder: (context) {
+                                  if (rulesNumber == 1) {
+                                    // wir befinden uns auf Regelseite 1
+                                    return const RegulatePage1(
+                                      rulesNumber: 2,
+                                      xy: "Regelspiele: Entwickle Spiele, die die Regeln integrieren. Dies könnte beispielsweise ein Aufräumspiel sein, bei dem das Kind lernen kann, seine Spielsachen ordentlich wegzuräumen.",
+                                    );
+                                  } else if (rulesNumber == 2) {
+                                    // wir befinden uns auf Regelseite 2
+                                    return const RegulatePage1(
+                                      rulesNumber: 3,
+                                      xy: "Rollenspiele: Spiele Rollenspiele, bei denen das Kind verschiedene Rollen übernimmt und die Regeln in diesen Situationen anwendet. Dies fördert das Verständnis und die praktische Anwendung.",
+                                    );
+                                  } else if (rulesNumber == 3) {
+                                    // wir befinden uns auf Regelseite 3
+                                    return const RegulatePage1(
+                                      rulesNumber: 4,
+                                      xy: "Positive Verstärkung und Lob: Lob und positive Verstärkung sind entscheidend. Anerkenne und belohne das Kind, wenn es die Regeln befolgt, um positive Verhaltensweisen zu verstärken.",
+                                    );
+                                  } else {
+                                    // wir befinden uns auf Regelseite 4
+                                    return const MainSelectionPage();
+                                  }
+                                },
                               ),
                             );
                           },

@@ -1,6 +1,3 @@
-
-
-
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/understanding/regulate/regulate_page1.dart';
 import 'package:family/src/features/content/presentation/understanding/understanding.dart';
@@ -70,7 +67,10 @@ class RegulatePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RegulatePage1(),
+                              builder: (context) => const RegulatePage1(
+                                xy: 'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
+                                rulesNumber: 1,
+                              ),
                             ),
                           );
                         },
