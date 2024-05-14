@@ -1,12 +1,14 @@
-import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
+import 'package:family/src/features/content/presentation/entertainment/songs/all_my_little_ducks_song_page.dart';
+import 'package:family/src/features/content/presentation/entertainment/songs/bi_ba_butzemann_dancing_song_page.dart';
+import 'package:family/src/features/content/presentation/entertainment/songs/blue_mountains_song_page.dart';
+import 'package:family/src/features/content/presentation/entertainment/songs/hoppe_hoppe_reiter_song_page.dart';
+import 'package:family/src/features/content/presentation/entertainment/songs/sleep_kid_sleep_song_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
-import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
-class EntertainmentPage extends StatelessWidget {
-  const EntertainmentPage({super.key});
+class AllSongsPage extends StatelessWidget {
+  const AllSongsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,29 +22,48 @@ class EntertainmentPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  buildMenuButton(context, 'Basteln', () {
+                  buildAllSongButton(context, 'Alle meine Entchen', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const AllMyLittleDucksSongPage(),
                       ),
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildMenuButton(context, 'Backen', () {
+                  buildAllSongButton(context, 'Schlaf Kindlein, schlaf', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage(),
+                        builder: (context) => const SleepKidSleepSongPage(),
                       ),
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildMenuButton(context, 'Lieder', () {
+                  buildAllSongButton(context, 'Es tanzt ein Bi-Ba-Butzemann', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AllSongsPage(),
+                        builder: (context) => const BiBaButzemannSongPage(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildAllSongButton(context, 'Hoppe, hoppe Reiter', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HoppeHoppeReiterSongPage(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildAllSongButton(context, 'Von den blauen Bergen kommen wir',
+                      () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BlueMountainsSongPage(),
                       ),
                     );
                   }),
@@ -78,24 +99,12 @@ class EntertainmentPage extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: 100,
-            left: 20,
-            child: MenuButton(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
-                );
-              },
-            ),
-          ),
         ],
       ),
     );
   }
 
-  Widget buildMenuButton(BuildContext context, String category,
+  Widget buildAllSongButton(BuildContext context, String category,
       [VoidCallback? onPressed]) {
     return ElevatedButton(
       onPressed: onPressed,
