@@ -1,12 +1,15 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/wash/wash_page.dart';
-import 'package:family/src/features/content/presentation/hygiene/wash/wash_page2.dart';
+import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class WashPage1 extends StatelessWidget {
-  const WashPage1({super.key});
+  final int washNumber;
+  final String washTipps;
+  const WashPage1(
+      {super.key, required this.washNumber, required this.washTipps});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +22,9 @@ class WashPage1 extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Wasch-Songs und Reime: Erfinde oder suche nach Wasch-Songs oder Reimen. Die Kinder können während des Waschens mitsingen oder sich die Lieder merken, um die empfohlene Dauer von mindestens 20 Sekunden einzuhalten.',
-                    style: TextStyle(
+                  Text(
+                    washTipps,
+                    style: const TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
@@ -64,7 +67,26 @@ class WashPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const WashPage2(),
+                                builder: (context) {
+                                  if (washNumber == 1) {
+                                    // wir befinden uns auf Washseite 1
+                                    return const WashPage1(
+                                      washNumber: 2,
+                                      washTipps:
+                                          "Belohnungssystem einführen: Führe ein Belohnungssystem ein, bei dem das Kind für regelmäßiges und gründliches Waschen kleine Belohnungen erhält.",
+                                    );
+                                  } else if (washNumber == 2) {
+                                    // wir befinden uns auf Washseite 2
+                                    return const WashPage1(
+                                      washNumber: 3,
+                                      washTipps:
+                                          "Positive Verstärkung: Lob und positive Verstärkung sind entscheidend. Zeige deine Freude, wenn das Kind eigenständig die Hände wäscht, und betone die Bedeutung von Sauberkeit.",
+                                    );
+                                  } else {
+                                    // wir befinden uns auf Washseite 3
+                                    return const MainSelectionPage();
+                                  }
+                                },
                               ),
                             );
                           },

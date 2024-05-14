@@ -67,7 +67,10 @@ class ToiletTrainingPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ToiletTrainingPage1(),
+                              builder: (context) =>ToiletTrainingPage1(
+                                toiletTipps: 'Kindgerechte Toilettenausstattung: Verwende eine kinderfreundliche Toilettenbrille und einen Tritthocker, damit das Kind leicht auf die Toilette steigen kann. Stelle sicher, dass alles in kindgerechten Farben und Formen gestaltet ist.',
+                             toiletNumber: 1,
+                             ),
                             ),
                           );
                         },

@@ -67,7 +67,10 @@ class WashPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const WashPage1(),
+                              builder: (context) => WashPage1(
+                                washTipps: 'Wasch-Songs und Reime: Erfinde oder suche nach Wasch-Songs oder Reimen. Die Kinder können während des Waschens mitsingen oder sich die Lieder merken, um die empfohlene Dauer von mindestens 20 Sekunden einzuhalten.',
+                                washNumber: 1,
+                              ),
                             ),
                           );
                         },
