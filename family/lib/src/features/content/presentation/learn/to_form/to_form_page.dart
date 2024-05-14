@@ -67,7 +67,10 @@ class ToFormPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ToFormPage1(),
+                              builder: (context) => ToFormPage1(
+                                formNumber: 1,
+                                formTipps: 'Alltägliche Objekte: Zeige dem Kind alltägliche Gegenstände mit verschiedenen Formen. Zum Beispiel: "Schau, die Uhr hat einen runden Kreis".',
+                              ),
                             ),
                           );
                         },
