@@ -42,7 +42,9 @@ class CleanTablePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const UnderstandingPage(),
+                              builder: (context) => const UnderstandingPage(
+
+                              ),
                             ),
                           );
                         },
@@ -70,7 +72,10 @@ class CleanTablePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const CleanTablePage1(),
+                              builder: (context) => const CleanTablePage1(
+                                cleanTipps: 'Lustige Aufräumlieder: Erfinde oder suche nach lustigen Aufräumliedern. Diese können den Prozess unterhaltsamer gestalten und dem Kind helfen, sich besser zu engagieren.',
+                              cleanNumber: 1,
+                              ),
                             ),
                           );
                         },

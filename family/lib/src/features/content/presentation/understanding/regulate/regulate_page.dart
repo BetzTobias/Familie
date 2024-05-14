@@ -68,7 +68,7 @@ class RegulatePage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => const RegulatePage1(
-                                xy: 'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
+                                regulateTipps: 'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
                                 rulesNumber: 1,
                               ),
                             ),
