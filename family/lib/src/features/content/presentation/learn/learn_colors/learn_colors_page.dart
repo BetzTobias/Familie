@@ -67,7 +67,10 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LearnColorsPage1(),
+                              builder: (context) => LearnColorsPage1(
+                                colorsNumber: 1,
+                                colorsTipps: 'Bunte Gegenstände: Zeige deinem Kind verschiedene bunte Gegenstände wie Spielzeug, Kleidung oder Früchte. Benenne dabei die Farben deutlich. "Schau, das ist eine rote Erdbeere" oder "Dieses Auto ist blau".',
+                              ),
                             ),
                           );
                         },
