@@ -30,7 +30,7 @@ class ManageProfilePage extends StatelessWidget {
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildMenuButton(context, 'Telefonnummer', () {
+                  buildMenuButton(context, 'Telefonnummer ändern', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(

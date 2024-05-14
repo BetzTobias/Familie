@@ -67,7 +67,10 @@ class BrushTeethPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const BrushTeethPage1(),
+                              builder: (context) => BrushTeethPage1(
+                                brushTipps: 'Kinderfreundliche Zahnbürste und Zahnpasta: Verwende eine weiche, kinderfreundliche Zahnbürste und eine Kinderzahnpasta mit angenehmem Geschmack. Lass dein Kind die Zahnbürste und Pasta selbst aussuchen, um die Motivation zu steigern.',
+                              brushNumber: 1,
+                              ),
                             ),
                           );
                         },
