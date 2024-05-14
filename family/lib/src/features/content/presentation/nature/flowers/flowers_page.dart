@@ -70,7 +70,10 @@ class FlowersPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const FlowersPage1(),
+                              builder: (context) => FlowersPage1(
+                                flowersNumber: 1,
+                                flowersTipps: 'Blumen Memory Spiel: Spiele ein Memory-Spiel mit Karten, auf denen verschiedene Blumen abgebildet sind. Dies fördert die Konzentration und das visuelle Gedächtnis des Kindes.',
+                              ),
                             ),
                           );
                         },

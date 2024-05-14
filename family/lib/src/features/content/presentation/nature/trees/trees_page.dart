@@ -70,7 +70,10 @@ class TreesPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const TreesPage1(),
+                              builder: (context) => TreesPage1(
+                                treesNumber: 1,
+                                treesTipps: 'Baumarten entdecken: Gehe mit dem Kind nach draußen und erkunde gemeinsam verschiedene Baumarten. Zeige auf unterschiedliche Blätter, Rinden und Formen der Bäume.',
+                              ),
                             ),
                           );
                         },

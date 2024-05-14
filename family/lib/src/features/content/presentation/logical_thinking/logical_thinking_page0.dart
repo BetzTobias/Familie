@@ -66,7 +66,10 @@ class LogicalThinkingPage0 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const LogicalThinkingPage1(),
+                                    const LogicalThinkingPage1(
+                                      logicNumber: 1,
+                                      logicTipps: 'Formen mit Händen und Füßen nachahmen: Lass das Kind Formen mit den Händen oder Füßen nachahmen. Zum Beispiel können sie versuchen, einen großen Kreis mit ihren Armen zu machen und einen kleinen Kreis mit ihren Fingern.',
+                                    ),
                               ),
                             );
                           },

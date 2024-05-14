@@ -70,7 +70,10 @@ class AnimalsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const AnimalsPage1(),
+                              builder: (context) => AnimalsPage1(
+                                animalsNumber: 1,
+                                animalsTipps: 'Tierbücher und Geschichten: Lies gemeinsam mit dem Kind Bücher über Tiere. Es gibt viele illustrierte Bücher und Geschichten, die kindgerechte Informationen über verschiedene Tiere vermitteln.',
+                              ),
                             ),
                           );
                         },
