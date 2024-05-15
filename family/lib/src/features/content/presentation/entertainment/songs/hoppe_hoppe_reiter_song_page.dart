@@ -11,6 +11,7 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
       child: Stack(
         children: [
           SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [

@@ -23,6 +23,7 @@ class _AnimatedTextSectionState extends State<AnimatedTextSection> {
         height: _isExpanded ? null : 0,
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'Alle meine Entchen, schwimmen auf dem See,schwimmen auf dem See, Köpfchen in das Wasser, Schwänzchen in die Höh.',
@@ -38,7 +39,7 @@ class _AnimatedTextSectionState extends State<AnimatedTextSection> {
             ),
             Text(
               'Alle meine Gänschen, watscheln durch den Grund, watscheln durch den Grund, suchen in dem Tümpel, werden kugelrund.',
-            ) 
+            )
             // Platz für weitere Texte
           ],
         ),
