@@ -2,8 +2,18 @@ import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
 import 'package:flutter/material.dart';
 
-class HoppeHoppeReiterSongPage extends StatelessWidget {
-  const HoppeHoppeReiterSongPage({super.key});
+class HoppeHoppeReiterSongPage extends StatefulWidget {
+  const HoppeHoppeReiterSongPage({
+    super.key,
+  });
+
+  @override
+  _HoppeHoppeReiterSongPageState createState() =>
+      _HoppeHoppeReiterSongPageState();
+}
+
+class _HoppeHoppeReiterSongPageState extends State<HoppeHoppeReiterSongPage> {
+  bool _isAnimated = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +49,13 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 15.0),
                       AnimatedContainer(
-                        duration: const Duration(milliseconds: 3000),
+                        duration: const Duration(milliseconds: 30),
                         transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                         child: GestureDetector(
                           onTap: () {
-                            // Animations Bereich
+                            setState(() {
+                              _isAnimated = !_isAnimated;
+                            });
                           },
                           child: const Text(
                             'Hoppe, hoppe, Reiter, wenn er fällt, dann schreit er.'

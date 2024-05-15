@@ -38,7 +38,7 @@ class SleepKidSleepSongPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 15.0),
                       AnimatedContainer(
-                        duration: const Duration(milliseconds: 3000),
+                        duration: const Duration(milliseconds: 30),
                         transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                         child: GestureDetector(
                           onTap: () {
