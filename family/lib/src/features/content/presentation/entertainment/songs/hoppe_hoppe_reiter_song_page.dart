@@ -2,18 +2,8 @@ import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
 import 'package:flutter/material.dart';
 
-class HoppeHoppeReiterSongPage extends StatefulWidget {
-  const HoppeHoppeReiterSongPage({
-    super.key,
-  });
-
-  @override
-  _HoppeHoppeReiterSongPageState createState() =>
-      _HoppeHoppeReiterSongPageState();
-}
-
-class _HoppeHoppeReiterSongPageState extends State<HoppeHoppeReiterSongPage> {
-  bool _isAnimated = false;
+class HoppeHoppeReiterSongPage extends StatelessWidget {
+  const HoppeHoppeReiterSongPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +11,8 @@ class _HoppeHoppeReiterSongPageState extends State<HoppeHoppeReiterSongPage> {
       child: Stack(
         children: [
           SingleChildScrollView(
-            physics: const AlwaysScrollableScrollPhysics(),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 20,
@@ -31,10 +20,10 @@ class _HoppeHoppeReiterSongPageState extends State<HoppeHoppeReiterSongPage> {
                 Container(
                   padding: const EdgeInsets.all(60.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'Hoppe, Hoppe Reiter',
+                        'Hoppe hoppe Reiter',
                         style: TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
@@ -42,7 +31,7 @@ class _HoppeHoppeReiterSongPageState extends State<HoppeHoppeReiterSongPage> {
                       ),
                       const SizedBox(height: 30.0),
                       Image.asset(
-                        'assets/Hoppe hoppe Reiter Noten.png', // Image Pfad
+                        'assets/Schlaf Kindlein schlaf Noten.png', // Image Pfad
                         height: 200.0,
                         width: double.infinity,
                         fit: BoxFit.cover,
@@ -53,16 +42,14 @@ class _HoppeHoppeReiterSongPageState extends State<HoppeHoppeReiterSongPage> {
                         transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                         child: GestureDetector(
                           onTap: () {
-                            setState(() {
-                              _isAnimated = !_isAnimated;
-                            });
+                            // Animations Bereich
                           },
                           child: const Text(
                             'Hoppe, hoppe, Reiter, wenn er fällt, dann schreit er.'
                             'Fällt er in den Graben, fressen ihn die Raben.'
                             'Fällt er in den Sumpf, macht der Reiter plumps.'
                             'Hoppe, hoppe Reiter, wenn er fällt. dann schreit er.'
-                            'Fällt er in den Teich, findet ihn keiner gleich.'
+                            'Fällt er in den Teich, find’t ihn keiner gleich. '
                             'Fällt er in den Sumpf, macht der Reiter plumps',
                             style: TextStyle(
                               fontSize: 18.0,
@@ -72,6 +59,30 @@ class _HoppeHoppeReiterSongPageState extends State<HoppeHoppeReiterSongPage> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Positioned(
+                  top: 760,
+                  left: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AllSongsPage(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0XFF16972A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text(
+                      'Zurück',
+                      style: TextStyle(fontSize: 14),
+                    ),
                   ),
                 ),
               ],
