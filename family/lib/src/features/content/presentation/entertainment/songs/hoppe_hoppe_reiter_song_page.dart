@@ -11,8 +11,7 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
       child: Stack(
         children: [
           SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Stack(
               children: [
                 const SizedBox(
                   height: 20,
@@ -89,7 +88,7 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 760,
+            top: 620,
             right: 20,
             child: ElevatedButton(
               onPressed: () {
