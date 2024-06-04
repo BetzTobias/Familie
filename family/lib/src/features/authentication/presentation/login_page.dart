@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final usernameController = TextEditingController();
+    final passwordController = TextEditingController();
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
       body: Center(
@@ -26,6 +30,7 @@ class LoginPage extends StatelessWidget {
               ),
               // Benutzername Eingabefeld
               TextFormField(
+                controller: usernameController,
                 decoration: const InputDecoration(
                   hintText: 'Benutzername:',
                 ),
@@ -33,32 +38,47 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 40),
               // Passwort Eingabefeld
               TextFormField(
+                controller: passwordController,
                 obscureText: true,
                 decoration: const InputDecoration(
                   hintText: 'Passwort:',
                 ),
               ),
               const SizedBox(height: 40),
-              // Anmelde-Button
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const PatientPage()),
-                  );
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    const Color(0XFFEBE216),
-                  ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
-                    Colors.black, // Schriftfarbe des Buttons
-                  ),
+              // Anmelde-Button with FutureBuilder
+              FutureBuilder<void>(
+                future: login(
+                  username:
+                      usernameController.text, // userName vom Controller
+                  password:
+                      passwordController.text, // Password vom Controller
                 ),
-                // Hintergrundfarbe des Button
-
-                child: const Text('Anmelden'),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const CircularProgressIndicator(); // Loading indicator
+                  } else if (snapshot.hasError) {
+                    return Text('Fehler: ${snapshot.error}'); // Error message
+                  } else {
+                    return ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PatientPage()),
+                        );
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all<Color>(
+                          const Color(0XFFEBE216),
+                        ),
+                        foregroundColor: WidgetStateProperty.all<Color>(
+                          Colors.black, // Schriftfarbe des Buttons
+                        ),
+                      ),
+                      child: const Text('Anmelden'),
+                    );
+                  }
+                },
               ),
               const SizedBox(height: 20),
               // Passwort vergessen und Neuen Account erstellen Aktionen
@@ -92,5 +112,14 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  
+  Future<void> login(
+      {required String username, required String password}) async {
+    
+   
+
+    print('Login war erfolgreich!'); 
   }
 }

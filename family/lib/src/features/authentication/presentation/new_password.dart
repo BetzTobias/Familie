@@ -3,7 +3,8 @@ import 'package:family/src/features/authentication/presentation/login_page.dart'
 import 'package:flutter/material.dart';
 
 class NewPassword extends StatelessWidget {
-  const NewPassword({super.key});
+  NewPassword({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,52 +40,60 @@ class NewPassword extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              // Anmelde-Button
-              ElevatedButton(
-                onPressed: () {
-                  // Hier ist die Anmelde-Logik
-                  // Beispiel: Navigieren zur nächsten Seite
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
-                  );
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    const Color(0XFFEBE216),
-                  ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
-                    Colors.black, // Schriftfarbe des Buttons
-                  ),
-                ),
-                // Hintergrundfarbe des Button
 
-                child: const Text('Bestätigen'),
+              // Anmelde-Button
+              FutureBuilder<void>(
+                future: updatePassword(), // Soll Daten abrufen
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const CircularProgressIndicator(); // Ladeanzeige
+                  } else if (snapshot.hasError) {
+                    return Text('Fehler: ${snapshot.error}'); // Fehlermeldung
+                  } else {
+                    return ElevatedButton(
+                      onPressed: () {
+                        // Navigieren zur nächsten Seite
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()),
+                        );
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all<Color>(
+                          const Color(0XFFEBE216),
+                        ),
+                        foregroundColor: WidgetStateProperty.all<Color>(
+                          Colors.black, // Schriftfarbe des Buttons
+                        ),
+                      ),
+                      // Hintergrundfarbe des Button
+                      child: const Text('Bestätigen'),
+                    );
+                  }
+                },
               ),
               const SizedBox(
                 height: 30,
               ),
               ElevatedButton(
                 onPressed: () {
-                  // Hier ist die Anmelde-Logik
-                  // Beispiel: Navigieren zur nächsten Seite
+                  // Zurück-Button-Logik
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const ForgotPassword()),
                   );
                 },
-
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color(0XFF16972A),
                   ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
+                  foregroundColor: WidgetStateProperty.all<Color>(
                     Colors.black, // Schriftfarbe des Buttons
                   ),
                 ),
                 // Hintergrundfarbe des Button
-
                 child: const Text('zurück'),
               ),
             ],
@@ -92,5 +101,22 @@ class NewPassword extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> updatePassword() async {
+    final newPassword =
+        newPasswordFormField.text; 
+    final confirmPassword =
+        confirmPasswordFormField.text; 
+
+    if (newPassword.isEmpty || confirmPassword.isEmpty) {
+      throw Exception('Bitte geben Sie sowohl das neue Passwort als auch die Bestätigung ein.');
+    } else if (newPassword != confirmPassword) {
+      throw Exception('Neue Passwörter stimmen nicht überein.');
+    }
+
+    final Map<String, dynamic> data = {
+      'newPassword': newPassword,
+    };
   }
 }

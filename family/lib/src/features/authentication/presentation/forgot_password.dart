@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,15 +47,14 @@ class ForgotPassword extends StatelessWidget {
                   // Beispiel: Navigieren zur nächsten Seite
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const NewPassword()),
+                    MaterialPageRoute(builder: (context) => NewPassword()),
                   );
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color(0XFFEBE216),
                   ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
+                  foregroundColor: WidgetStateProperty.all<Color>(
                     Colors.black, // Schriftfarbe des Buttons
                   ),
                 ),
@@ -65,10 +65,22 @@ class ForgotPassword extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
+              // FutureBuilder
+              FutureBuilder<bool>(
+                future: _resetPassword(), // Asynchrone Methode
+                builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return Text('Fehler: ${snapshot.error}');
+                    } else if (snapshot.hasData) {
+                      return const Text('Passwort wurde zurückgesetzt!');
+                    }
+                  }
+                  return const CircularProgressIndicator();
+                },
+              ),
               ElevatedButton(
                 onPressed: () {
-                  // Hier ist die Anmelde-Logik
-                  // Beispiel: Navigieren zur nächsten Seite
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const LoginPage()),
@@ -76,10 +88,10 @@ class ForgotPassword extends StatelessWidget {
                 },
 
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color(0XFF16972A),
                   ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
+                  foregroundColor: WidgetStateProperty.all<Color>(
                     Colors.black, // Schriftfarbe des Buttons
                   ),
                 ),
@@ -92,5 +104,10 @@ class ForgotPassword extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<bool> _resetPassword() async {
+    await Future.delayed(const Duration(seconds: 2)); // Verzögerungs bereich
+    return true; // Bei erfolgreichem Zurücksetzten des Passwortes kommt true
   }
 }
