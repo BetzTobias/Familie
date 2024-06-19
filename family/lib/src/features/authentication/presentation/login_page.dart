@@ -3,14 +3,20 @@ import 'package:family/src/features/authentication/presentation/new_registration
 import 'package:family/src/features/welcome/presentation/patient.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final usernameController = TextEditingController();
-    final passwordController = TextEditingController();
+  _LoginPageState createState() => _LoginPageState();
+}
 
+class _LoginPageState extends State<LoginPage> {
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  bool _obscurePassword = true;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
       body: Center(
@@ -39,19 +45,29 @@ class LoginPage extends StatelessWidget {
               // Passwort Eingabefeld
               TextFormField(
                 controller: passwordController,
-                obscureText: true,
-                decoration: const InputDecoration(
+                obscureText: _obscurePassword,
+                decoration: InputDecoration(
                   hintText: 'Passwort:',
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscurePassword
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                  ),
                 ),
               ),
               const SizedBox(height: 40),
               // Anmelde-Button with FutureBuilder
               FutureBuilder<void>(
                 future: login(
-                  username:
-                      usernameController.text, // userName vom Controller
-                  password:
-                      passwordController.text, // Password vom Controller
+                  username: usernameController.text, // userName vom Controller
+                  password: passwordController.text, // Password vom Controller
                 ),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
@@ -114,12 +130,9 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  
   Future<void> login(
       {required String username, required String password}) async {
-    
-   
-
-    print('Login war erfolgreich!'); 
+    // Hier die Logik zum Anmelden hinzufügen
+    print('Login war erfolgreich!');
   }
 }
