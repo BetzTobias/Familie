@@ -1,10 +1,10 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
+import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/all_my_little_ducks_song_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/bi_ba_butzemann_dancing_song_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/blue_mountains_song_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/hoppe_hoppe_reiter_song_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/sleep_kid_sleep_song_page.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
 class AllSongsPage extends StatelessWidget {
@@ -40,7 +40,8 @@ class AllSongsPage extends StatelessWidget {
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildAllSongButton(context, 'Es tanzt ein Bi-Ba-Butzemann', () {
+                  buildAllSongButton(context, 'Es tanzt ein Bi-Ba-Butzemann',
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -58,8 +59,8 @@ class AllSongsPage extends StatelessWidget {
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildAllSongButton(context, 'Von den blauen Bergen kommen wir',
-                      () {
+                  buildAllSongButton(
+                      context, 'Von den blauen Bergen kommen wir', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -82,7 +83,7 @@ class AllSongsPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MainSelectionPage(),
+                      builder: (context) => const EntertainmentPage(),
                     ),
                   );
                 },
