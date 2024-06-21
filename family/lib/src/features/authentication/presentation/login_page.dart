@@ -14,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   bool _obscurePassword = true;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,68 +35,99 @@ class _LoginPageState extends State<LoginPage> {
                   height: 200, // Höhe des Logos
                 ),
               ),
+
               // Benutzername Eingabefeld
-              TextFormField(
-                controller: usernameController,
-                decoration: const InputDecoration(
-                  hintText: 'Benutzername:',
-                ),
-              ),
-              const SizedBox(height: 40),
-              // Passwort Eingabefeld
-              TextFormField(
-                controller: passwordController,
-                obscureText: _obscurePassword,
-                decoration: InputDecoration(
-                  hintText: 'Passwort:',
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscurePassword
-                          ? Icons.visibility
-                          : Icons.visibility_off,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
-                    },
-                  ),
-                ),
-              ),
-              const SizedBox(height: 40),
-              // Anmelde-Button with FutureBuilder
-              FutureBuilder<void>(
-                future: login(
-                  username: usernameController.text, // userName vom Controller
-                  password: passwordController.text, // Password vom Controller
-                ),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator(); // Loading indicator
-                  } else if (snapshot.hasError) {
-                    return Text('Fehler: ${snapshot.error}'); // Error message
-                  } else {
-                    return ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PatientPage()),
-                        );
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: usernameController,
+                      decoration: const InputDecoration(
+                        label: Text('Name'),
+                        hintText: 'Benutzername bitte eingeben',
+                      ),
+                      validator: (value) {
+                        if (value == null || value.length < 6) {
+                          return 'Benutzername ist zu kurz';
+                        }
+                        return null;
                       },
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all<Color>(
-                          const Color(0XFFEBE216),
-                        ),
-                        foregroundColor: WidgetStateProperty.all<Color>(
-                          Colors.black, // Schriftfarbe des Buttons
+                    ),
+                    const SizedBox(height: 40),
+                    // Passwort Eingabefeld
+                    TextFormField(
+                      controller: passwordController,
+                      obscureText: _obscurePassword,
+                      decoration: InputDecoration(
+                        label: const Text('Passwort'),
+                        hintText: 'Passwort ist falsch',
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscurePassword
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscurePassword = !_obscurePassword;
+                            });
+                          },
                         ),
                       ),
-                      child: const Text('Anmelden'),
-                    );
-                  }
-                },
+                      validator: (value) {
+                        if (value == null || value.length < 11) {
+                          return 'Passwort ist zu klein';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 40),
+                    FutureBuilder<void>(
+                      future: login(
+                        username:
+                            usernameController.text, // userName vom Controller
+                        password:
+                            passwordController.text, // Password vom Controller
+                      ),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const CircularProgressIndicator(); // Loading indicator
+                        } else if (snapshot.hasError) {
+                          return Text(
+                              'Fehler: ${snapshot.error}'); // Error message
+                        } else {
+                          return ElevatedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const PatientPage()),
+                                );
+                              }
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all<Color>(
+                                const Color(0XFFEBE216),
+                              ),
+                              foregroundColor: WidgetStateProperty.all<Color>(
+                                Colors.black, // Schriftfarbe des Buttons
+                              ),
+                            ),
+                            child: const Text('Anmelden'),
+                          );
+                        }
+                      },
+                    ),
+                  ],
+                ),
               ),
+
+              // Anmelde-Button with FutureBuilder
+
               const SizedBox(height: 20),
               // Passwort vergessen und Neuen Account erstellen Aktionen
               Row(
@@ -132,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> login(
       {required String username, required String password}) async {
-    // Hier die Logik zum Anmelden hinzufügen
+    //TODO: Hier die Logik zum Anmelden hinzufügen
     print('Login war erfolgreich!');
   }
 }
