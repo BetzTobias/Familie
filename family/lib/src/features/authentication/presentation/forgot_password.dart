@@ -2,8 +2,15 @@ import 'package:family/src/features/authentication/presentation/login_page.dart'
 import 'package:family/src/features/authentication/presentation/new_password.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPassword extends StatelessWidget {
+class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
+
+  @override
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,60 +31,56 @@ class ForgotPassword extends StatelessWidget {
                   height: 200, // Höhe des Logos
                 ),
               ),
-
-              // Benutzername Eingabefeld
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Benutzername:',
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Benutzername:',
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    TextFormField(
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        hintText: 'E-Mail Adresse/ Telefonnummer:',
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    // Anmelde-Button
+                    ElevatedButton(
+                      onPressed: () async {
+                        bool result = await _resetPassword();
+                        if (result) {
+                          // Beispiel: Navigieren zur nächsten Seite
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NewPassword()),
+                          );
+                        } else {
+                          // Fehlerbehandlung
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Fehler beim Zurücksetzen des Passworts'),
+                            ),
+                          );
+                        }
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                          const Color(0XFFEBE216),
+                        ),
+                        foregroundColor: MaterialStateProperty.all<Color>(
+                          Colors.black, // Schriftfarbe des Buttons
+                        ),
+                      ),
+                      child: const Text('Passwort zurücksetzen'),
+                    ),
+                    const SizedBox(height: 30),
+                  ],
                 ),
-              ),
-              const SizedBox(height: 40),
-              // Passwort Eingabefeld
-              TextFormField(
-                obscureText: true,
-                decoration: const InputDecoration(
-                  hintText: 'E-Mail Adresse/ Telefonnummer:',
-                ),
-              ),
-              const SizedBox(height: 40),
-              // Anmelde-Button
-              ElevatedButton(
-                onPressed: () {
-                  // Hier ist die Anmelde-Logik
-                  // Beispiel: Navigieren zur nächsten Seite
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => NewPassword()),
-                  );
-                },
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(
-                    const Color(0XFFEBE216),
-                  ),
-                  foregroundColor: WidgetStateProperty.all<Color>(
-                    Colors.black, // Schriftfarbe des Buttons
-                  ),
-                ),
-                // Hintergrundfarbe des Button
-
-                child: const Text('Passwort zurücksetzten'),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              // FutureBuilder
-              FutureBuilder<bool>(
-                future: _resetPassword(), // Asynchrone Methode
-                builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    if (snapshot.hasError) {
-                      return Text('Fehler: ${snapshot.error}');
-                    } else if (snapshot.hasData) {
-                      return const Text('Passwort wurde zurückgesetzt!');
-                    }
-                  }
-                  return const CircularProgressIndicator();
-                },
               ),
               ElevatedButton(
                 onPressed: () {
@@ -86,17 +89,14 @@ class ForgotPassword extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
-
                 style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(
+                  backgroundColor: MaterialStateProperty.all<Color>(
                     const Color(0XFF16972A),
                   ),
-                  foregroundColor: WidgetStateProperty.all<Color>(
+                  foregroundColor: MaterialStateProperty.all<Color>(
                     Colors.black, // Schriftfarbe des Buttons
                   ),
                 ),
-                // Hintergrundfarbe des Button
-
                 child: const Text('zurück'),
               ),
             ],
@@ -107,7 +107,7 @@ class ForgotPassword extends StatelessWidget {
   }
 
   Future<bool> _resetPassword() async {
-    await Future.delayed(const Duration(seconds: 2)); // Verzögerungs bereich
-    return true; // Bei erfolgreichem Zurücksetzten des Passwortes kommt true
+    await Future.delayed(const Duration(seconds: 2)); // Verzögerungsbereich
+    return true; // Bei erfolgreichem Zurücksetzen des Passwortes kommt true
   }
 }

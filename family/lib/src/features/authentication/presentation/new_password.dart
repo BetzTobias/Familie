@@ -2,13 +2,26 @@ import 'package:family/src/features/authentication/presentation/forgot_password.
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 
-class NewPassword extends StatelessWidget {
+class NewPassword extends StatefulWidget {
   NewPassword({super.key});
 
+  @override
+  State<NewPassword> createState() => _NewPasswordState();
+}
+
+class _NewPasswordState extends State<NewPassword> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  late TextEditingController _newPasswordController;
+  late TextEditingController _confirmPasswordController;
+
+  @override
+  void initState() {
+    super.initState();
+    _newPasswordController = TextEditingController();
+    _confirmPasswordController = TextEditingController();
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +47,7 @@ class NewPassword extends StatelessWidget {
 
                 // Neues Passwort Eingabefeld
                 TextFormField(
-                  controller: newPasswordController,
+                  controller: _newPasswordController,
                   decoration: const InputDecoration(
                     hintText: 'Neues Passwort:',
                   ),
@@ -48,7 +61,7 @@ class NewPassword extends StatelessWidget {
                 const SizedBox(height: 40),
                 // Neues Passwort wiederholen Eingabefeld
                 TextFormField(
-                  controller: confirmPasswordController,
+                  controller: _confirmPasswordController,
                   obscureText: true,
                   decoration: const InputDecoration(
                     hintText: 'Neues Passwort wiederholen:',
@@ -61,44 +74,26 @@ class NewPassword extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 40),
-
-                // Anmelde-Button
-                FutureBuilder<void>(
-                  future: updatePassword(), // Soll Daten abrufen
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator(); // Ladeanzeige
-                    } else if (snapshot.hasError) {
-                      return Text('Fehler: ${snapshot.error}'); // Fehlermeldung
-                    } else {
-                      return ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            updatePassword().then((_) {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const LoginPage()),
-                              );
-                            }).catchError((error) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text(error.toString())));
-                            });
-                          }
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStateProperty.all<Color>(
-                            const Color(0XFFEBE216),
-                          ),
-                          foregroundColor: WidgetStateProperty.all<Color>(
-                            Colors.black, // Schriftfarbe des Buttons
-                          ),
-                        ),
-                        child: const Text('Bestätigen'),
+                ElevatedButton(onPressed: (){
+                  if (_formKey.currentState!.validate()) {
+                    updatePassword().then((_){
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()),
                       );
-                    }
-                  },
+                    }).catchError((error) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(error.toString())));
+                    });
+                  }
+                }, child: Text('Bestätigen'),
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all<Color>(const Color(0XFFEBE216)),
+                  foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
                 ),
+                ),
+                
                 const SizedBox(
                   height: 30,
                 ),
@@ -121,7 +116,7 @@ class NewPassword extends StatelessWidget {
                   ),
                   child: const Text('zurück'),
                 ),
-              ],
+          ],
             ),
           ),
         ),
@@ -130,12 +125,12 @@ class NewPassword extends StatelessWidget {
   }
 
   Future<void> updatePassword() async {
-    if (!_formKey.currentState!.validate()) {
-      return; // Abbruch falls Validierung fehlschlägt
-    }
+    // if (!_formKey.currentState!.validate()) {
+    //   return; // Abbruch falls Validierung fehlschlägt
+    // }
 
-    final newPassword = newPasswordController.text;
-    final confirmPassword = confirmPasswordController.text;
+    final newPassword = _newPasswordController.text;
+    final confirmPassword = _confirmPasswordController.text;
 
     if (newPassword.isEmpty || confirmPassword.isEmpty) {
       throw Exception(
@@ -143,8 +138,5 @@ class NewPassword extends StatelessWidget {
     } else if (newPassword != confirmPassword) {
       throw Exception('Neue Passwörter stimmen nicht überein.');
     }
-
-    // Hier können Sie die Logik zum Aktualisieren des Passworts hinzufügen,
-    // z.B. einen API-Aufruf zum Server senden.
   }
 }

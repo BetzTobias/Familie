@@ -19,19 +19,19 @@ class MockDatabase implements DatabaseRepository {
   ];
 
   @override
-  void loginUser(User currentUser) {
+  Future<void> loginUser(User currentUser) async {
     this.currentUser = currentUser;
   }
 
-  User? getUser() {
+  Future<User?> getUser() async {
     return currentUser;
   }
 
-  void removedUser() {
+  Future<void> removedUser() async {
     currentUser = null;
   }
 
-  List<Categorie> getCategorie() {
+  Future<List<Categorie>> getCategorie() async {
     return categorie;
   }
 }
