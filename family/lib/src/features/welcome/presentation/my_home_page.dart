@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       });
 
                       // Simulate some asynchronous operation (replace with your actual logic)
-                      Future.delayed(const Duration(seconds: 4), () {
+                      Future.delayed(const Duration(seconds: 3), () {
                         setState(() {
                           showLoading = false; // Hide loading circle
                         });
