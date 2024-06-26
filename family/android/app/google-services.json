@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "19993777386",
+    "project_id": "family-betz",
+    "storage_bucket": "family-betz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19993777386:android:45a70791a5a491139e7393",
+        "android_client_info": {
+          "package_name": "com.example.family"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhS9e11rqtT7y73IPC9vCg97qvefHyOsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
