@@ -36,6 +36,8 @@ dependencies:
   # Im Folgenden wird Ihrer Anwendung die Schriftart „Cupertino Icons“ hinzugefügt.
   # Verwendung mit der CupertinoIcons-Klasse für iOS-Stilsymbole.
   cupertino_icons: ^1.0.2
+  firebase_core: ^3.1.1
+  firebase_auth: ^5.1.1
 
 dev_dependencies:
   flutter_test:
@@ -61,8 +63,11 @@ flutter_launcher_icons:
 # Der folgende Abschnitt bezieht sich speziell auf Flutter-Pakete.
 flutter:
   assets:
-  - assets/
-
+    - assets/
+    - assets/dschungelbuch_bild1.png
+    - assets/dschungelbuch_bild2.png
+    - assets/dschungelbuch_bild3.png
+    - assets/dschungelbuch_bild4.png
 
   # Die folgende Zeile stellt sicher, dass die Schriftart „Material Icons“ lautet
   # in Ihrer Anwendung enthalten, damit Sie die Symbole darin verwenden können

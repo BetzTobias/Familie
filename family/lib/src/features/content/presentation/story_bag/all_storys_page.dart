@@ -1,12 +1,10 @@
-import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
-import 'package:family/src/features/content/presentation/menu_page.dart';
-import 'package:family/src/features/content/presentation/story_bag/all_storys_page.dart';
+import 'package:family/src/features/content/presentation/story_bag/story_bags.dart';
+import 'package:family/src/features/content/presentation/story_bag/the_jungle_book.dart';
 import 'package:flutter/material.dart';
 
-class StoryPage extends StatelessWidget {
-  const StoryPage({super.key});
+class AllStorysPage extends StatelessWidget {
+  const AllStorysPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +15,28 @@ class StoryPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 50),
-                    buildMenuButton(context, 'Geschichtensäckchen', () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AllStorysPage(),
-                        ),
-                      );
-                    }),
-                    const SizedBox(height: 10),
-                  ]),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 50),
+                  buildAllSongButton(context, 'Das Dschungelbuch', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TheJungleBook(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildAllSongButton(context, 'Rotkäppchen', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const StoryPage(),
+                      ),
+                    );
+                  }),
+                ],
+              ),
             ),
           ),
           Positioned(
@@ -43,7 +50,7 @@ class StoryPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MainSelectionPage(),
+                      builder: (context) => const StoryPage(),
                     ),
                   );
                 },
@@ -60,24 +67,12 @@ class StoryPage extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: 100,
-            left: 20,
-            child: MenuButton(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
-                );
-              },
-            ),
-          ),
         ],
       ),
     );
   }
 
-  Widget buildMenuButton(BuildContext context, String category,
+  Widget buildAllSongButton(BuildContext context, String category,
       [VoidCallback? onPressed]) {
     return ElevatedButton(
       onPressed: onPressed,
