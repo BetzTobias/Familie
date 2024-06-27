@@ -1,14 +1,14 @@
 import 'package:family/src/features/content/presentation/story_bag/all_storys_page.dart';
 import 'package:flutter/material.dart';
 
-class TheJungleBook extends StatefulWidget {
-  const TheJungleBook({super.key});
+class LittleRedRidingHood extends StatefulWidget {
+  const LittleRedRidingHood({super.key});
 
   @override
-  _TheJungleBookState createState() => _TheJungleBookState();
+  _LittleRedRidingHoodState createState() => _LittleRedRidingHoodState();
 }
 
-class _TheJungleBookState extends State<TheJungleBook> {
+class _LittleRedRidingHoodState extends State<LittleRedRidingHood> {
   bool _isCorrect = false;
   String _feedback = '';
   int _attempts = 0;
@@ -60,7 +60,7 @@ class _TheJungleBookState extends State<TheJungleBook> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Das Dschungelbuch'),
+        title: const Text('Das Rotkäppchen'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -69,19 +69,15 @@ class _TheJungleBookState extends State<TheJungleBook> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               const Text(
-                'Fröhlich wandern unsere beiden Freunde durch den Dschungel. Doch wird Mogli, als er erfahren hat, dass er zu den Menschen soll. traurig und zweifelt an Baghiras Freundschaft. Kaa, die listige Schlange, auf der Suche nach einem Zeitvertreib, versucht, sein Vertrauen zu erlangen.',
+                'Es war einmal ein kleines, süßes Mädchen. Jeder liebte sie. Am meisten ihre Großmutter. Eines Tages gab sie ihr eine rote Mütze aus Samt. Das Mädchen trug diese Mütze seitdem immer und wurde daher Rotkäppchen genannt.',
                 style: TextStyle(fontSize: 14),
               ),
               const Text(
-                'Aber Mogli ist Misstrauisch geworden. Er möchte zwar gern im Dschungel bleiben, aber nicht bei Kaa. Erst als er Colonel Hathi und seiner Frühpatrouille über den Weg läuft, scheint sich sein Schicksal zu entscheiden. Der aufgeblasene Colonel Hathi duldet kein Meschenkind im Dschungel. Genau so wie er seine Elephanten herumkommandiert, befiehlt er, Mogli unverzüglich zur Menschensiedlung zu schaffen. Baghira, der Panther, versucht wieder, dieser Aufgabe mit viel Takt und Mitgefühl gerecht zu werden, aber Mogli hat sich nun in den Kopf gesetzt, im Dschungel zu bleiben, koste es, was es wolle. Er will einfach nicht einsehen, dass er ein Menschenkind ist. So erklärt er trotzig, nicht mehr mit Baghira weiterzuziehen, sondern läuft alleine davon.',
+                'Eines Tages war ihre Großmutter krank. Also machte sich Rotkäppchen auf den Weg, um ihr Wein und Kekse zu bringen. Das würde sicherlich zu ihrem Wohlbefinden beitragen. Ihre Mutter sagte ihr, dass sie nicht den Weg verlassen und vorsichtig sein soll. Sie sollte außerdem höflich sein und sich von ihrer Großmutter verabschieden.',
                 style: TextStyle(fontSize: 14),
               ),
               const Text(
-                'Baghira, der die Verantwortung für Mogli übernommen hat, folgt ihm von fern und freut sich, als sich der Junge mit Balu, dem Bären, anfreundet. Balu, ein richtiger Nichtsnutz, Herumtreiber und liebenswerter Faulpelz, sorgt ausreichend dafür, dass Mogli wieder lachen kann. Nun beginnt eine herrliche, sorglose und wunderschöne Zeit. Balu und Mogli wollen immer zusammenbleiben, und Mogli lernt von seinem neuen freund, wie leicht und schön das Leben im Dschungel sein kann.',
-                style: TextStyle(fontSize: 14),
-              ),
-              const Text(
-                'Finde Balu und Mogli. Du hast 3 Versuche',
+                'Finde Rotkäppchen auf einem Weg. Du hast 3 Versuche',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
@@ -93,14 +89,14 @@ class _TheJungleBookState extends State<TheJungleBook> {
                     return GestureDetector(
                       onTap: () {
                         if (_attempts < _maxAttempts && !_isCorrect) {
-                          _checkAnswer(index, index == 3); // Position des Richtigen Bilds
+                          _checkAnswer(index, index == 2); // Position des Richtigen Bilds
                         }
                       },
                       child: Stack(
                         children: [
                           Card(
                             child: Image.asset(
-                              'assets/dschungelbuch_bild${index + 1}.png',
+                              'assets/rotkäppchen_bild${index + 1}.png',
                               fit: BoxFit.cover,
                             ),
                           ),

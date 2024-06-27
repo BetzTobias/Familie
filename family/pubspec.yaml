@@ -68,7 +68,11 @@ flutter:
     - assets/dschungelbuch_bild2.png
     - assets/dschungelbuch_bild3.png
     - assets/dschungelbuch_bild4.png
-
+    
+    - assets/rotkäppchen_bild1.png
+    - assets/rotkäppchen_bild2.png
+    - assets/rotkäppchen_bild3.png
+    - assets/rotkäppchen_bild4.png
   # Die folgende Zeile stellt sicher, dass die Schriftart „Material Icons“ lautet
   # in Ihrer Anwendung enthalten, damit Sie die Symbole darin verwenden können
   # die Material-Icons-Klasse.
