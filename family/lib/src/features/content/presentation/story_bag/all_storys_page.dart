@@ -1,3 +1,4 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/story_bag/story_bags.dart';
 import 'package:family/src/features/content/presentation/story_bag/the_jungle_book.dart';
@@ -5,7 +6,8 @@ import 'package:family/src/features/content/presentation/story_bag/little_red_ri
 import 'package:flutter/material.dart';
 
 class AllStorysPage extends StatelessWidget {
-  const AllStorysPage({super.key});
+  final AuthRepository authRepository;
+  const AllStorysPage({super.key, required this.authRepository, });
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class AllStorysPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const TheJungleBook(),
+                        builder: (context) => TheJungleBook(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -32,7 +34,7 @@ class AllStorysPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const LittleRedRidingHood(),
+                        builder: (context) => LittleRedRidingHood(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -51,7 +53,7 @@ class AllStorysPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const StoryPage(),
+                      builder: (context) => StoryPage(authRepository: authRepository,),
                     ),
                   );
                 },

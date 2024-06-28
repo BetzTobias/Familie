@@ -1,8 +1,10 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/story_bag/all_storys_page.dart';
 import 'package:flutter/material.dart';
 
 class TheJungleBook extends StatefulWidget {
-  const TheJungleBook({super.key});
+  final AuthRepository authRepository;
+  const TheJungleBook({super.key, required this.authRepository});
 
   @override
   _TheJungleBookState createState() => _TheJungleBookState();
@@ -93,7 +95,8 @@ class _TheJungleBookState extends State<TheJungleBook> {
                     return GestureDetector(
                       onTap: () {
                         if (_attempts < _maxAttempts && !_isCorrect) {
-                          _checkAnswer(index, index == 3); // Position des Richtigen Bilds
+                          _checkAnswer(index,
+                              index == 3); // Position des Richtigen Bilds
                         }
                       },
                       child: Stack(
@@ -130,7 +133,10 @@ class _TheJungleBookState extends State<TheJungleBook> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AllStorysPage(),
+                          builder: (context) => AllStorysPage(
+                            authRepository: widget.authRepository,
+                            
+                          ),
                         ),
                       );
                     },

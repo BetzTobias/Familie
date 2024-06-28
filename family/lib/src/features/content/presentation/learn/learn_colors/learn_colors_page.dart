@@ -1,10 +1,12 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page1.dart';
 import 'package:flutter/material.dart';
 
 class LearnColorsPage extends StatelessWidget {
-  const LearnColorsPage({super.key});
+  final AuthRepository authRepository;
+  const LearnColorsPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LearnPage(),
+                              builder: (context) => LearnPage(authRepository: authRepository,),
                             ),
                           );
                         },
@@ -68,8 +70,10 @@ class LearnColorsPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => LearnColorsPage1(
+                                authRepository: authRepository,
                                 colorsNumber: 1,
-                                colorsTipps: 'Bunte Gegenstände: Zeige deinem Kind verschiedene bunte Gegenstände wie Spielzeug, Kleidung oder Früchte. Benenne dabei die Farben deutlich. "Schau, das ist eine rote Erdbeere" oder "Dieses Auto ist blau".',
+                                colorsTipps:
+                                    'Bunte Gegenstände: Zeige deinem Kind verschiedene bunte Gegenstände wie Spielzeug, Kleidung oder Früchte. Benenne dabei die Farben deutlich. "Schau, das ist eine rote Erdbeere" oder "Dieses Auto ist blau".',
                               ),
                             ),
                           );

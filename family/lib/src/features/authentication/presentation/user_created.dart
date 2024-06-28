@@ -1,8 +1,12 @@
+import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 
 class UserCreated extends StatelessWidget {
-  const UserCreated({super.key});
+  final DatabaseRepository databaseRepository;
+  final AuthRepository authRepository;
+  const UserCreated({super.key, required this.databaseRepository, required this.authRepository});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +45,10 @@ class UserCreated extends StatelessWidget {
                   // Beispiel: Navigieren zur nächsten Seite
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                    MaterialPageRoute(
+                        builder: (context) => LoginPage(
+                            databaseRepository: databaseRepository,
+                            authRepository: authRepository)),
                   );
                 },
                 style: ButtonStyle(

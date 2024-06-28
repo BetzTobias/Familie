@@ -1,3 +1,4 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
@@ -10,7 +11,8 @@ import 'package:family/src/features/content/presentation/understanding/understan
 import 'package:flutter/material.dart';
 
 class CategoriesPage extends StatelessWidget {
-  const CategoriesPage({super.key});
+  final AuthRepository authRepository;
+  const CategoriesPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LearnPage()),
+                            builder: (context) => LearnPage(authRepository: authRepository,)),
                       );
                     },
                   ),
@@ -45,7 +47,7 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HygienePage()),
+                            builder: (context) => HygienePage(authRepository: authRepository,)),
                       );
                     },
                   ),
@@ -59,7 +61,7 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const EntertainmentPage()),
+                            builder: (context) => EntertainmentPage(authRepository: authRepository)),
                       );
                     },
                   ),
@@ -73,7 +75,7 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NaturePage()),
+                            builder: (context) => NaturePage(authRepository: authRepository,)),
                       );
                     },
                   ),
@@ -87,7 +89,7 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const StoryPage()),
+                            builder: (context) => StoryPage(authRepository: authRepository,)),
                       );
                     },
                   ),
@@ -101,7 +103,7 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LogicalThinkingPage()),
+                            builder: (context) => LogicalThinkingPage(authRepository: authRepository,)),
                       );
                     },
                   ),
@@ -115,7 +117,7 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const UnderstandingPage()),
+                            builder: (context) => UnderstandingPage(authRepository: authRepository,)),
                       );
                     },
                   ),
@@ -134,7 +136,9 @@ class CategoriesPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MenuPage(),
+                      builder: (context) => MenuPage(
+                        authRepository: authRepository,
+                      ),
                     ),
                   );
                 },

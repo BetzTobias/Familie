@@ -1,10 +1,17 @@
+import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/forgot_password.dart';
 import 'package:family/src/features/authentication/presentation/new_registration.dart';
 import 'package:family/src/features/welcome/presentation/patient.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final DatabaseRepository databaseRepository;
+  final AuthRepository authRepository;
+  const LoginPage(
+      {super.key,
+      required this.databaseRepository,
+      required this.authRepository});
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -99,13 +106,17 @@ class _LoginPageState extends State<LoginPage> {
                               'Fehler: ${snapshot.error}'); // Error message
                         } else {
                           return ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               if (_formKey.currentState!.validate()) {
+                                await widget.authRepository
+                                    .loginWithEmailAndPassword(
+                                        usernameController.text,
+                                        passwordController.text);
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const PatientPage()),
+                                          PatientPage(authRepository: widget.authRepository)),
                                 );
                               }
                             },
@@ -138,7 +149,9 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ForgotPassword()),
+                            builder: (context) => ForgotPassword(
+                                databaseRepository: widget.databaseRepository,
+                                authRepository: widget.authRepository)),
                       );
                     },
                     child: const Text('Passwort vergessen?'),
@@ -148,7 +161,9 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NewRegistration()),
+                            builder: (context) => NewRegistration(
+                                databaseRepository: widget.databaseRepository,
+                                authRepository: widget.authRepository)),
                       );
                     },
                     child: const Text('Neuer Account'),

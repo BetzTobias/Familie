@@ -1,9 +1,13 @@
+import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class NewRegistration extends StatefulWidget {
-  const NewRegistration({super.key});
+  final AuthRepository authRepository;
+  final DatabaseRepository databaseRepository;
+  const NewRegistration({super.key, required this.authRepository, required this.databaseRepository});
 
   @override
   _NewRegistrationState createState() => _NewRegistrationState();
@@ -140,12 +144,17 @@ class _NewRegistrationState extends State<NewRegistration> {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: ()async {
+
                     if (_formKey.currentState!.validate()) {
+                      await widget.authRepository
+                                    .loginWithEmailAndPassword(
+                                        usernameController.text,
+                                        passwordController.text);
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
+                            builder: (context) => LoginPage( databaseRepository: widget.databaseRepository, authRepository: widget.authRepository)),
                       );
                     }
                   },
@@ -162,10 +171,11 @@ class _NewRegistrationState extends State<NewRegistration> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
+                    
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LoginPage()),
+                          builder: (context) => LoginPage(databaseRepository: widget.databaseRepository, authRepository: widget.authRepository)),
                     );
                   },
                   style: ButtonStyle(

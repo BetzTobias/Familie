@@ -1,4 +1,5 @@
 import 'package:family/src/common/menue_button.dart';
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/wash/wash_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -6,10 +7,11 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class WashPage1 extends StatelessWidget {
+  final AuthRepository authRepository;
   final int washNumber;
   final String washTipps;
   const WashPage1(
-      {super.key, required this.washNumber, required this.washTipps});
+      {super.key, required this.washNumber, required this.washTipps, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class WashPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const WashPage(),
+                                builder: (context) => WashPage(authRepository: authRepository,),
                               ),
                             );
                           },
@@ -70,21 +72,24 @@ class WashPage1 extends StatelessWidget {
                                 builder: (context) {
                                   if (washNumber == 1) {
                                     // wir befinden uns auf Washseite 1
-                                    return const WashPage1(
+                                    return WashPage1(
+                                      authRepository: authRepository,
                                       washNumber: 2,
                                       washTipps:
                                           "Belohnungssystem einführen: Führe ein Belohnungssystem ein, bei dem das Kind für regelmäßiges und gründliches Waschen kleine Belohnungen erhält.",
                                     );
                                   } else if (washNumber == 2) {
                                     // wir befinden uns auf Washseite 2
-                                    return const WashPage1(
+                                    return WashPage1(
+                                      authRepository: authRepository,
                                       washNumber: 3,
                                       washTipps:
                                           "Positive Verstärkung: Lob und positive Verstärkung sind entscheidend. Zeige deine Freude, wenn das Kind eigenständig die Hände wäscht, und betone die Bedeutung von Sauberkeit.",
                                     );
                                   } else {
                                     // wir befinden uns auf Washseite 3
-                                    return const MainSelectionPage();
+                                    return MainSelectionPage(
+                                        authRepository: authRepository);
                                   }
                                 },
                               ),
@@ -116,7 +121,7 @@ class WashPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
                 );
               },
             ),

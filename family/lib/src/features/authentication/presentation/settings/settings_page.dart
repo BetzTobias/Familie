@@ -1,10 +1,12 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+  final AuthRepository authRepository;
+  const SettingsPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,8 @@ class SettingsPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const ManageProfilePage()),
+                              builder: (context) => ManageProfilePage(
+                                  authRepository: authRepository)),
                         );
                       },
                     ),
@@ -39,7 +42,8 @@ class SettingsPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const MainSelectionPage()),
+                              builder: (context) => MainSelectionPage(
+                                  authRepository: authRepository)),
                         );
                       },
                     ),

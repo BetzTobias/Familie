@@ -1,9 +1,13 @@
+import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/forgot_password.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 
 class NewPassword extends StatefulWidget {
-  NewPassword({super.key});
+  final DatabaseRepository databaseRepository;
+  final AuthRepository authRepository;
+  NewPassword({super.key, required this.databaseRepository, required this.authRepository});
 
   @override
   State<NewPassword> createState() => _NewPasswordState();
@@ -19,9 +23,7 @@ class _NewPasswordState extends State<NewPassword> {
     super.initState();
     _newPasswordController = TextEditingController();
     _confirmPasswordController = TextEditingController();
-
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -74,26 +76,30 @@ class _NewPasswordState extends State<NewPassword> {
                   },
                 ),
                 const SizedBox(height: 40),
-                ElevatedButton(onPressed: (){
-                  if (_formKey.currentState!.validate()) {
-                    updatePassword().then((_){
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
-                      );
-                    }).catchError((error) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(error.toString())));
-                    });
-                  }
-                }, child: Text('Bestätigen'),
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(const Color(0XFFEBE216)),
-                  foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      updatePassword().then((_) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage(databaseRepository: widget.databaseRepository, authRepository: widget.authRepository)),
+                        );
+                      }).catchError((error) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(error.toString())));
+                      });
+                    }
+                  },
+                  child: Text('Bestätigen'),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        WidgetStateProperty.all<Color>(const Color(0XFFEBE216)),
+                    foregroundColor:
+                        WidgetStateProperty.all<Color>(Colors.black),
+                  ),
                 ),
-                ),
-                
+
                 const SizedBox(
                   height: 30,
                 ),
@@ -103,7 +109,7 @@ class _NewPasswordState extends State<NewPassword> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ForgotPassword()),
+                          builder: (context) => ForgotPassword(databaseRepository: widget.databaseRepository, authRepository: widget.authRepository)),
                     );
                   },
                   style: ButtonStyle(
@@ -116,7 +122,7 @@ class _NewPasswordState extends State<NewPassword> {
                   ),
                   child: const Text('zurück'),
                 ),
-          ],
+              ],
             ),
           ),
         ),

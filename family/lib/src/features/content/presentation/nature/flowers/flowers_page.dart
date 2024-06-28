@@ -1,13 +1,12 @@
-
-
-
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/nature/flowers/flowers_page1.dart';
 import 'package:family/src/features/content/presentation/nature/nature.dart';
 import 'package:flutter/material.dart';
 
 class FlowersPage extends StatelessWidget {
-  const FlowersPage({super.key});
+  final AuthRepository authRepository;
+  const FlowersPage({super.key, required this.authRepository, });
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +41,7 @@ class FlowersPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const NaturePage(),
+                              builder: (context) => NaturePage(authRepository: authRepository,),
                             ),
                           );
                         },
@@ -71,8 +70,10 @@ class FlowersPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => FlowersPage1(
+                                authRepository: authRepository,
                                 flowersNumber: 1,
-                                flowersTipps: 'Blumen Memory Spiel: Spiele ein Memory-Spiel mit Karten, auf denen verschiedene Blumen abgebildet sind. Dies fördert die Konzentration und das visuelle Gedächtnis des Kindes.',
+                                flowersTipps:
+                                    'Blumen Memory Spiel: Spiele ein Memory-Spiel mit Karten, auf denen verschiedene Blumen abgebildet sind. Dies fördert die Konzentration und das visuelle Gedächtnis des Kindes.',
                               ),
                             ),
                           );

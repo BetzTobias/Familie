@@ -1,4 +1,5 @@
 import 'package:family/src/common/menue_button.dart';
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/to_form/to_form_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -6,10 +7,11 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class ToFormPage1 extends StatelessWidget {
+  final AuthRepository authRepository;
   final int formNumber;
   final String formTipps;
   const ToFormPage1(
-      {super.key, required this.formNumber, required this.formTipps});
+      {super.key, required this.formNumber, required this.formTipps, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class ToFormPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ToFormPage(),
+                                builder: (context) => ToFormPage(authRepository: authRepository,),
                               ),
                             );
                           },
@@ -70,28 +72,31 @@ class ToFormPage1 extends StatelessWidget {
                                 builder: (context) {
                                   if (formNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
-                                    return const ToFormPage1(
+                                    return ToFormPage1(
+                                      authRepository: authRepository,
                                       formNumber: 2,
                                       formTipps:
                                           "Formen benennen: Während du mit dem Kind spielst oder durch die Umgebung gehst, benenne die Formen von Gegenständen, die ihr seht. Das Fenster hat die Form eines Quadrats oder Der Tisch hat eine rechteckige Oberfläche.",
                                     );
                                   } else if (formNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
-                                    return const ToFormPage1(
+                                    return ToFormPage1(
+                                      authRepository: authRepository,
                                       formNumber: 3,
                                       formTipps:
                                           "Formen in der Natur: Bei Spaziergängen im Freien oder im Garten kann man Formen in der Natur entdecken. Kreise können beispielsweise Blumen oder Steine sein, während Bäume oder Schilder rechteckige Formen haben können.",
                                     );
                                   } else if (formNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
-                                    return const ToFormPage1(
+                                    return ToFormPage1(
+                                      authRepository: authRepository,
                                       formNumber: 4,
                                       formTipps:
                                           "Sandkasten oder Teig formen: Nutze Sand oder Modelliermasse, um verschiedene Formen zu erstellen. Kinder können Spaß daran haben, mit den Händen zu formen und dabei verschiedene Formen zu entdecken.",
                                     );
                                   } else {
                                     // wir befinden uns auf Regelseite 4
-                                    return const MainSelectionPage();
+                                    return MainSelectionPage(authRepository: authRepository,);
                                   }
                                 },
                               ),
@@ -123,7 +128,7 @@ class ToFormPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
                 );
               },
             ),

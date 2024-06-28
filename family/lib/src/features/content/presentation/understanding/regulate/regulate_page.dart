@@ -1,10 +1,12 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/understanding/regulate/regulate_page1.dart';
 import 'package:family/src/features/content/presentation/understanding/understanding.dart';
 import 'package:flutter/material.dart';
 
 class RegulatePage extends StatelessWidget {
-  const RegulatePage({super.key});
+  final AuthRepository authRepository;
+  const RegulatePage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class RegulatePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const UnderstandingPage(),
+                              builder: (context) => UnderstandingPage(authRepository: authRepository,),
                             ),
                           );
                         },
@@ -67,8 +69,10 @@ class RegulatePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RegulatePage1(
-                                regulateTipps: 'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
+                              builder: (context) => RegulatePage1(
+                                authRepository: authRepository,
+                                regulateTipps:
+                                    'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
                                 rulesNumber: 1,
                               ),
                             ),

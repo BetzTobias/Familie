@@ -1,4 +1,5 @@
 import 'package:family/src/common/menue_button.dart';
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking_page1.dart';
@@ -6,7 +7,8 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LogicalThinkingPage0 extends StatelessWidget {
-  const LogicalThinkingPage0({super.key});
+  final AuthRepository authRepository;
+  const LogicalThinkingPage0({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +42,9 @@ class LogicalThinkingPage0 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const LogicalThinkingPage(),
+                                builder: (context) => LogicalThinkingPage(
+                                  authRepository: authRepository,
+                                ),
                               ),
                             );
                           },
@@ -65,11 +68,12 @@ class LogicalThinkingPage0 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const LogicalThinkingPage1(
-                                      logicNumber: 1,
-                                      logicTipps: 'Formen mit Händen und Füßen nachahmen: Lass das Kind Formen mit den Händen oder Füßen nachahmen. Zum Beispiel können sie versuchen, einen großen Kreis mit ihren Armen zu machen und einen kleinen Kreis mit ihren Fingern.',
-                                    ),
+                                builder: (context) => LogicalThinkingPage1(
+                                  authRepository: authRepository,
+                                  logicNumber: 1,
+                                  logicTipps:
+                                      'Formen mit Händen und Füßen nachahmen: Lass das Kind Formen mit den Händen oder Füßen nachahmen. Zum Beispiel können sie versuchen, einen großen Kreis mit ihren Armen zu machen und einen kleinen Kreis mit ihren Fingern.',
+                                ),
                               ),
                             );
                           },
@@ -99,7 +103,10 @@ class LogicalThinkingPage0 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),

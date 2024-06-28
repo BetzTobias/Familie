@@ -1,3 +1,4 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/all_my_little_ducks_song_page.dart';
@@ -8,7 +9,8 @@ import 'package:family/src/features/content/presentation/entertainment/songs/sle
 import 'package:flutter/material.dart';
 
 class AllSongsPage extends StatelessWidget {
-  const AllSongsPage({super.key});
+  final AuthRepository authRepository;
+  const AllSongsPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AllMyLittleDucksSongPage(),
+                        builder: (context) => AllMyLittleDucksSongPage(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -35,7 +37,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SleepKidSleepSongPage(),
+                        builder: (context) => SleepKidSleepSongPage(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -45,7 +47,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const BiBaButzemannSongPage(),
+                        builder: (context) => BiBaButzemannSongPage(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -54,7 +56,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HoppeHoppeReiterSongPage(),
+                        builder: (context) => HoppeHoppeReiterSongPage(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -64,7 +66,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const BlueMountainsSongPage(),
+                        builder: (context) => BlueMountainsSongPage(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -83,7 +85,9 @@ class AllSongsPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const EntertainmentPage(),
+                      builder: (context) => EntertainmentPage(
+                        authRepository: authRepository,
+                      ),
                     ),
                   );
                 },

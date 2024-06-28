@@ -1,4 +1,5 @@
 import 'package:family/src/common/menue_button.dart';
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -6,10 +7,11 @@ import 'package:family/src/features/content/presentation/understanding/clean_tab
 import 'package:flutter/material.dart';
 
 class CleanTablePage1 extends StatelessWidget {
+  final AuthRepository authRepository;
   final int cleanNumber;
   final String cleanTipps;
   const CleanTablePage1(
-      {super.key, required this.cleanTipps, required this.cleanNumber});
+      {super.key, required this.cleanTipps, required this.cleanNumber, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,9 @@ class CleanTablePage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const CleanTablePage(),
+                                builder: (context) => CleanTablePage(
+                                  authRepository: authRepository,
+                                ),
                               ),
                             );
                           },
@@ -70,28 +74,33 @@ class CleanTablePage1 extends StatelessWidget {
                                 builder: (context) {
                                   if (cleanNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
-                                    return const CleanTablePage1(
+                                    return CleanTablePage1(
+                                      authRepository: authRepository,
                                       cleanNumber: 2,
                                       cleanTipps:
                                           "Aufräumspiel mit Timer: Verwende einen Timer und mache ein Spiel daraus. Das Kind kann versuchen, den Tisch schneller aufzuräumen, bevor der Timer abläuft.",
                                     );
                                   } else if (cleanNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
-                                    return const CleanTablePage1(
+                                    return CleanTablePage1(
+                                      authRepository: authRepository,
                                       cleanNumber: 3,
                                       cleanTipps:
                                           "Belohnungssystem einführen: Führe ein Belohnungssystem ein, bei dem das Kind für erfolgreiches Aufräumen eine kleine Belohnung erhalten kann. Dies kann die Motivation steigern.",
                                     );
                                   } else if (cleanNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
-                                    return const CleanTablePage1(
+                                    return CleanTablePage1(
+                                      authRepository: authRepository,
                                       cleanNumber: 4,
                                       cleanTipps:
                                           "Aufräumrennen: Spiele ein Aufräumrennen, bei dem das Kind gegen die Zeit oder andere Familienmitglieder antritt. Dies fördert Wettbewerbsgeist und Zusammenarbeit.",
                                     );
                                   } else {
                                     // wir befinden uns auf Regelseite 4
-                                    return const MainSelectionPage();
+                                    return MainSelectionPage(
+                                      authRepository: authRepository,
+                                    );
                                   }
                                 },
                               ),
@@ -123,7 +132,10 @@ class CleanTablePage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),

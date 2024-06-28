@@ -1,9 +1,16 @@
+import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:family/src/features/authentication/presentation/new_password.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({super.key});
+  final DatabaseRepository databaseRepository;
+  final AuthRepository authRepository;
+  const ForgotPassword(
+      {super.key,
+      required this.databaseRepository,
+      required this.authRepository});
 
   @override
   State<ForgotPassword> createState() => _ForgotPasswordState();
@@ -57,22 +64,26 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => NewPassword()),
+                                builder: (context) => NewPassword(
+                                    databaseRepository:
+                                        widget.databaseRepository,
+                                    authRepository: widget.authRepository)),
                           );
                         } else {
                           // Fehlerbehandlung
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text('Fehler beim Zurücksetzen des Passworts'),
+                              content: Text(
+                                  'Fehler beim Zurücksetzen des Passworts'),
                             ),
                           );
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
+                        backgroundColor: WidgetStateProperty.all<Color>(
                           const Color(0XFFEBE216),
                         ),
-                        foregroundColor: MaterialStateProperty.all<Color>(
+                        foregroundColor: WidgetStateProperty.all<Color>(
                           Colors.black, // Schriftfarbe des Buttons
                         ),
                       ),
@@ -86,14 +97,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                    MaterialPageRoute(
+                        builder: (context) => LoginPage(
+                            databaseRepository: widget.databaseRepository,
+                            authRepository: widget.authRepository)),
                   );
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color(0XFF16972A),
                   ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
+                  foregroundColor: WidgetStateProperty.all<Color>(
                     Colors.black, // Schriftfarbe des Buttons
                   ),
                 ),

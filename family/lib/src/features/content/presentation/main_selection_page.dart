@@ -1,3 +1,4 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
@@ -10,7 +11,8 @@ import 'package:family/src/features/content/presentation/understanding/understan
 import 'package:flutter/material.dart';
 
 class MainSelectionPage extends StatelessWidget {
-  const MainSelectionPage({super.key});
+  final AuthRepository authRepository;
+  const MainSelectionPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,9 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          MenuPage(authRepository: authRepository)),
                 );
               },
               child: Column(
@@ -41,7 +45,10 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const LearnPage()),
+                  MaterialPageRoute(
+                      builder: (context) => LearnPage(
+                            authRepository: authRepository,
+                          )),
                 );
               },
               child: Column(
@@ -58,7 +65,10 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const HygienePage()),
+                  MaterialPageRoute(
+                      builder: (context) => HygienePage(
+                            authRepository: authRepository,
+                          )),
                 );
               },
               child: Column(
@@ -76,7 +86,9 @@ class MainSelectionPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const EntertainmentPage()),
+                      builder: (context) => EntertainmentPage(
+                            authRepository: authRepository,
+                          )),
                 );
               },
               child: Column(
@@ -93,7 +105,7 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const NaturePage()),
+                  MaterialPageRoute(builder: (context) => NaturePage(authRepository: authRepository,)),
                 );
               },
               child: Column(
@@ -110,7 +122,7 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const StoryPage()),
+                  MaterialPageRoute(builder: (context) => StoryPage(authRepository: authRepository,)),
                 );
               },
               child: Column(
@@ -128,7 +140,7 @@ class MainSelectionPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const LogicalThinkingPage()),
+                      builder: (context) => LogicalThinkingPage(authRepository: authRepository,)),
                 );
               },
               child: Column(
@@ -146,7 +158,7 @@ class MainSelectionPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const UnderstandingPage()),
+                      builder: (context) => UnderstandingPage(authRepository: authRepository,)),
                 );
               },
               child: Column(

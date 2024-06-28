@@ -1,13 +1,12 @@
-
-
-
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/nature/animals/animals_page1.dart';
 import 'package:family/src/features/content/presentation/nature/nature.dart';
 import 'package:flutter/material.dart';
 
 class AnimalsPage extends StatelessWidget {
-  const AnimalsPage({super.key});
+  final AuthRepository authRepository;
+  const AnimalsPage({super.key, required this.authRepository, });
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +41,7 @@ class AnimalsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const NaturePage(),
+                              builder: (context) => NaturePage(authRepository: authRepository,),
                             ),
                           );
                         },
@@ -71,8 +70,10 @@ class AnimalsPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => AnimalsPage1(
+                                authRepository: authRepository,
                                 animalsNumber: 1,
-                                animalsTipps: 'Tierbücher und Geschichten: Lies gemeinsam mit dem Kind Bücher über Tiere. Es gibt viele illustrierte Bücher und Geschichten, die kindgerechte Informationen über verschiedene Tiere vermitteln.',
+                                animalsTipps:
+                                    'Tierbücher und Geschichten: Lies gemeinsam mit dem Kind Bücher über Tiere. Es gibt viele illustrierte Bücher und Geschichten, die kindgerechte Informationen über verschiedene Tiere vermitteln.',
                               ),
                             ),
                           );

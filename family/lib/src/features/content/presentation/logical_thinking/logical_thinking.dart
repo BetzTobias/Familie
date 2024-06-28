@@ -1,4 +1,5 @@
 import 'package:family/src/common/menue_button.dart';
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking_page0.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -6,7 +7,10 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LogicalThinkingPage extends StatelessWidget {
-  const LogicalThinkingPage({super.key});
+  final AuthRepository authRepository;
+  const LogicalThinkingPage({
+    super.key, required this.authRepository,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class LogicalThinkingPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const LogicalThinkingPage0(),
+                          builder: (context) => LogicalThinkingPage0(authRepository: authRepository,),
                         ),
                       );
                     }),
@@ -44,7 +48,7 @@ class LogicalThinkingPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MainSelectionPage(),
+                      builder: (context) => MainSelectionPage(authRepository: authRepository,),
                     ),
                   );
                 },
@@ -68,7 +72,7 @@ class LogicalThinkingPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
                 );
               },
             ),

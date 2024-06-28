@@ -1,4 +1,5 @@
 import 'package:family/src/common/menue_button.dart';
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -6,10 +7,11 @@ import 'package:family/src/features/content/presentation/nature/flowers/flowers_
 import 'package:flutter/material.dart';
 
 class FlowersPage1 extends StatelessWidget {
+  final AuthRepository authRepository;
   final int flowersNumber;
   final String flowersTipps;
   const FlowersPage1(
-      {super.key, required this.flowersNumber, required this.flowersTipps});
+      {super.key, required this.flowersNumber, required this.flowersTipps, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,9 @@ class FlowersPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const FlowersPage(),
+                                builder: (context) => FlowersPage(
+                                  authRepository: authRepository,
+                                ),
                               ),
                             );
                           },
@@ -70,28 +74,33 @@ class FlowersPage1 extends StatelessWidget {
                                 builder: (context) {
                                   if (flowersNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
-                                    return const FlowersPage1(
+                                    return FlowersPage1(
+                                      authRepository: authRepository,
                                       flowersNumber: 2,
                                       flowersTipps:
                                           "Blumen im Garten pflanzen: Pflanze gemeinsam Blumen im Garten. Dies gibt dem Kind die Möglichkeit, den Wachstumsprozess zu beobachten und die Pflege von Pflanzen zu lernen.",
                                     );
                                   } else if (flowersNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
-                                    return const FlowersPage1(
+                                    return FlowersPage1(
+                                      authRepository: authRepository,
                                       flowersNumber: 3,
                                       flowersTipps:
                                           "Blumenmalerei und Bastelprojekte: Lass das Kind Blumen malen oder basteln. Verwende dabei verschiedene Materialien wie Farben, Papier, Stoff oder Naturmaterialien. Dies fördert die künstlerischen Fähigkeiten und das Verständnis für Blumenstrukturen.",
                                     );
                                   } else if (flowersNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
-                                    return const FlowersPage1(
+                                    return FlowersPage1(
+                                      authRepository: authRepository,
                                       flowersNumber: 4,
                                       flowersTipps:
                                           "Geschichten über Blumen: Erzähle Geschichten über Blumen und ihre Bedeutung in der Natur. Betone, wie Blumen für Bienen wichtig sind und wie sie bei der Bestäubung helfen.",
                                     );
                                   } else {
                                     // wir befinden uns auf Regelseite 4
-                                    return const MainSelectionPage();
+                                    return MainSelectionPage(
+                                      authRepository: authRepository,
+                                    );
                                   }
                                 },
                               ),
@@ -123,7 +132,7 @@ class FlowersPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
                 );
               },
             ),

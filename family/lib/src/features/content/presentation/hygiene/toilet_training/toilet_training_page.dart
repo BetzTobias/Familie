@@ -1,10 +1,12 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
 import 'package:family/src/features/content/presentation/hygiene/toilet_training/toilet_training_page1.dart';
 import 'package:flutter/material.dart';
 
 class ToiletTrainingPage extends StatelessWidget {
-  const ToiletTrainingPage({super.key});
+  final AuthRepository authRepository;
+  const ToiletTrainingPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class ToiletTrainingPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HygienePage(),
+                              builder: (context) => HygienePage(authRepository: authRepository,),
                             ),
                           );
                         },
@@ -67,10 +69,12 @@ class ToiletTrainingPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>ToiletTrainingPage1(
-                                toiletTipps: 'Kindgerechte Toilettenausstattung: Verwende eine kinderfreundliche Toilettenbrille und einen Tritthocker, damit das Kind leicht auf die Toilette steigen kann. Stelle sicher, dass alles in kindgerechten Farben und Formen gestaltet ist.',
-                             toiletNumber: 1,
-                             ),
+                              builder: (context) => ToiletTrainingPage1(
+                                authRepository: authRepository,
+                                toiletTipps:
+                                    'Kindgerechte Toilettenausstattung: Verwende eine kinderfreundliche Toilettenbrille und einen Tritthocker, damit das Kind leicht auf die Toilette steigen kann. Stelle sicher, dass alles in kindgerechten Farben und Formen gestaltet ist.',
+                                toiletNumber: 1,
+                              ),
                             ),
                           );
                         },

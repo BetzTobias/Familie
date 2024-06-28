@@ -1,4 +1,5 @@
 import 'package:family/src/common/menue_button.dart';
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/brush_teeth/brush_teeth_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/toilet_training/toilet_training_page.dart';
@@ -8,7 +9,8 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class HygienePage extends StatelessWidget {
-  const HygienePage({super.key});
+  final AuthRepository authRepository;
+  const HygienePage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,9 @@ class HygienePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const BrushTeethPage(),
+                        builder: (context) => BrushTeethPage(
+                          authRepository: authRepository,
+                        ),
                       ),
                     );
                   }),
@@ -35,7 +39,7 @@ class HygienePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ToiletTrainingPage(),
+                        builder: (context) => ToiletTrainingPage(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -44,7 +48,7 @@ class HygienePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const WashPage(),
+                        builder: (context) => WashPage(authRepository: authRepository,),
                       ),
                     );
                   }),
@@ -63,7 +67,7 @@ class HygienePage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MainSelectionPage(),
+                      builder: (context) => MainSelectionPage(authRepository: authRepository,),
                     ),
                   );
                 },
@@ -87,7 +91,7 @@ class HygienePage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
                 );
               },
             ),

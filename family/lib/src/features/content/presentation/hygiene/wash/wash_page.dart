@@ -1,10 +1,12 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
 import 'package:family/src/features/content/presentation/hygiene/wash/Wash_page1.dart';
 import 'package:flutter/material.dart';
 
 class WashPage extends StatelessWidget {
-  const WashPage({super.key});
+  final AuthRepository authRepository;
+  const WashPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,8 @@ class WashPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HygienePage(),
+                              builder: (context) =>
+                                  HygienePage(authRepository: authRepository),
                             ),
                           );
                         },
@@ -68,7 +71,9 @@ class WashPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => WashPage1(
-                                washTipps: 'Wasch-Songs und Reime: Erfinde oder suche nach Wasch-Songs oder Reimen. Die Kinder können während des Waschens mitsingen oder sich die Lieder merken, um die empfohlene Dauer von mindestens 20 Sekunden einzuhalten.',
+                                authRepository: authRepository,
+                                washTipps:
+                                    'Wasch-Songs und Reime: Erfinde oder suche nach Wasch-Songs oder Reimen. Die Kinder können während des Waschens mitsingen oder sich die Lieder merken, um die empfohlene Dauer von mindestens 20 Sekunden einzuhalten.',
                                 washNumber: 1,
                               ),
                             ),

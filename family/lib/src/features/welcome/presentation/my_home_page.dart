@@ -1,9 +1,13 @@
 import 'package:family/src/common/logo.dart';
+import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  final DatabaseRepository databaseRepository;
+  final AuthRepository authRepository;
+  const MyHomePage({super.key, required this.databaseRepository, required this.authRepository});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -37,15 +41,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         });
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const LoginPage()),
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage(
+                                  databaseRepository: widget.databaseRepository,
+                                  authRepository: widget.authRepository)),
                         );
                       });
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
+                      backgroundColor: WidgetStateProperty.all<Color>(
                         const Color(0XFFEBE216),
                       ),
-                      foregroundColor: MaterialStateProperty.all<Color>(
+                      foregroundColor: WidgetStateProperty.all<Color>(
                         Colors.black, // Schriftfarbe des Buttons
                       ),
                     ),

@@ -1,10 +1,12 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/brush_teeth/brush_teeth_page1.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
 import 'package:flutter/material.dart';
 
 class BrushTeethPage extends StatelessWidget {
-  const BrushTeethPage({super.key});
+  final AuthRepository authRepository;
+  const BrushTeethPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class BrushTeethPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HygienePage(),
+                              builder: (context) => HygienePage(authRepository: authRepository,),
                             ),
                           );
                         },
@@ -68,8 +70,10 @@ class BrushTeethPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => BrushTeethPage1(
-                                brushTipps: 'Kinderfreundliche Zahnbürste und Zahnpasta: Verwende eine weiche, kinderfreundliche Zahnbürste und eine Kinderzahnpasta mit angenehmem Geschmack. Lass dein Kind die Zahnbürste und Pasta selbst aussuchen, um die Motivation zu steigern.',
-                              brushNumber: 1,
+                                authRepository: authRepository,
+                                brushTipps:
+                                    'Kinderfreundliche Zahnbürste und Zahnpasta: Verwende eine weiche, kinderfreundliche Zahnbürste und eine Kinderzahnpasta mit angenehmem Geschmack. Lass dein Kind die Zahnbürste und Pasta selbst aussuchen, um die Motivation zu steigern.',
+                                brushNumber: 1,
                               ),
                             ),
                           );

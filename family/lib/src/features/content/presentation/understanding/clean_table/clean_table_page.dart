@@ -1,13 +1,12 @@
-
-
-
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/understanding/clean_table/clean_table_page1.dart';
 import 'package:family/src/features/content/presentation/understanding/understanding.dart';
 import 'package:flutter/material.dart';
 
 class CleanTablePage extends StatelessWidget {
-  const CleanTablePage({super.key});
+  final AuthRepository authRepository;
+  const CleanTablePage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +41,7 @@ class CleanTablePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const UnderstandingPage(
-
-                              ),
+                              builder: (context) => UnderstandingPage(authRepository: authRepository,),
                             ),
                           );
                         },
@@ -72,9 +69,11 @@ class CleanTablePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const CleanTablePage1(
-                                cleanTipps: 'Lustige Aufräumlieder: Erfinde oder suche nach lustigen Aufräumliedern. Diese können den Prozess unterhaltsamer gestalten und dem Kind helfen, sich besser zu engagieren.',
-                              cleanNumber: 1,
+                              builder: (context) => CleanTablePage1(
+                                authRepository: authRepository,
+                                cleanTipps:
+                                    'Lustige Aufräumlieder: Erfinde oder suche nach lustigen Aufräumliedern. Diese können den Prozess unterhaltsamer gestalten und dem Kind helfen, sich besser zu engagieren.',
+                                cleanNumber: 1,
                               ),
                             ),
                           );

@@ -1,8 +1,10 @@
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/story_bag/all_storys_page.dart';
 import 'package:flutter/material.dart';
 
 class LittleRedRidingHood extends StatefulWidget {
-  const LittleRedRidingHood({super.key});
+  final AuthRepository authRepository;
+  const LittleRedRidingHood({super.key, required this.authRepository});
 
   @override
   _LittleRedRidingHoodState createState() => _LittleRedRidingHoodState();
@@ -89,7 +91,8 @@ class _LittleRedRidingHoodState extends State<LittleRedRidingHood> {
                     return GestureDetector(
                       onTap: () {
                         if (_attempts < _maxAttempts && !_isCorrect) {
-                          _checkAnswer(index, index == 2); // Position des Richtigen Bilds
+                          _checkAnswer(index,
+                              index == 2); // Position des Richtigen Bilds
                         }
                       },
                       child: Stack(
@@ -126,7 +129,9 @@ class _LittleRedRidingHoodState extends State<LittleRedRidingHood> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AllStorysPage(),
+                          builder: (context) => AllStorysPage(
+                            authRepository: widget.authRepository,
+                          ),
                         ),
                       );
                     },

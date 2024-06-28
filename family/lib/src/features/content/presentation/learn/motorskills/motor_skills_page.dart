@@ -1,4 +1,5 @@
 import 'package:family/src/common/menue_button.dart';
+import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page2.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -6,7 +7,8 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class MotorSkillsPage extends StatelessWidget {
-  const MotorSkillsPage({super.key});
+  final AuthRepository authRepository;
+  const MotorSkillsPage({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,9 @@ class MotorSkillsPage extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const MainSelectionPage(),
+                                builder: (context) => MainSelectionPage(
+                                  authRepository: authRepository,
+                                ),
                               ),
                             );
                           },
@@ -65,8 +69,10 @@ class MotorSkillsPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => MotorSkillsPage2(
+                                  authRepository: authRepository,
                                   skillsNumber: 2,
-                                  skillsTipps: 'Feinmotorik fördern: Biete Aktivitäten an, die die Fingerfertigkeiten verbessern, wie z.B. Malen, Basteln oder das Spielen mit Bausteinen. Diese Aktivitäten stärken die Handmuskulatur und fördern die Hand-Auge-Koordination.',
+                                  skillsTipps:
+                                      'Feinmotorik fördern: Biete Aktivitäten an, die die Fingerfertigkeiten verbessern, wie z.B. Malen, Basteln oder das Spielen mit Bausteinen. Diese Aktivitäten stärken die Handmuskulatur und fördern die Hand-Auge-Koordination.',
                                 ),
                               ),
                             );
@@ -97,7 +103,7 @@ class MotorSkillsPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MenuPage()),
+                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
                 );
               },
             ),
