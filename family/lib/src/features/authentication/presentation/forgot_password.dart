@@ -18,6 +18,7 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,41 +43,45 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        hintText: 'Benutzername:',
-                      ),
-                    ),
                     const SizedBox(height: 40),
                     TextFormField(
-                      obscureText: true,
+                      controller: _emailController,
+                      obscureText: false,
                       decoration: const InputDecoration(
-                        hintText: 'E-Mail Adresse/ Telefonnummer:',
+                        hintText: 'E-Mail Adresse',
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Bitte E-Mail-Adresse eingeben';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 40),
                     // Anmelde-Button
                     ElevatedButton(
                       onPressed: () async {
-                        bool result = await _resetPassword();
-                        if (result) {
-                          // Beispiel: Navigieren zur nächsten Seite
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NewPassword(
-                                    databaseRepository:
-                                        widget.databaseRepository,
-                                    authRepository: widget.authRepository)),
-                          );
-                        } else {
-                          // Fehlerbehandlung
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text(
-                                  'Fehler beim Zurücksetzen des Passworts'),
-                            ),
-                          );
+                        if (_formKey.currentState!.validate()) {
+                          bool result = await _resetPassword();
+                          if (result) {
+                            // Beispiel: Navigieren zur nächsten Seite
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NewPassword(
+                                      databaseRepository:
+                                          widget.databaseRepository,
+                                      authRepository: widget.authRepository)),
+                            );
+                          } else {
+                            // Fehlerbehandlung
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    'Fehler beim Zurücksetzen des Passworts'),
+                              ),
+                            );
+                          }
                         }
                       },
                       style: ButtonStyle(
@@ -121,7 +126,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   }
 
   Future<bool> _resetPassword() async {
-    await Future.delayed(const Duration(seconds: 2)); // Verzögerungsbereich
-    return true; // Bei erfolgreichem Zurücksetzen des Passwortes kommt true
+    try {
+      await widget.authRepository.sendPasswordResetEmail(_emailController.text);
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
   }
 }

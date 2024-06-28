@@ -18,7 +18,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
   bool _obscurePassword = true;
   final _formKey = GlobalKey<FormState>();
@@ -43,20 +43,20 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              // Benutzername Eingabefeld
+              // Email Eingabefeld
               Form(
                 key: _formKey,
                 child: Column(
                   children: [
                     TextFormField(
-                      controller: usernameController,
+                      controller: emailController,
                       decoration: const InputDecoration(
-                        label: Text('Name'),
-                        hintText: 'Benutzername bitte eingeben',
+                        label: Text('Email'),
+                        hintText: 'Email adressse bitte eingeben',
                       ),
                       validator: (value) {
                         if (value == null || value.length < 6) {
-                          return 'Benutzername ist zu kurz';
+                          return 'Email adresse ist falsch';
                         }
                         return null;
                       },
@@ -92,8 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 40),
                     FutureBuilder<void>(
                       future: login(
-                        username:
-                            usernameController.text, // userName vom Controller
+                        username: emailController.text, // email vom Controller
                         password:
                             passwordController.text, // Password vom Controller
                       ),
@@ -110,13 +109,17 @@ class _LoginPageState extends State<LoginPage> {
                               if (_formKey.currentState!.validate()) {
                                 await widget.authRepository
                                     .loginWithEmailAndPassword(
-                                        usernameController.text,
+                                        emailController.text,
                                         passwordController.text);
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          PatientPage(authRepository: widget.authRepository, databaseRepository: widget.databaseRepository,)),
+                                      builder: (context) => PatientPage(
+                                            authRepository:
+                                                widget.authRepository,
+                                            databaseRepository:
+                                                widget.databaseRepository,
+                                          )),
                                 );
                               }
                             },
