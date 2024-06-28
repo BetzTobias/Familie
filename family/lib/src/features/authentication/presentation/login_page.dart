@@ -20,7 +20,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  bool _obscurePassword = true;
+  bool _obscurePassword = false;
   final _formKey = GlobalKey<FormState>();
 
   @override
