@@ -1,13 +1,19 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
+import 'package:family/src/features/content/presentation/story_bag/little_red_riding_hood.dart';
 import 'package:family/src/features/content/presentation/story_bag/story_bags.dart';
 import 'package:family/src/features/content/presentation/story_bag/the_jungle_book.dart';
-import 'package:family/src/features/content/presentation/story_bag/little_red_riding_hood.dart';
 import 'package:flutter/material.dart';
 
 class AllStorysPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const AllStorysPage({super.key, required this.authRepository, });
+  const AllStorysPage({
+    super.key,
+    required this.authRepository,
+    required this.databaseRepository,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +31,10 @@ class AllStorysPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TheJungleBook(authRepository: authRepository,),
+                        builder: (context) => TheJungleBook(
+                          databaseRepository: databaseRepository,
+                          authRepository: authRepository,
+                        ),
                       ),
                     );
                   }),
@@ -34,7 +43,10 @@ class AllStorysPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LittleRedRidingHood(authRepository: authRepository,),
+                        builder: (context) => LittleRedRidingHood(
+                          databaseRepository: databaseRepository,
+                          authRepository: authRepository,
+                        ),
                       ),
                     );
                   }),
@@ -53,7 +65,10 @@ class AllStorysPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => StoryPage(authRepository: authRepository,),
+                      builder: (context) => StoryPage(
+                        databaseRepository: databaseRepository,
+                        authRepository: authRepository,
+                      ),
                     ),
                   );
                 },

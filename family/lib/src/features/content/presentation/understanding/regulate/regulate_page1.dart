@@ -1,11 +1,13 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class RegulatePage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int rulesNumber;
   final String regulateTipps;
@@ -13,7 +15,7 @@ class RegulatePage1 extends StatelessWidget {
       {super.key,
       required this.regulateTipps,
       required this.rulesNumber,
-      required this.authRepository});
+      required this.authRepository, required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +74,7 @@ class RegulatePage1 extends StatelessWidget {
                                   if (rulesNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
                                     return RegulatePage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       rulesNumber: 2,
                                       regulateTipps:
@@ -80,6 +83,7 @@ class RegulatePage1 extends StatelessWidget {
                                   } else if (rulesNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
                                     return RegulatePage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       rulesNumber: 3,
                                       regulateTipps:
@@ -88,6 +92,7 @@ class RegulatePage1 extends StatelessWidget {
                                   } else if (rulesNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
                                     return RegulatePage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       rulesNumber: 4,
                                       regulateTipps:
@@ -96,6 +101,7 @@ class RegulatePage1 extends StatelessWidget {
                                   } else {
                                     // wir befinden uns auf Regelseite 4
                                     return MainSelectionPage(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                     );
                                   }
@@ -131,6 +137,7 @@ class RegulatePage1 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
                             authRepository: authRepository,
                           )),
                 );

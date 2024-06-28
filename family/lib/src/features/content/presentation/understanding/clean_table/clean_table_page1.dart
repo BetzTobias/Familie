@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -7,11 +8,16 @@ import 'package:family/src/features/content/presentation/understanding/clean_tab
 import 'package:flutter/material.dart';
 
 class CleanTablePage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int cleanNumber;
   final String cleanTipps;
   const CleanTablePage1(
-      {super.key, required this.cleanTipps, required this.cleanNumber, required this.authRepository});
+      {super.key,
+      required this.cleanTipps,
+      required this.cleanNumber,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +52,7 @@ class CleanTablePage1 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => CleanTablePage(
+                                  databaseRepository: databaseRepository,
                                   authRepository: authRepository,
                                 ),
                               ),
@@ -75,6 +82,7 @@ class CleanTablePage1 extends StatelessWidget {
                                   if (cleanNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
                                     return CleanTablePage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       cleanNumber: 2,
                                       cleanTipps:
@@ -83,6 +91,7 @@ class CleanTablePage1 extends StatelessWidget {
                                   } else if (cleanNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
                                     return CleanTablePage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       cleanNumber: 3,
                                       cleanTipps:
@@ -91,6 +100,7 @@ class CleanTablePage1 extends StatelessWidget {
                                   } else if (cleanNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
                                     return CleanTablePage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       cleanNumber: 4,
                                       cleanTipps:
@@ -99,6 +109,7 @@ class CleanTablePage1 extends StatelessWidget {
                                   } else {
                                     // wir befinden uns auf Regelseite 4
                                     return MainSelectionPage(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                     );
                                   }
@@ -134,6 +145,7 @@ class CleanTablePage1 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
                             authRepository: authRepository,
                           )),
                 );

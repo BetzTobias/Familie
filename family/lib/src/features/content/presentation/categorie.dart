@@ -1,4 +1,5 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
@@ -11,8 +12,12 @@ import 'package:family/src/features/content/presentation/understanding/understan
 import 'package:flutter/material.dart';
 
 class CategoriesPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const CategoriesPage({super.key, required this.authRepository});
+  const CategoriesPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,10 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => LearnPage(authRepository: authRepository,)),
+                            builder: (context) => LearnPage(
+                                  databaseRepository: databaseRepository,
+                                  authRepository: authRepository,
+                                )),
                       );
                     },
                   ),
@@ -47,7 +55,10 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HygienePage(authRepository: authRepository,)),
+                            builder: (context) => HygienePage(
+                                  databaseRepository: databaseRepository,
+                                  authRepository: authRepository,
+                                )),
                       );
                     },
                   ),
@@ -61,7 +72,9 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EntertainmentPage(authRepository: authRepository)),
+                            builder: (context) => EntertainmentPage(
+                                databaseRepository: databaseRepository,
+                                authRepository: authRepository)),
                       );
                     },
                   ),
@@ -75,7 +88,10 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => NaturePage(authRepository: authRepository,)),
+                            builder: (context) => NaturePage(
+                                  databaseRepository: databaseRepository,
+                                  authRepository: authRepository,
+                                )),
                       );
                     },
                   ),
@@ -89,7 +105,10 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => StoryPage(authRepository: authRepository,)),
+                            builder: (context) => StoryPage(
+                                  databaseRepository: databaseRepository,
+                                  authRepository: authRepository,
+                                )),
                       );
                     },
                   ),
@@ -103,7 +122,9 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => LogicalThinkingPage(authRepository: authRepository,)),
+                            builder: (context) => LogicalThinkingPage(databaseRepository: databaseRepository,
+                                  authRepository: authRepository,
+                                )),
                       );
                     },
                   ),
@@ -117,7 +138,10 @@ class CategoriesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => UnderstandingPage(authRepository: authRepository,)),
+                            builder: (context) => UnderstandingPage(
+                                  databaseRepository: databaseRepository,
+                                  authRepository: authRepository,
+                                )),
                       );
                     },
                   ),
@@ -138,6 +162,7 @@ class CategoriesPage extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => MenuPage(
                         authRepository: authRepository,
+                        databaseRepository: databaseRepository,
                       ),
                     ),
                   );

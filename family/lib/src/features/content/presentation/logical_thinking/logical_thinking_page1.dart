@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking_page0.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -7,6 +8,7 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LogicalThinkingPage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int logicNumber;
   final String logicTipps;
@@ -14,7 +16,8 @@ class LogicalThinkingPage1 extends StatelessWidget {
       {super.key,
       required this.logicNumber,
       required this.logicTipps,
-       required this.authRepository});
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +51,10 @@ class LogicalThinkingPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    LogicalThinkingPage0(authRepository: authRepository,),
+                                builder: (context) => LogicalThinkingPage0(
+                                  databaseRepository: databaseRepository,
+                                  authRepository: authRepository,
+                                ),
                               ),
                             );
                           },
@@ -77,6 +82,7 @@ class LogicalThinkingPage1 extends StatelessWidget {
                                   if (logicNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
                                     return LogicalThinkingPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       logicNumber: 2,
                                       logicTipps:
@@ -85,6 +91,7 @@ class LogicalThinkingPage1 extends StatelessWidget {
                                   } else if (logicNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
                                     return LogicalThinkingPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       logicNumber: 3,
                                       logicTipps:
@@ -93,6 +100,7 @@ class LogicalThinkingPage1 extends StatelessWidget {
                                   } else if (logicNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
                                     return LogicalThinkingPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       logicNumber: 4,
                                       logicTipps:
@@ -100,7 +108,10 @@ class LogicalThinkingPage1 extends StatelessWidget {
                                     );
                                   } else {
                                     // wir befinden uns auf Regelseite 4
-                                    return MainSelectionPage(authRepository: authRepository,);
+                                    return MainSelectionPage(
+                                      databaseRepository: databaseRepository,
+                                      authRepository: authRepository,
+                                    );
                                   }
                                 },
                               ),
@@ -132,7 +143,11 @@ class LogicalThinkingPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),

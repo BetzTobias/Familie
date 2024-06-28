@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -7,11 +8,16 @@ import 'package:family/src/features/content/presentation/nature/animals/animals_
 import 'package:flutter/material.dart';
 
 class AnimalsPage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int animalsNumber;
   final String animalsTipps;
   const AnimalsPage1(
-      {super.key, required this.animalsNumber, required this.animalsTipps, required this.authRepository});
+      {super.key,
+      required this.animalsNumber,
+      required this.animalsTipps,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +52,7 @@ class AnimalsPage1 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => AnimalsPage(
+                                  databaseRepository: databaseRepository,
                                   authRepository: authRepository,
                                 ),
                               ),
@@ -75,6 +82,7 @@ class AnimalsPage1 extends StatelessWidget {
                                   if (animalsNumber == 1) {
                                     // wir befinden uns auf Brushseite 1
                                     return AnimalsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       animalsNumber: 2,
                                       animalsTipps:
@@ -83,6 +91,7 @@ class AnimalsPage1 extends StatelessWidget {
                                   } else if (animalsNumber == 2) {
                                     // wir befinden uns auf Brushseite 2
                                     return AnimalsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       animalsNumber: 3,
                                       animalsTipps:
@@ -91,6 +100,7 @@ class AnimalsPage1 extends StatelessWidget {
                                   } else if (animalsNumber == 3) {
                                     // wir befinden uns auf Brushseite 3
                                     return AnimalsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       animalsNumber: 4,
                                       animalsTipps:
@@ -99,6 +109,7 @@ class AnimalsPage1 extends StatelessWidget {
                                   } else if (animalsNumber == 4) {
                                     // wir befinden uns auf Brushseite 4
                                     return AnimalsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       animalsNumber: 5,
                                       animalsTipps:
@@ -107,6 +118,7 @@ class AnimalsPage1 extends StatelessWidget {
                                   } else {
                                     // wir befinden uns auf Brushseite 6
                                     return MainSelectionPage(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                     );
                                   }
@@ -140,7 +152,11 @@ class AnimalsPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),

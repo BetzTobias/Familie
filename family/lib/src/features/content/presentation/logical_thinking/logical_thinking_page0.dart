@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking_page1.dart';
@@ -7,8 +8,9 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LogicalThinkingPage0 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const LogicalThinkingPage0({super.key, required this.authRepository});
+  const LogicalThinkingPage0({super.key, required this.authRepository, required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,7 @@ class LogicalThinkingPage0 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => LogicalThinkingPage(
+                                  databaseRepository: databaseRepository,
                                   authRepository: authRepository,
                                 ),
                               ),
@@ -69,6 +72,7 @@ class LogicalThinkingPage0 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => LogicalThinkingPage1(
+                                  databaseRepository: databaseRepository,
                                   authRepository: authRepository,
                                   logicNumber: 1,
                                   logicTipps:
@@ -105,6 +109,7 @@ class LogicalThinkingPage0 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
                             authRepository: authRepository,
                           )),
                 );

@@ -32,7 +32,7 @@ class App extends StatelessWidget {
                     databaseRepository: databaseRepository,
                     authRepository: authRepository,
                   )
-                : MainSelectionPage(authRepository: authRepository),
+                : MainSelectionPage(authRepository: authRepository, databaseRepository: databaseRepository,),
           );
         });
   }

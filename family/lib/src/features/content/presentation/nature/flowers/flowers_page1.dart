@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -7,11 +8,16 @@ import 'package:family/src/features/content/presentation/nature/flowers/flowers_
 import 'package:flutter/material.dart';
 
 class FlowersPage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int flowersNumber;
   final String flowersTipps;
   const FlowersPage1(
-      {super.key, required this.flowersNumber, required this.flowersTipps, required this.authRepository});
+      {super.key,
+      required this.flowersNumber,
+      required this.flowersTipps,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +52,7 @@ class FlowersPage1 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => FlowersPage(
+                                  databaseRepository: databaseRepository,
                                   authRepository: authRepository,
                                 ),
                               ),
@@ -75,6 +82,7 @@ class FlowersPage1 extends StatelessWidget {
                                   if (flowersNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
                                     return FlowersPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       flowersNumber: 2,
                                       flowersTipps:
@@ -83,6 +91,7 @@ class FlowersPage1 extends StatelessWidget {
                                   } else if (flowersNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
                                     return FlowersPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       flowersNumber: 3,
                                       flowersTipps:
@@ -91,6 +100,7 @@ class FlowersPage1 extends StatelessWidget {
                                   } else if (flowersNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
                                     return FlowersPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       flowersNumber: 4,
                                       flowersTipps:
@@ -99,6 +109,7 @@ class FlowersPage1 extends StatelessWidget {
                                   } else {
                                     // wir befinden uns auf Regelseite 4
                                     return MainSelectionPage(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                     );
                                   }
@@ -132,7 +143,11 @@ class FlowersPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),

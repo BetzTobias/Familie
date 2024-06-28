@@ -1,4 +1,5 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/all_my_little_ducks_song_page.dart';
@@ -9,8 +10,12 @@ import 'package:family/src/features/content/presentation/entertainment/songs/sle
 import 'package:flutter/material.dart';
 
 class AllSongsPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const AllSongsPage({super.key, required this.authRepository});
+  const AllSongsPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,10 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AllMyLittleDucksSongPage(authRepository: authRepository,),
+                        builder: (context) => AllMyLittleDucksSongPage(
+                          databaseRepository: databaseRepository,
+                          authRepository: authRepository,
+                        ),
                       ),
                     );
                   }),
@@ -37,7 +45,10 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SleepKidSleepSongPage(authRepository: authRepository,),
+                        builder: (context) => SleepKidSleepSongPage(
+                          databaseRepository: databaseRepository,
+                          authRepository: authRepository,
+                        ),
                       ),
                     );
                   }),
@@ -47,7 +58,10 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BiBaButzemannSongPage(authRepository: authRepository,),
+                        builder: (context) => BiBaButzemannSongPage(
+                          databaseRepository: databaseRepository,
+                          authRepository: authRepository,
+                        ),
                       ),
                     );
                   }),
@@ -56,7 +70,10 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HoppeHoppeReiterSongPage(authRepository: authRepository,),
+                        builder: (context) => HoppeHoppeReiterSongPage(
+                          databaseRepository: databaseRepository,
+                          authRepository: authRepository,
+                        ),
                       ),
                     );
                   }),
@@ -66,7 +83,10 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BlueMountainsSongPage(authRepository: authRepository,),
+                        builder: (context) => BlueMountainsSongPage(
+                          databaseRepository: databaseRepository,
+                          authRepository: authRepository,
+                        ),
                       ),
                     );
                   }),
@@ -86,6 +106,7 @@ class AllSongsPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => EntertainmentPage(
+                        databaseRepository: databaseRepository,
                         authRepository: authRepository,
                       ),
                     ),

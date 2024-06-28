@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -7,8 +8,12 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class EntertainmentPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const EntertainmentPage({super.key, required this.authRepository});
+  const EntertainmentPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +31,10 @@ class EntertainmentPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            MainSelectionPage(authRepository: authRepository),
+                        builder: (context) => MainSelectionPage(
+                          authRepository: authRepository,
+                          databaseRepository: databaseRepository,
+                        ),
                       ),
                     );
                   }),
@@ -36,8 +43,10 @@ class EntertainmentPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            MainSelectionPage(authRepository: authRepository),
+                        builder: (context) => MainSelectionPage(
+                          authRepository: authRepository,
+                          databaseRepository: databaseRepository,
+                        ),
                       ),
                     );
                   }),
@@ -46,7 +55,10 @@ class EntertainmentPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AllSongsPage(authRepository: authRepository),
+                        builder: (context) => AllSongsPage(
+                          authRepository: authRepository,
+                          databaseRepository: databaseRepository,
+                        ),
                       ),
                     );
                   }),
@@ -65,8 +77,10 @@ class EntertainmentPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          MainSelectionPage(authRepository: authRepository),
+                      builder: (context) => MainSelectionPage(
+                        authRepository: authRepository,
+                        databaseRepository: databaseRepository,
+                      ),
                     ),
                   );
                 },
@@ -91,8 +105,10 @@ class EntertainmentPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          MenuPage(authRepository: authRepository)),
+                      builder: (context) => MenuPage(
+                            authRepository: authRepository,
+                            databaseRepository: databaseRepository,
+                          )),
                 );
               },
             ),

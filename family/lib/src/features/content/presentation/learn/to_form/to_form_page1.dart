@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/to_form/to_form_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -7,11 +8,16 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class ToFormPage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int formNumber;
   final String formTipps;
   const ToFormPage1(
-      {super.key, required this.formNumber, required this.formTipps, required this.authRepository});
+      {super.key,
+      required this.formNumber,
+      required this.formTipps,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +51,10 @@ class ToFormPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ToFormPage(authRepository: authRepository,),
+                                builder: (context) => ToFormPage(
+                                  databaseRepository: databaseRepository,
+                                  authRepository: authRepository,
+                                ),
                               ),
                             );
                           },
@@ -73,6 +82,7 @@ class ToFormPage1 extends StatelessWidget {
                                   if (formNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
                                     return ToFormPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       formNumber: 2,
                                       formTipps:
@@ -81,6 +91,7 @@ class ToFormPage1 extends StatelessWidget {
                                   } else if (formNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
                                     return ToFormPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       formNumber: 3,
                                       formTipps:
@@ -89,6 +100,7 @@ class ToFormPage1 extends StatelessWidget {
                                   } else if (formNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
                                     return ToFormPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       formNumber: 4,
                                       formTipps:
@@ -96,7 +108,10 @@ class ToFormPage1 extends StatelessWidget {
                                     );
                                   } else {
                                     // wir befinden uns auf Regelseite 4
-                                    return MainSelectionPage(authRepository: authRepository,);
+                                    return MainSelectionPage(
+                                      databaseRepository: databaseRepository,
+                                      authRepository: authRepository,
+                                    );
                                   }
                                 },
                               ),
@@ -128,7 +143,11 @@ class ToFormPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),

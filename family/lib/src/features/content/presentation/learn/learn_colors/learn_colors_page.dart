@@ -1,12 +1,17 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page1.dart';
 import 'package:flutter/material.dart';
 
 class LearnColorsPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const LearnColorsPage({super.key, required this.authRepository});
+  const LearnColorsPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +46,9 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LearnPage(authRepository: authRepository,),
+                              builder: (context) => LearnPage(databaseRepository: databaseRepository,
+                                authRepository: authRepository,
+                              ),
                             ),
                           );
                         },
@@ -70,6 +77,7 @@ class LearnColorsPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => LearnColorsPage1(
+                                databaseRepository: databaseRepository,
                                 authRepository: authRepository,
                                 colorsNumber: 1,
                                 colorsTipps:

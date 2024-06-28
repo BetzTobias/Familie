@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -7,8 +8,12 @@ import 'package:family/src/features/content/presentation/story_bag/all_storys_pa
 import 'package:flutter/material.dart';
 
 class StoryPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const StoryPage({super.key, required this.authRepository});
+  const StoryPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,7 @@ class StoryPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AllStorysPage(
+                          builder: (context) => AllStorysPage(databaseRepository: databaseRepository,
                             authRepository: authRepository,
                           ),
                         ),
@@ -47,7 +52,7 @@ class StoryPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MainSelectionPage(
+                      builder: (context) => MainSelectionPage(databaseRepository: databaseRepository,
                         authRepository: authRepository,
                       ),
                     ),
@@ -73,7 +78,10 @@ class StoryPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(databaseRepository: databaseRepository,
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),

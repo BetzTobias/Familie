@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/brush_teeth/brush_teeth_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -7,6 +8,7 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class BrushTeethPage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int brushNumber;
   final String brushTipps;
@@ -14,7 +16,8 @@ class BrushTeethPage1 extends StatelessWidget {
       {super.key,
       required this.brushTipps,
       required this.brushNumber,
-      required this.authRepository});
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class BrushTeethPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => BrushTeethPage(
+                                builder: (context) => BrushTeethPage(databaseRepository: databaseRepository,
                                     authRepository: authRepository),
                               ),
                             );
@@ -77,6 +80,7 @@ class BrushTeethPage1 extends StatelessWidget {
                                   if (brushNumber == 1) {
                                     // wir befinden uns auf Brushseite 1
                                     return BrushTeethPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       brushNumber: 2,
                                       brushTipps:
@@ -85,6 +89,7 @@ class BrushTeethPage1 extends StatelessWidget {
                                   } else if (brushNumber == 2) {
                                     // wir befinden uns auf Brushseite 2
                                     return BrushTeethPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       brushNumber: 3,
                                       brushTipps:
@@ -93,6 +98,7 @@ class BrushTeethPage1 extends StatelessWidget {
                                   } else if (brushNumber == 3) {
                                     // wir befinden uns auf Brushseite 3
                                     return BrushTeethPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       brushNumber: 4,
                                       brushTipps:
@@ -101,6 +107,7 @@ class BrushTeethPage1 extends StatelessWidget {
                                   } else if (brushNumber == 4) {
                                     // wir befinden uns auf Brushseite 4
                                     return BrushTeethPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       brushNumber: 5,
                                       brushTipps:
@@ -109,6 +116,7 @@ class BrushTeethPage1 extends StatelessWidget {
                                   } else if (brushNumber == 5) {
                                     // wir befinden uns auf Brushseite 5
                                     return BrushTeethPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       brushNumber: 6,
                                       brushTipps:
@@ -117,6 +125,7 @@ class BrushTeethPage1 extends StatelessWidget {
                                   } else {
                                     // wir befinden uns auf Brushseite 6
                                     return MainSelectionPage(
+                                        databaseRepository: databaseRepository,
                                         authRepository: authRepository);
                                   }
                                 },
@@ -150,8 +159,10 @@ class BrushTeethPage1 extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          MenuPage(authRepository: authRepository)),
+                      builder: (context) => MenuPage(
+                            authRepository: authRepository,
+                            databaseRepository: databaseRepository,
+                          )),
                 );
               },
             ),

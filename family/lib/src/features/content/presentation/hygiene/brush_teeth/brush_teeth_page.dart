@@ -1,12 +1,17 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/brush_teeth/brush_teeth_page1.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
 import 'package:flutter/material.dart';
 
 class BrushTeethPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const BrushTeethPage({super.key, required this.authRepository});
+  const BrushTeethPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +46,10 @@ class BrushTeethPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HygienePage(authRepository: authRepository,),
+                              builder: (context) => HygienePage(
+                                databaseRepository: databaseRepository,
+                                authRepository: authRepository,
+                              ),
                             ),
                           );
                         },
@@ -70,6 +78,7 @@ class BrushTeethPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => BrushTeethPage1(
+                                databaseRepository: databaseRepository,
                                 authRepository: authRepository,
                                 brushTipps:
                                     'Kinderfreundliche Zahnbürste und Zahnpasta: Verwende eine weiche, kinderfreundliche Zahnbürste und eine Kinderzahnpasta mit angenehmem Geschmack. Lass dein Kind die Zahnbürste und Pasta selbst aussuchen, um die Motivation zu steigern.',

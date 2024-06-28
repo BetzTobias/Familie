@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -7,11 +8,17 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class MotorSkillsPage2 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int skillsNumber;
   final String skillsTipps;
-  const MotorSkillsPage2(
-      {super.key, required this.skillsNumber, required this.skillsTipps, required this.authRepository});
+  const MotorSkillsPage2({
+    super.key,
+    required this.skillsNumber,
+    required this.skillsTipps,
+    required this.authRepository,
+    required this.databaseRepository,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +53,7 @@ class MotorSkillsPage2 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => MotorSkillsPage(
+                                  databaseRepository: databaseRepository,
                                   authRepository: authRepository,
                                 ),
                               ),
@@ -75,6 +83,7 @@ class MotorSkillsPage2 extends StatelessWidget {
                                   if (skillsNumber == 2) {
                                     // wir befinden uns auf Brushseite 1
                                     return MotorSkillsPage2(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       skillsNumber: 3,
                                       skillsTipps:
@@ -83,6 +92,7 @@ class MotorSkillsPage2 extends StatelessWidget {
                                   } else if (skillsNumber == 3) {
                                     // wir befinden uns auf Brushseite 2
                                     return MotorSkillsPage2(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       skillsNumber: 4,
                                       skillsTipps:
@@ -91,6 +101,7 @@ class MotorSkillsPage2 extends StatelessWidget {
                                   } else if (skillsNumber == 4) {
                                     // wir befinden uns auf Brushseite 3
                                     return MotorSkillsPage2(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       skillsNumber: 5,
                                       skillsTipps:
@@ -99,6 +110,7 @@ class MotorSkillsPage2 extends StatelessWidget {
                                   } else if (skillsNumber == 5) {
                                     // wir befinden uns auf Brushseite 4
                                     return MotorSkillsPage2(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       skillsNumber: 6,
                                       skillsTipps:
@@ -107,6 +119,7 @@ class MotorSkillsPage2 extends StatelessWidget {
                                   } else if (skillsNumber == 6) {
                                     // wir befinden uns auf Brushseite 5
                                     return MotorSkillsPage2(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       skillsNumber: 7,
                                       skillsTipps:
@@ -114,7 +127,10 @@ class MotorSkillsPage2 extends StatelessWidget {
                                     );
                                   } else {
                                     // wir befinden uns auf Brushseite 6
-                                    return MainSelectionPage(authRepository: authRepository,);
+                                    return MainSelectionPage(
+                                      authRepository: authRepository,
+                                      databaseRepository: databaseRepository,
+                                    );
                                   }
                                 },
                               ),
@@ -146,7 +162,11 @@ class MotorSkillsPage2 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            authRepository: authRepository,
+                            databaseRepository: databaseRepository,
+                          )),
                 );
               },
             ),

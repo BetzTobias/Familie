@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/toilet_training/toilet_training_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -7,11 +8,16 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class ToiletTrainingPage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int toiletNumber;
   final String toiletTipps;
   const ToiletTrainingPage1(
-      {super.key, required this.toiletNumber, required this.toiletTipps, required this.authRepository});
+      {super.key,
+      required this.toiletNumber,
+      required this.toiletTipps,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +51,10 @@ class ToiletTrainingPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    ToiletTrainingPage(authRepository: authRepository,),
+                                builder: (context) => ToiletTrainingPage(
+                                  authRepository: authRepository,
+                                  databaseRepository: databaseRepository,
+                                ),
                               ),
                             );
                           },
@@ -74,6 +82,7 @@ class ToiletTrainingPage1 extends StatelessWidget {
                                   if (toiletNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
                                     return ToiletTrainingPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       toiletNumber: 2,
                                       toiletTipps:
@@ -82,6 +91,7 @@ class ToiletTrainingPage1 extends StatelessWidget {
                                   } else if (toiletNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
                                     return ToiletTrainingPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       toiletNumber: 3,
                                       toiletTipps:
@@ -90,6 +100,7 @@ class ToiletTrainingPage1 extends StatelessWidget {
                                   } else if (toiletNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
                                     return ToiletTrainingPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       toiletNumber: 4,
                                       toiletTipps:
@@ -98,6 +109,7 @@ class ToiletTrainingPage1 extends StatelessWidget {
                                   } else {
                                     // wir befinden uns auf Regelseite 4
                                     return MainSelectionPage(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                     );
                                   }
@@ -131,7 +143,11 @@ class ToiletTrainingPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),

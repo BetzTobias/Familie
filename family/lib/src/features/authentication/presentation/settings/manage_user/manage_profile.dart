@@ -1,4 +1,5 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_user_email/manage_profile_email.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_user_name/manage_profile_user.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_user_number/manage_profile_number.dart';
@@ -8,8 +9,12 @@ import 'package:family/src/features/content/presentation/main_selection_page.dar
 import 'package:flutter/material.dart';
 
 class ManageProfilePage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const ManageProfilePage({super.key, required this.authRepository});
+  const ManageProfilePage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +33,7 @@ class ManageProfilePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ManageProfileUserPage(
+                          databaseRepository: databaseRepository,
                           authRepository: authRepository,
                         ),
                       ),
@@ -39,6 +45,7 @@ class ManageProfilePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ManageProfileNumberPage(
+                          databaseRepository: databaseRepository,
                           authRepository: authRepository,
                         ),
                       ),
@@ -50,6 +57,7 @@ class ManageProfilePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ManageProfileEmailPage(
+                            databaseRepository: databaseRepository,
                             authRepository: authRepository),
                       ),
                     );
@@ -60,6 +68,7 @@ class ManageProfilePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ManageProfilePasswordPage(
+                            databaseRepository: databaseRepository,
                             authRepository: authRepository),
                       ),
                     );
@@ -79,8 +88,10 @@ class ManageProfilePage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          MainSelectionPage(authRepository: authRepository),
+                      builder: (context) => MainSelectionPage(
+                        authRepository: authRepository,
+                        databaseRepository: databaseRepository,
+                      ),
                     ),
                   );
                 },

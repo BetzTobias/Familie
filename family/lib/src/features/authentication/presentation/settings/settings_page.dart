@@ -1,12 +1,17 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
+import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const SettingsPage({super.key, required this.authRepository});
+  const SettingsPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -17,39 +22,48 @@ class SettingsPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 50),
-                    buildCategoryButton(
-                      context,
-                      'Profil verwalten',
-                      () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ManageProfilePage(
-                                  authRepository: authRepository)),
-                        );
-                      },
-                    ),
-                    const SizedBox(
-                        height:
-                            10), // Abstand zwischen dem Profil verwalten und der Hygiene
-                    buildCategoryButton(
-                      context,
-                      'Abmelden',
-                      () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MainSelectionPage(
-                                  authRepository: authRepository)),
-                        );
-                      },
-                    ),
-                  ]),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 50),
+                  buildCategoryButton(
+                    context,
+                    'Profil verwalten',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ManageProfilePage(
+                            authRepository: authRepository,
+                            databaseRepository: databaseRepository,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ), // Abstand zwischen dem Profil verwalten und der Hygiene
+                  buildCategoryButton(
+                    context,
+                    'Abmelden',
+                    () async {
+                      await authRepository.logout();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginPage(
+                            authRepository: authRepository,
+                            databaseRepository: databaseRepository,
+                          ),
+                        ),
+                        (Route<dynamic> route) => false,
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

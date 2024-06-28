@@ -1,11 +1,13 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
 import 'package:flutter/material.dart';
 
 class BlueMountainsSongPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const BlueMountainsSongPage({super.key, required this.authRepository});
+  const BlueMountainsSongPage({super.key, required this.authRepository, required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +85,7 @@ class BlueMountainsSongPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        AllSongsPage(authRepository: authRepository),
+                        AllSongsPage(authRepository: authRepository,databaseRepository: databaseRepository, ),
                   ),
                 );
               },

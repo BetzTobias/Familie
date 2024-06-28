@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -7,6 +8,7 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LearnColorsPage1 extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
   final int colorsNumber;
   final String colorsTipps;
@@ -14,7 +16,8 @@ class LearnColorsPage1 extends StatelessWidget {
       {super.key,
       required this.colorsNumber,
       required this.colorsTipps,
-      required this.authRepository});
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,10 @@ class LearnColorsPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LearnColorsPage(authRepository: authRepository,),
+                                builder: (context) => LearnColorsPage(
+                                  authRepository: authRepository,
+                                  databaseRepository: databaseRepository,
+                                ),
                               ),
                             );
                           },
@@ -76,6 +82,7 @@ class LearnColorsPage1 extends StatelessWidget {
                                   if (colorsNumber == 1) {
                                     // wir befinden uns auf Colorsseite 1
                                     return LearnColorsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       colorsNumber: 2,
                                       colorsTipps:
@@ -84,6 +91,7 @@ class LearnColorsPage1 extends StatelessWidget {
                                   } else if (colorsNumber == 2) {
                                     // wir befinden uns auf Colorseite 2
                                     return LearnColorsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       colorsNumber: 3,
                                       colorsTipps:
@@ -92,6 +100,7 @@ class LearnColorsPage1 extends StatelessWidget {
                                   } else if (colorsNumber == 3) {
                                     // wir befinden uns auf Colorsseite 3
                                     return LearnColorsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       colorsNumber: 4,
                                       colorsTipps:
@@ -100,6 +109,7 @@ class LearnColorsPage1 extends StatelessWidget {
                                   } else if (colorsNumber == 4) {
                                     // wir befinden uns auf Colorsseite 4
                                     return LearnColorsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       colorsNumber: 5,
                                       colorsTipps:
@@ -108,6 +118,7 @@ class LearnColorsPage1 extends StatelessWidget {
                                   } else if (colorsNumber == 5) {
                                     // wir befinden uns auf Colorsseite 5
                                     return LearnColorsPage1(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                       colorsNumber: 6,
                                       colorsTipps:
@@ -116,6 +127,7 @@ class LearnColorsPage1 extends StatelessWidget {
                                   } else {
                                     // wir befinden uns auf Colorsseite 6
                                     return MainSelectionPage(
+                                      databaseRepository: databaseRepository,
                                       authRepository: authRepository,
                                     );
                                   }
@@ -151,6 +163,7 @@ class LearnColorsPage1 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
                             authRepository: authRepository,
                           )),
                 );

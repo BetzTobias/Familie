@@ -1,10 +1,12 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/story_bag/all_storys_page.dart';
 import 'package:flutter/material.dart';
 
 class TheJungleBook extends StatefulWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const TheJungleBook({super.key, required this.authRepository});
+  const TheJungleBook({super.key, required this.authRepository, required this.databaseRepository});
 
   @override
   _TheJungleBookState createState() => _TheJungleBookState();
@@ -133,9 +135,8 @@ class _TheJungleBookState extends State<TheJungleBook> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AllStorysPage(
+                          builder: (context) => AllStorysPage(databaseRepository: widget.databaseRepository,
                             authRepository: widget.authRepository,
-                            
                           ),
                         ),
                       );

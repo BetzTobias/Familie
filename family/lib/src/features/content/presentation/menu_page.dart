@@ -1,4 +1,5 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/settings_page.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/categorie.dart';
@@ -6,8 +7,9 @@ import 'package:family/src/features/content/presentation/main_selection_page.dar
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const MenuPage({super.key, required this.authRepository});
+  const MenuPage({super.key, required this.authRepository, required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class MenuPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            MainSelectionPage(authRepository: authRepository),
+                            MainSelectionPage(authRepository: authRepository, databaseRepository: databaseRepository,),
                       ),
                     );
                   }),
@@ -36,6 +38,7 @@ class MenuPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => CategoriesPage(
+                          databaseRepository: databaseRepository,
                           authRepository: authRepository,
                         ),
                       ),
@@ -47,6 +50,7 @@ class MenuPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => SettingsPage(
+                          databaseRepository: databaseRepository,
                           authRepository: authRepository,
                         ),
                       ),
@@ -68,7 +72,7 @@ class MenuPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          MainSelectionPage(authRepository: authRepository),
+                          MainSelectionPage(authRepository: authRepository, databaseRepository: databaseRepository,),
                     ),
                   );
                 },

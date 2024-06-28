@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          PatientPage(authRepository: widget.authRepository)),
+                                          PatientPage(authRepository: widget.authRepository, databaseRepository: widget.databaseRepository,)),
                                 );
                               }
                             },

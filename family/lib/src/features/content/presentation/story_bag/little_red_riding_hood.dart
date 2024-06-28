@@ -1,10 +1,15 @@
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/story_bag/all_storys_page.dart';
 import 'package:flutter/material.dart';
 
 class LittleRedRidingHood extends StatefulWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const LittleRedRidingHood({super.key, required this.authRepository});
+  const LittleRedRidingHood(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   _LittleRedRidingHoodState createState() => _LittleRedRidingHoodState();
@@ -130,6 +135,7 @@ class _LittleRedRidingHoodState extends State<LittleRedRidingHood> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => AllStorysPage(
+                            databaseRepository: widget.databaseRepository,
                             authRepository: widget.authRepository,
                           ),
                         ),

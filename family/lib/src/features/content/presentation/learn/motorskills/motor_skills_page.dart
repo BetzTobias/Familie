@@ -1,5 +1,6 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page2.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -7,8 +8,12 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class MotorSkillsPage extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const MotorSkillsPage({super.key, required this.authRepository});
+  const MotorSkillsPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +48,7 @@ class MotorSkillsPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => MainSelectionPage(
+                                  databaseRepository: databaseRepository,
                                   authRepository: authRepository,
                                 ),
                               ),
@@ -69,6 +75,7 @@ class MotorSkillsPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => MotorSkillsPage2(
+                                  databaseRepository: databaseRepository,
                                   authRepository: authRepository,
                                   skillsNumber: 2,
                                   skillsTipps:
@@ -103,7 +110,11 @@ class MotorSkillsPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MenuPage(authRepository: authRepository,)),
+                  MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                            databaseRepository: databaseRepository,
+                            authRepository: authRepository,
+                          )),
                 );
               },
             ),
