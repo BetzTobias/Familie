@@ -115,7 +115,19 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
                             'Fällt er in den Graben, fressen ihn die Raben.'
                             'Fällt er in den Sumpf, macht der Reiter plumps.'
                             'Hoppe, hoppe Reiter, wenn er fällt. dann schreit er.'
+                            'Fällt er in die Hecken,fressen ihn die Schnecken.'
+                            'Fällt er in den Sumpf, macht der Reiter plumps'
+                            'Hoppe, hoppe, Reiter,wenn er fällt, dann schreit er'
+                            'Fällt er auf die Steine,tun ihm weh die Beine'
+                            'Fällt er in den Sumpf, macht der Reiter plumps'
+                            'Hoppe, hoppe, Reiter, wenn er fällt, dann schreit er.'
                             'Fällt er in den Teich, find’t ihn keiner gleich. '
+                            'Fällt er in den Sumpf, macht der Reiter plumps'
+                            'Hoppe, hoppe, Reiter, wenn er fällt, dann schreit er.'
+                            'Fällt er in das grüne Gras, Macht er sich die Hosen nass'
+                            'Fällt er in den Sumpf, macht der Reiter plumps'
+                            'Hoppe, hoppe, Reiter, wenn er fällt, dann schreit er.'
+                            'Fällt er in das Wasser, Wird er noch viel nasser'
                             'Fällt er in den Sumpf, macht der Reiter plumps',
                             style: TextStyle(
                               fontSize: 18.0,
@@ -128,7 +140,7 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 850,
+                  top: 1330,
                   left: 320,
                   child: ElevatedButton(
                     onPressed: () {
