@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 class PatientPage extends StatelessWidget {
   final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const PatientPage({super.key, required this.authRepository, required this.databaseRepository});
+  const PatientPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
