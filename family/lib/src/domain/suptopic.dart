@@ -14,4 +14,10 @@ class Suptopic {
     }
       return {"secondaryName": secondaryName, "underTopics": mapList};
   }
+  factory Suptopic.fromMap(Map<String, dynamic> map) {
+    return Suptopic(
+      map['secondaryName'],
+      (map['undertopics'] as List).map((undertopic) => UnderTopic.fromMap(undertopic)).toList(),
+    );
+  }
 }

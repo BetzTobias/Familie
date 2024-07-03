@@ -14,4 +14,10 @@ class UnderTopic {
     }
       return {"underName": underName, "contents": mapList};
   }
+  factory UnderTopic.fromMap(Map<String, dynamic> map) {
+    return UnderTopic(
+      map['underName'],
+      (map['contents'] as List).map((content) => Content.fromMap(content)).toList(),
+    );
+  }
 }

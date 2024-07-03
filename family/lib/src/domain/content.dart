@@ -14,4 +14,11 @@ class Content {
       "undertopic": undertopic
     };
   }
+  factory Content.fromMap(Map<String, dynamic> map) {
+    return Content(
+      contents: map['contents'],
+      undertopic: map['undertopic'],
+      suptopic: map['suptopic'],
+    );
+  }
 }

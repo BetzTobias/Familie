@@ -7,7 +7,7 @@ import 'package:family/src/domain/user.dart';
 import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {
-  User? currentUser = User('Tobias', '151042020', 'betztobias605@gmail.com');
+  User? currentUser = User('Tobias', 'Tamara2119.', 'tobiasbetz149@gmail.com');
 
   List<Categorie> categorie = [
     Categorie('Unterhaltung', [
@@ -23,15 +23,26 @@ class MockDatabase implements DatabaseRepository {
     this.currentUser = currentUser;
   }
 
+  @override
   Future<User?> getUser() async {
     return currentUser;
   }
 
+  @override
   Future<void> removedUser() async {
     currentUser = null;
   }
 
+  @override
   Future<List<Categorie>> getCategorie() async {
     return categorie;
+  }
+
+  Future<void> updateCategoriesFromMap(List<Map<String, dynamic>> maps) async {
+    categorie = maps.map((map) => Categorie.fromMap(map)).toList();
+  }
+
+  Future<void> updateUserFromMap(Map<String, dynamic> map) async {
+    currentUser = User.fromMap(map);
   }
 }
