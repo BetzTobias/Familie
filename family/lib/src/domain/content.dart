@@ -7,4 +7,11 @@ class Content {
     required this.suptopic,
     required this.undertopic,
   });
+  Map<String, dynamic> toMap() {
+    return {
+      "contents": contents,
+      "suptopic": suptopic,
+      "undertopic": undertopic
+    };
+  }
 }
