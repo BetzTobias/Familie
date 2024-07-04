@@ -16,8 +16,8 @@ class Categorie {
   }
   factory Categorie.fromMap(Map<String, dynamic> map) {
     return Categorie(
-      map['categorieName'],
-      (map['suptopics'] as List).map((suptopic) => Suptopic.fromMap(suptopic)).toList(),
+      categorieName: map['categorieName'],
+     supTopics: (map['suptopics'] as List).map((suptopic) => Suptopic.fromMap(suptopic)).toList(),
     );
   }
 }
