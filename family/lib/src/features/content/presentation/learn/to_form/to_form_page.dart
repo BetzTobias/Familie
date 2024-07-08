@@ -1,8 +1,8 @@
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
+import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/learn/to_form/to_form_page1.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
 class ToFormPage extends StatelessWidget {
@@ -47,7 +47,7 @@ class ToFormPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MainSelectionPage(
+                              builder: (context) => LearnPage(
                                 databaseRepository: databaseRepository,
                                 authRepository: authRepository,
                               ),

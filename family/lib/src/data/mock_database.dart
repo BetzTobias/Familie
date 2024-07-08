@@ -7,30 +7,27 @@ import 'package:family/src/domain/user.dart';
 import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {
-  User? currentUser = User('Tobias', 'Tamara2119.', 'tobiasbetz149@gmail.com');
+  User? currentUser = User(password: '', email: '', username: '');
 
   List<Categorie> categorie = [
-    Categorie('Unterhaltung', [
-      Suptopic('Basteln', [
+    Categorie(categorieName: "", // Hauptname
+    supTopics: [
+      Suptopic(
+        secondaryName: "secondaryName", 
+        underTopics: [
         UnderTopic(
-            'Sommer', [Content(contents: '', undertopic: '', suptopic: '')])
+            underName: "",
+            contents: [Content(
+              contents: "", // Inhalt
+              suptopic: "", // Nebenthema
+              undertopic: "")]) // Unterthema
       ])
     ])
   ];
 
   @override
-  Future<void> loginUser(User currentUser) async {
-    this.currentUser = currentUser;
-  }
-
-  @override
   Future<User?> getUser() async {
     return currentUser;
-  }
-
-  @override
-  Future<void> removedUser() async {
-    currentUser = null;
   }
 
   @override
