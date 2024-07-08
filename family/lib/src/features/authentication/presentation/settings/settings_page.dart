@@ -1,6 +1,7 @@
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
+import 'package:family/src/features/authentication/presentation/settings/info.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,24 @@ class SettingsPage extends StatelessWidget {
                   const SizedBox(height: 50),
                   buildCategoryButton(
                     context,
+                    'Info',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InfoPage(
+                            authRepository: authRepository,
+                            databaseRepository: databaseRepository,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  buildCategoryButton(
+                    context,
                     'Profil verwalten',
                     () {
                       Navigator.push(
@@ -42,7 +61,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 10,
-                  ), // Abstand zwischen dem Profil verwalten und der Hygiene
+                  ),
                   buildCategoryButton(
                     context,
                     'Abmelden',
