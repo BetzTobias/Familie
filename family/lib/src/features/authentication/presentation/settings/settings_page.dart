@@ -79,6 +79,17 @@ class SettingsPage extends StatelessWidget {
                       );
                     },
                   ),
+                  const SizedBox(height: 10),
+                  buildCategoryButton(context, 'Account löschen', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(
+                            databaseRepository: databaseRepository,
+                            authRepository: authRepository),
+                      ),
+                    );
+                  }),
                 ],
               ),
             ),

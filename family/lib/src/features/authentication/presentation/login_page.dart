@@ -132,10 +132,10 @@ class _LoginPageState extends State<LoginPage> {
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
+                        backgroundColor: WidgetStateProperty.all<Color>(
                           const Color(0XFFEBE216),
                         ),
-                        foregroundColor: MaterialStateProperty.all<Color>(
+                        foregroundColor: WidgetStateProperty.all<Color>(
                           Colors.black, // Schriftfarbe des Buttons
                         ),
                       ),

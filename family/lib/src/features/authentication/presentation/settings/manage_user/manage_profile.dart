@@ -73,6 +73,7 @@ class ManageProfilePage extends StatelessWidget {
                       ),
                     );
                   }),
+                  
                 ],
               ),
             ),
