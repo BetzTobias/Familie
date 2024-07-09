@@ -8,7 +8,10 @@ import 'package:flutter/material.dart';
 class ManageProfileEmailPage extends StatelessWidget {
   final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const ManageProfileEmailPage({super.key, required this.authRepository, required this.databaseRepository});
+  const ManageProfileEmailPage(
+      {super.key,
+      required this.authRepository,
+      required this.databaseRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +44,7 @@ class ManageProfileEmailPage extends StatelessWidget {
                               databaseRepository: databaseRepository,
                             )),
                   );
+                  //databaseRepository.setEmail(email);
                 },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all<Color>(
@@ -58,7 +62,8 @@ class ManageProfileEmailPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ManageProfilePage(databaseRepository: databaseRepository,
+                        builder: (context) => ManageProfilePage(
+                              databaseRepository: databaseRepository,
                               authRepository: authRepository,
                             )),
                   );

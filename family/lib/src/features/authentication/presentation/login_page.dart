@@ -121,6 +121,10 @@ class _LoginPageState extends State<LoginPage> {
                                                 widget.databaseRepository,
                                           )),
                                 );
+                                widget.databaseRepository
+                                    .setEmail(emailController.text);
+                                widget.databaseRepository
+                                    .setPassword(passwordController.text);
                               }
                             },
                             style: ButtonStyle(
