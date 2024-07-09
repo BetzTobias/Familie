@@ -1,16 +1,18 @@
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
-import 'package:family/src/features/authentication/presentation/new_password.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
   final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const ForgotPassword(
-      {super.key,
-      required this.databaseRepository,
-      required this.authRepository});
+
+  const ForgotPassword({
+    super.key,
+    required this.databaseRepository,
+    required this.authRepository,
+  });
 
   @override
   State<ForgotPassword> createState() => _ForgotPasswordState();
@@ -19,6 +21,22 @@ class ForgotPassword extends StatefulWidget {
 class _ForgotPasswordState extends State<ForgotPassword> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
+
+  Future<void> _resetPassword() async {
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: _emailController.text);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content:
+                Text('E-Mail zum Zurücksetzen des Passworts wurde gesendet')),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Fehler: $e')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,28 +78,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     const SizedBox(height: 40),
                     // Anmelde-Button
                     ElevatedButton(
-                      onPressed: () async {
+                      onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          bool result = await _resetPassword();
-                          if (result) {
-                            // Beispiel: Navigieren zur nächsten Seite
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => NewPassword(
-                                      databaseRepository:
-                                          widget.databaseRepository,
-                                      authRepository: widget.authRepository)),
-                            );
-                          } else {
-                            // Fehlerbehandlung
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
-                                    'Fehler beim Zurücksetzen des Passworts'),
-                              ),
-                            );
-                          }
+                          _resetPassword();
                         }
                       },
                       style: ButtonStyle(
@@ -123,15 +122,5 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         ),
       ),
     );
-  }
-
-  Future<bool> _resetPassword() async {
-    try {
-      await widget.authRepository.sendPasswordResetEmail(_emailController.text);
-      return true;
-    } catch (e) {
-      print(e);
-      return false;
-    }
   }
 }

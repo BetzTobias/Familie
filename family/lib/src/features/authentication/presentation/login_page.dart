@@ -8,10 +8,12 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatefulWidget {
   final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-  const LoginPage(
-      {super.key,
-      required this.databaseRepository,
-      required this.authRepository});
+
+  const LoginPage({
+    super.key,
+    required this.databaseRepository,
+    required this.authRepository,
+  });
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -20,7 +22,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  bool _obscurePassword = false;
+  bool _obscurePassword = true;
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -52,11 +54,11 @@ class _LoginPageState extends State<LoginPage> {
                       controller: emailController,
                       decoration: const InputDecoration(
                         label: Text('Email'),
-                        hintText: 'Email adressse bitte eingeben',
+                        hintText: 'Email Adresse bitte eingeben',
                       ),
                       validator: (value) {
                         if (value == null || value.length < 6) {
-                          return 'Email adresse ist falsch';
+                          return 'Email Adresse ist falsch';
                         }
                         return null;
                       },
@@ -90,61 +92,58 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                     const SizedBox(height: 40),
-                    FutureBuilder<void>(
-                      future: login(
-                        username: emailController.text, // email vom Controller
-                        password:
-                            passwordController.text, // Password vom Controller
-                      ),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const CircularProgressIndicator(); // Loading indicator
-                        } else if (snapshot.hasError) {
-                          return Text(
-                              'Fehler: ${snapshot.error}'); // Error message
-                        } else {
-                          return ElevatedButton(
-                            onPressed: () async {
-                              if (_formKey.currentState!.validate()) {
-                                await widget.authRepository
-                                    .loginWithEmailAndPassword(
-                                        emailController.text,
-                                        passwordController.text);
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => PatientPage(
-                                            authRepository:
-                                                widget.authRepository,
-                                            databaseRepository:
-                                                widget.databaseRepository,
-                                          )),
+                    ElevatedButton(
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          try {
+                            await widget.authRepository
+                                .loginWithEmailAndPassword(
+                                  emailController.text,
+                                  passwordController.text,
                                 );
-                                widget.databaseRepository
-                                    .setEmail(emailController.text);
-                                widget.databaseRepository
-                                    .setPassword(passwordController.text);
-                              }
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all<Color>(
-                                const Color(0XFFEBE216),
+
+                            await widget.databaseRepository
+                                .setEmail(emailController.text);
+
+                            await widget.databaseRepository
+                                .setPassword(passwordController.text);
+
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PatientPage(
+                                  authRepository: widget.authRepository,
+                                  databaseRepository:
+                                      widget.databaseRepository,
+                                ),
                               ),
-                              foregroundColor: WidgetStateProperty.all<Color>(
-                                Colors.black, // Schriftfarbe des Buttons
+                            );
+                          } catch (e) {
+                            // Fehlerbehandlung
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Fehler: ${e.toString()}',
+                                ),
+                                backgroundColor: Colors.red,
                               ),
-                            ),
-                            child: const Text('Anmelden'),
-                          );
+                            );
+                          }
                         }
                       },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                          const Color(0XFFEBE216),
+                        ),
+                        foregroundColor: MaterialStateProperty.all<Color>(
+                          Colors.black, // Schriftfarbe des Buttons
+                        ),
+                      ),
+                      child: const Text('Anmelden'),
                     ),
                   ],
                 ),
               ),
-
-              // Anmelde-Button with FutureBuilder
 
               const SizedBox(height: 20),
               // Passwort vergessen und Neuen Account erstellen Aktionen
@@ -156,9 +155,11 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ForgotPassword(
-                                databaseRepository: widget.databaseRepository,
-                                authRepository: widget.authRepository)),
+                          builder: (context) => ForgotPassword(
+                            databaseRepository: widget.databaseRepository,
+                            authRepository: widget.authRepository,
+                          ),
+                        ),
                       );
                     },
                     child: const Text('Passwort vergessen?'),
@@ -168,9 +169,11 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => NewRegistration(
-                                databaseRepository: widget.databaseRepository,
-                                authRepository: widget.authRepository)),
+                          builder: (context) => NewRegistration(
+                            databaseRepository: widget.databaseRepository,
+                            authRepository: widget.authRepository,
+                          ),
+                        ),
                       );
                     },
                     child: const Text('Neuer Account'),
@@ -182,11 +185,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
-
-  Future<void> login(
-      {required String username, required String password}) async {
-    //TODO: Hier die Logik zum Anmelden hinzufügen
-    print('Login war erfolgreich!');
   }
 }

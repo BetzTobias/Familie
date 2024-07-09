@@ -35,7 +35,7 @@ class FirestoreDatabase implements DatabaseRepository {
       await _firebaseFirestore
           .collection('User')
           .doc(FirebaseAuth.instance.currentUser!.uid)
-          .set({'email': email});
+          .set({'email': email}, SetOptions(merge: true));
     } catch (e) {
       print('Error: $e');
     }
@@ -45,9 +45,9 @@ class FirestoreDatabase implements DatabaseRepository {
   Future<void> setPassword(String password) async {
     try {
       await _firebaseFirestore
-          .collection('user')
-          .doc('user.id')
-          .set({'password': password});
+          .collection('User')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .set({'password': password}, SetOptions(merge: true));
     } catch (e) {
       print('Error: $e');
     }
@@ -57,9 +57,9 @@ class FirestoreDatabase implements DatabaseRepository {
   Future<void> setPhonenumber(String number) async {
     try {
       await _firebaseFirestore
-          .collection('user')
-          .doc('user.id')
-          .set({'telefonnummer': number});
+          .collection('User')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .set({'telefonnummer': number}, SetOptions(merge: true));
     } catch (e) {
       print('Error: $e');
     }
@@ -69,9 +69,9 @@ class FirestoreDatabase implements DatabaseRepository {
   Future<void> setUsername(String name) async {
     try {
       await _firebaseFirestore
-          .collection('user')
-          .doc('user.id')
-          .set({'username': name});
+          .collection('User')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .set({'username': name}, SetOptions(merge: true));
     } catch (e) {
       print('Error: $e');
     }
