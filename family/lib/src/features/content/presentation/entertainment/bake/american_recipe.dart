@@ -22,7 +22,7 @@ class AmericanRecipe extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
+                  const Center(
                     child: Text(
                       'Amerikaner',
                       style: TextStyle(
@@ -31,46 +31,62 @@ class AmericanRecipe extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Center(
                     child: Image.network(
-                      'https://example.com/dein_bild_link.jpg', // Ersetze dies durch deinen Bildlink
+                      'assets/amerikaner.png', // Ersetze dies durch deinen Bildlink
                       height: 200,
                     ),
                   ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Zutaten:',
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Zutaten Teig:',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8),
-                  Text(
-                    '- 50g Marganrine\n- 100g Puderzucker\n- 1 Pck. Vanillezucker\n- 2 Eier\n- 1\n- 1 Päckchen Vanillezucker\n- 1 Päckchen Backpulver\n- 1 Prise Salz',
+                  const SizedBox(height: 8),
+                  const Text(
+                    '- 50g Marganrine\n- 100g Puderzucker\n- 1 Pck. Vanillezucker\n- 2 Eier\n- 1 Päckchen Vanillezucker\n- 3Tl. Backpulver\n- 5 El. Milch',
                     style: TextStyle(fontSize: 16),
                   ),
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Zutaten Glassur:',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    '- Puderzucker\n- Zitronensaft\n- Schokolade',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
                     'Anleitung:',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8),
-                  Text(
-                    '1. Den Backofen auf 180°C vorheizen.\n'
-                    '2. Die Butter und den Zucker schaumig rühren.\n'
-                    '3. Die Eier nach und nach unterrühren.\n'
-                    '4. Das Mehl mit dem Backpulver und Salz mischen und abwechselnd mit der Milch unter die Butter-Ei-Masse rühren.\n'
-                    '5. Den Teig auf ein mit Backpapier ausgelegtes Blech geben und zu kleinen Kreisen formen.\n'
-                    '6. Die Amerikaner im vorgeheizten Ofen ca. 15-20 Minuten backen, bis sie goldgelb sind.\n'
-                    '7. Nach dem Abkühlen nach Belieben verzieren.',
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Zwei Backbleche mit Backpapier auslegen und den Backofen auf 160 °C Umluft vorheizen. Magarine mit dem Puderzucker und dem Vanillezucker mit einem Handrührgerät schaumig schlagen. Eier nach und nach hinzugeben. Mehl, Backpulver und Puddingpulver vermischen und löffelweise im Wechsel mit der Milch zum Teig hinzugeben. Alles gut verrühren. Der Teig ist dabei sehr zäh, wird aber nach dem Backen sehr fluffig und zart.',
                     style: TextStyle(fontSize: 16),
                   ),
-                  // Weitere Rezeptabschnitte hier hinzufügen...
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Teig in ein Spritztülle mit runder Öffnung füllen. Alternativ in einen Gefrierbeutel und die Spitze abschneiden. Pro Blech ca. 5 Kreise mit einem Durchmesser von 10-12 cm spritzen. Genug Abstand lassen, da die Amerikaner stark aufgehen beim Backen. Die Amerikaner für 15 Minuten backen, bis sie leicht braun sind.',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Die Amerikaner nach Beliebten verzieren. Dafür zum Beispiel Puderzucker mit Zitronensaft vermengen und alles zu einer dickflüssigen Glasur verrühren. Die Amerikaner mit der Glasur bestreichen. Schokolade schmelzen lassen und damit die Glasur in Osteroptik verzieren.',
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ],
               ),
             ),
@@ -83,7 +99,7 @@ class AmericanRecipe extends StatelessWidget {
                 // Füge hier deine Zurück-Funktionalität hinzu
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back),
+              child: const Icon(Icons.arrow_back),
             ),
           ),
         ],
