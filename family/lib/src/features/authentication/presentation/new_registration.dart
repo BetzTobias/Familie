@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
@@ -7,10 +8,12 @@ import 'package:flutter/services.dart';
 class NewRegistration extends StatefulWidget {
   final AuthRepository authRepository;
   final DatabaseRepository databaseRepository;
-  const NewRegistration(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+
+  const NewRegistration({
+    super.key,
+    required this.authRepository,
+    required this.databaseRepository,
+  });
 
   @override
   _NewRegistrationState createState() => _NewRegistrationState();
@@ -32,9 +35,11 @@ class _NewRegistrationState extends State<NewRegistration> {
       backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
-        title: const Text('Registrieren',
-            style: TextStyle(decoration: TextDecoration.underline),
-            selectionColor: Color.fromRGBO(158, 245, 255, 1)),
+        title: const Text(
+          'Registrieren',
+          style: TextStyle(decoration: TextDecoration.underline),
+          selectionColor: Color.fromRGBO(158, 245, 255, 1),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -149,24 +154,42 @@ class _NewRegistrationState extends State<NewRegistration> {
                 ElevatedButton(
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      await widget.authRepository.signUpWithEmailAndPassword(
-                          emailController.text, passwordController.text);
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LoginPage(
-                                databaseRepository: widget.databaseRepository,
-                                authRepository: widget.authRepository)),
-                      );
+                      try {
+                        await widget.authRepository.signUpWithEmailAndPassword(
+                            emailController.text, passwordController.text);
+                        final user = widget.authRepository.getCurrentUser();
+
+                        await FirebaseFirestore.instance
+                            .collection('User')
+                            .doc(user!.uid)
+                            .set({
+                          'username': usernameController.text,
+                          'phone': phoneController.text,
+                          'email': emailController.text,
+                        });
+
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage(
+                                  databaseRepository: widget.databaseRepository,
+                                  authRepository: widget.authRepository)),
+                        );
+                      } catch (e) {
+                        print('Fehler bei der Registrierung: $e');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Fehler bei der Registrierung: $e'),
+                          ),
+                        );
+                      }
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all<Color>(
-                      const Color(0XFFEBE216),
-                    ),
+                    backgroundColor:
+                        WidgetStateProperty.all<Color>(const Color(0XFFEBE216)),
                     foregroundColor: WidgetStateProperty.all<Color>(
-                      Colors.black, // Schriftfarbe des Buttons
-                    ),
+                        Colors.black), // Schriftfarbe des Buttons
                   ),
                   child: const Text('Benutzer erstellen'),
                 ),
@@ -182,12 +205,10 @@ class _NewRegistrationState extends State<NewRegistration> {
                     );
                   },
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all<Color>(
-                      const Color(0XFF16972A),
-                    ),
+                    backgroundColor:
+                        WidgetStateProperty.all<Color>(const Color(0XFF16972A)),
                     foregroundColor: WidgetStateProperty.all<Color>(
-                      Colors.black, // Schriftfarbe des Buttons
-                    ),
+                        Colors.black), // Schriftfarbe des Buttons
                   ),
                   child: const Text('Abbruch'),
                 ),
@@ -199,9 +220,13 @@ class _NewRegistrationState extends State<NewRegistration> {
     );
   }
 
-  Widget _buildTextFieldWithIcon(String labelText, IconData iconData,
-      TextEditingController controller, String? Function(String?)? validator,
-      {List<TextInputFormatter>? inputFormatters}) {
+  Widget _buildTextFieldWithIcon(
+    String labelText,
+    IconData iconData,
+    TextEditingController controller,
+    String? Function(String?)? validator, {
+    List<TextInputFormatter>? inputFormatters,
+  }) {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(

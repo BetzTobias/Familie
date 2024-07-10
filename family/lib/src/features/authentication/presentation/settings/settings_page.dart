@@ -4,11 +4,13 @@ import 'package:family/src/features/authentication/presentation/login_page.dart'
 import 'package:family/src/features/authentication/presentation/settings/info.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
+import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
   final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
+
   const SettingsPage(
       {super.key,
       required this.authRepository,
@@ -41,9 +43,7 @@ class SettingsPage extends StatelessWidget {
                       );
                     },
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   buildCategoryButton(
                     context,
                     'Profil verwalten',
@@ -59,9 +59,7 @@ class SettingsPage extends StatelessWidget {
                       );
                     },
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   buildCategoryButton(
                     context,
                     'Abmelden',
@@ -91,6 +89,34 @@ class SettingsPage extends StatelessWidget {
                     );
                   }),
                 ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MenuPage(
+                        databaseRepository: databaseRepository,
+                        authRepository: authRepository,
+                      ),
+                    ),
+                  );
+                },
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all<Color>(
+                    const Color(0XFF16972A),
+                  ),
+                  foregroundColor: WidgetStateProperty.all<Color>(
+                    Colors.black, // Schriftfarbe des Buttons
+                  ),
+                ),
+                child: const Text('zurück'),
               ),
             ),
           ),

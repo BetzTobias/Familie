@@ -76,24 +76,21 @@ class FirestoreDatabase implements DatabaseRepository {
       print('Error: $e');
     }
   }
-  // Future<void> deleteAccount() async {
-  //   try {
-  //     User? user = FirebaseAuth.instance.currentUser;
 
-  //     if (user != null) {
-  //       // Löschen der Benutzerdaten aus Firestore
-  //       await FirebaseFirestore.instance
-  //           .collection('User')
-  //           .doc(user.uid)
-  //           .delete();
+  @override
+  Future<void> deleteAccount() async {
+    try {
+      await FirebaseAuth.instance.currentUser!.delete();
+      // Löschen der Benutzerdaten aus Firestore
+      await _firebaseFirestore
+          .collection('User')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .delete();
 
-  //       // Löschen des Benutzerkontos
-  //       await user.delete();
-  //     }
-  //   } catch (e) {
-  //     print('Fehler beim Löschen des Accounts: $e');
-  //     throw e; // Fehler erneut werfen, damit er im UI angezeigt werden kann
-  //   }
-  // }
+      // Löschen des Benutzerkontos
+    } catch (e) {
+      print('Fehler beim Löschen des Accounts: $e');
+      throw e;
+    }
+  }
 }
-

@@ -12,4 +12,6 @@ abstract class DatabaseRepository {
   Future<void> setPassword(String password);
 
   Future<List<String>> getUpdates();
+
+  Future<void> deleteAccount();
 }
