@@ -3,6 +3,7 @@ import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
+import 'package:family/src/features/content/presentation/entertainment/bake/recipe_list.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class EntertainmentPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MainSelectionPage(
+                        builder: (context) => RecipeList(
                           authRepository: authRepository,
                           databaseRepository: databaseRepository,
                         ),

@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 class RecipeList extends StatelessWidget {
   final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
+
   const RecipeList({
     super.key,
     required this.authRepository,
@@ -114,7 +115,10 @@ class RecipeList extends StatelessWidget {
             horizontal: 20, vertical: 15), // Padding des Buttons
         textStyle: const TextStyle(fontSize: 16), // Textstil des Buttons
       ),
-      child: Text(label),
+      child: Text(
+        label,
+        style: const TextStyle(color: Colors.black), // Schriftfarbe des Textes
+      ),
     );
   }
 }
