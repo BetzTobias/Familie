@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       controller: emailController,
                       decoration: const InputDecoration(
-                        label: Text('Email'),
+                        labelText: 'Email',
                         hintText: 'Email Adresse bitte eingeben',
                       ),
                       validator: (value) {
@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                       controller: passwordController,
                       obscureText: _obscurePassword,
                       decoration: InputDecoration(
-                        label: const Text('Passwort'),
+                        labelText: 'Passwort',
                         hintText: 'Passwort ist falsch',
                         suffixIcon: IconButton(
                           icon: Icon(
@@ -108,6 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                             await widget.databaseRepository
                                 .setPassword(passwordController.text);
 
+                            if (!mounted) return;
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -119,23 +120,16 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             );
                           } catch (e) {
-                            // Fehlerbehandlung
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Fehler: ${e.toString()}',
-                                ),
-                                backgroundColor: Colors.red,
-                              ),
-                            );
+                            if (!mounted) return;
+                            showErrorSnackbar(context, e.toString());
                           }
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all<Color>(
+                        backgroundColor: MaterialStateProperty.all<Color>(
                           const Color(0XFFEBE216),
                         ),
-                        foregroundColor: WidgetStateProperty.all<Color>(
+                        foregroundColor: MaterialStateProperty.all<Color>(
                           Colors.black, // Schriftfarbe des Buttons
                         ),
                       ),
@@ -183,6 +177,15 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void showErrorSnackbar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Fehler: $message'),
+        backgroundColor: Colors.red,
       ),
     );
   }
