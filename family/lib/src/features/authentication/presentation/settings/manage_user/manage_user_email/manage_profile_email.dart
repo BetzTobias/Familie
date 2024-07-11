@@ -1,10 +1,21 @@
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ManageProfileEmailPage extends StatelessWidget {
+class ManageProfileEmailPage extends StatefulWidget {
   const ManageProfileEmailPage({super.key});
+
+  @override
+  _ManageProfileEmailPageState createState() => _ManageProfileEmailPageState();
+}
+
+class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
+  final TextEditingController _oldEmailController = TextEditingController();
+  final TextEditingController _newEmailController = TextEditingController();
+  final TextEditingController _confirmEmailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,24 +28,35 @@ class ManageProfileEmailPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 10),
-              _buildTextFieldWithIcon("Alte E-Mail Adresse", Icons.email),
-              const SizedBox(height: 10),
-              _buildTextFieldWithIcon("Neue E-Mail Adresse", Icons.email),
+              _buildTextFieldWithIcon(
+                  "Alte E-Mail Adresse", Icons.email, _oldEmailController),
               const SizedBox(height: 10),
               _buildTextFieldWithIcon(
-                  "Neue E-Mail Adresse wiederholen", Icons.email),
+                  "Neue E-Mail Adresse", Icons.email, _newEmailController),
+              const SizedBox(height: 10),
+              _buildTextFieldWithIcon("Neue E-Mail Adresse wiederholen",
+                  Icons.email, _confirmEmailController),
               const SizedBox(height: 10),
 
               //Aktion zur nächsten Seite
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage()),
-                  );
-                  //databaseRepository.setEmail(email);
+                onPressed: () async {
+                  if (_newEmailController.text ==
+                      _confirmEmailController.text) {
+                    await context
+                        .read<DatabaseRepository>()
+                        .updateUser(_newEmailController.text);
+
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainSelectionPage()),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Email Adresse stimmt nicht überein')));
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all<Color>(
@@ -72,7 +94,8 @@ class ManageProfileEmailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildTextFieldWithIcon(String labelText, IconData iconData) {
+  Widget _buildTextFieldWithIcon(
+      String labelText, IconData iconData, TextEditingController controller) {
     return TextField(
       decoration: InputDecoration(
         labelText: labelText,

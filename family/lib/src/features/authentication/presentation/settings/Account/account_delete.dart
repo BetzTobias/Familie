@@ -28,7 +28,7 @@ class AccountDelete extends StatelessWidget {
               ElevatedButton(
                 onPressed: () async {
                   try {
-                    await context.read<DatabaseRepository>().deleteAccount();
+                    context.read<DatabaseRepository>().deleteAccount();
                     Navigator.push(
                       context,
                       MaterialPageRoute(
