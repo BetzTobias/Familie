@@ -1,15 +1,8 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:flutter/material.dart';
 
 class CookiesRecipe extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const CookiesRecipe(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const CookiesRecipe({super.key});
 
   @override
   Widget build(BuildContext context) {

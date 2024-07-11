@@ -1,5 +1,3 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/all_my_little_ducks_song_page.dart';
@@ -10,12 +8,7 @@ import 'package:family/src/features/content/presentation/entertainment/songs/sle
 import 'package:flutter/material.dart';
 
 class AllSongsPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const AllSongsPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const AllSongsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +26,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AllMyLittleDucksSongPage(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const AllMyLittleDucksSongPage(),
                       ),
                     );
                   }),
@@ -45,10 +35,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SleepKidSleepSongPage(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const SleepKidSleepSongPage(),
                       ),
                     );
                   }),
@@ -58,10 +45,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BiBaButzemannSongPage(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const BiBaButzemannSongPage(),
                       ),
                     );
                   }),
@@ -70,10 +54,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HoppeHoppeReiterSongPage(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const HoppeHoppeReiterSongPage(),
                       ),
                     );
                   }),
@@ -83,10 +64,7 @@ class AllSongsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BlueMountainsSongPage(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const BlueMountainsSongPage(),
                       ),
                     );
                   }),
@@ -105,10 +83,7 @@ class AllSongsPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => EntertainmentPage(
-                        databaseRepository: databaseRepository,
-                        authRepository: authRepository,
-                      ),
+                      builder: (context) => const EntertainmentPage(),
                     ),
                   );
                 },

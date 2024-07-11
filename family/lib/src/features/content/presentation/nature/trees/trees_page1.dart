@@ -1,6 +1,4 @@
 import 'package:family/src/common/menue_button.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -8,16 +6,10 @@ import 'package:family/src/features/content/presentation/nature/trees/trees_page
 import 'package:flutter/material.dart';
 
 class TreesPage1 extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
   final int treesNumber;
   final String treesTipps;
   const TreesPage1(
-      {super.key,
-      required this.treesNumber,
-      required this.treesTipps,
-      required this.authRepository,
-      required this.databaseRepository});
+      {super.key, required this.treesNumber, required this.treesTipps});
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +43,7 @@ class TreesPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => TreesPage(
-                                  databaseRepository: databaseRepository,
-                                  authRepository: authRepository,
-                                ),
+                                builder: (context) => const TreesPage(),
                               ),
                             );
                           },
@@ -81,37 +70,28 @@ class TreesPage1 extends StatelessWidget {
                                 builder: (context) {
                                   if (treesNumber == 1) {
                                     // wir befinden uns auf Regelseite 1
-                                    return TreesPage1(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
+                                    return const TreesPage1(
                                       treesNumber: 2,
                                       treesTipps:
                                           "Blätter sammeln und sortieren: Sammelt gemeinsam Blätter von verschiedenen Bäumen. Sortiert sie nach Größe, Form oder Farbe. Dies fördert die Beobachtungsfähigkeiten des Kindes.",
                                     );
                                   } else if (treesNumber == 2) {
                                     // wir befinden uns auf Regelseite 2
-                                    return TreesPage1(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
+                                    return const TreesPage1(
                                       treesNumber: 3,
                                       treesTipps:
                                           "Baumzeichnungen und Bastelprojekte: Lass das Kind Bäume zeichnen oder basteln. Verwende dabei verschiedene Materialien wie Papier, Karton oder Naturmaterialien. Dies fördert die Kreativität und das Verständnis für Baumstrukturen.",
                                     );
                                   } else if (treesNumber == 3) {
                                     // wir befinden uns auf Regelseite 3
-                                    return TreesPage1(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
+                                    return const TreesPage1(
                                       treesNumber: 4,
                                       treesTipps:
                                           "Baumringe und Altersbestimmung: Erkläre, wie die Ringe eines Baumstamms das Alter eines Baumes anzeigen können. Schau dir einen Querschnitt eines Baumes an und zähle die Ringe, um das Alter zu schätzen.",
                                     );
                                   } else {
                                     // wir befinden uns auf Regelseite 4
-                                    return MainSelectionPage(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
-                                    );
+                                    return const MainSelectionPage();
                                   }
                                 },
                               ),
@@ -143,11 +123,7 @@ class TreesPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
             ),

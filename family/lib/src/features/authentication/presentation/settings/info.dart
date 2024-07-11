@@ -1,19 +1,18 @@
-import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class InfoPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
+class InfoPage extends StatefulWidget {
+  const InfoPage({super.key});
 
-  const InfoPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  @override
+  State<InfoPage> createState() => _InfoPageState();
+}
 
+class _InfoPageState extends State<InfoPage> {
   Future<List<String>> getData() async {
     // Die Methode zum Abrufen der Daten
-    return databaseRepository.getUpdates();
+    return context.read<DatabaseRepository>().getUpdates();
   }
 
   @override

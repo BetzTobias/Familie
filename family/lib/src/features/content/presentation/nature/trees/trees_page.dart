@@ -1,17 +1,10 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/nature/nature.dart';
 import 'package:family/src/features/content/presentation/nature/trees/trees_page1.dart';
 import 'package:flutter/material.dart';
 
 class TreesPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const TreesPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const TreesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +39,7 @@ class TreesPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => NaturePage(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
-                              ),
+                              builder: (context) => const NaturePage(),
                             ),
                           );
                         },
@@ -77,8 +67,7 @@ class TreesPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => TreesPage1(databaseRepository: databaseRepository,
-                                authRepository: authRepository,
+                              builder: (context) => const TreesPage1(
                                 treesNumber: 1,
                                 treesTipps:
                                     'Baumarten entdecken: Gehe mit dem Kind nach draußen und erkunde gemeinsam verschiedene Baumarten. Zeige auf unterschiedliche Blätter, Rinden und Formen der Bäume.',

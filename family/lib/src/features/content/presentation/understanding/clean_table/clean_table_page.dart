@@ -1,17 +1,10 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/understanding/clean_table/clean_table_page1.dart';
 import 'package:family/src/features/content/presentation/understanding/understanding.dart';
 import 'package:flutter/material.dart';
 
 class CleanTablePage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const CleanTablePage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const CleanTablePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +39,7 @@ class CleanTablePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => UnderstandingPage(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
-                              ),
+                              builder: (context) => const UnderstandingPage(),
                             ),
                           );
                         },
@@ -77,9 +67,7 @@ class CleanTablePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CleanTablePage1(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
+                              builder: (context) => const CleanTablePage1(
                                 cleanTipps:
                                     'Lustige Aufräumlieder: Erfinde oder suche nach lustigen Aufräumliedern. Diese können den Prozess unterhaltsamer gestalten und dem Kind helfen, sich besser zu engagieren.',
                                 cleanNumber: 1,

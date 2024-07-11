@@ -1,5 +1,3 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
 import 'package:flutter/material.dart';
@@ -61,12 +59,7 @@ class _MusikPlayButtonState extends State<MusikPlayButton> {
 }
 
 class SleepKidSleepSongPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const SleepKidSleepSongPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const SleepKidSleepSongPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -136,10 +129,7 @@ class SleepKidSleepSongPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => AllSongsPage(
-                      authRepository: authRepository,
-                      databaseRepository: databaseRepository,
-                    ),
+                    builder: (context) => const AllSongsPage(),
                   ),
                 );
               },

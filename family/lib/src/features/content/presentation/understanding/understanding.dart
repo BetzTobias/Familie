@@ -1,6 +1,4 @@
 import 'package:family/src/common/menue_button.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -9,12 +7,7 @@ import 'package:family/src/features/content/presentation/understanding/regulate/
 import 'package:flutter/material.dart';
 
 class UnderstandingPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const UnderstandingPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const UnderstandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +25,7 @@ class UnderstandingPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => RegulatePage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          ),
+                          builder: (context) => const RegulatePage(),
                         ),
                       );
                     }),
@@ -44,10 +34,7 @@ class UnderstandingPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CleanTablePage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          ),
+                          builder: (context) => const CleanTablePage(),
                         ),
                       );
                     }),
@@ -66,10 +53,7 @@ class UnderstandingPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MainSelectionPage(
-                        databaseRepository: databaseRepository,
-                        authRepository: authRepository,
-                      ),
+                      builder: (context) => const MainSelectionPage(),
                     ),
                   );
                 },
@@ -93,11 +77,7 @@ class UnderstandingPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
             ),

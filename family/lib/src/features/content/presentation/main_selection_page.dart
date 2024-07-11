@@ -1,5 +1,3 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
@@ -12,12 +10,7 @@ import 'package:family/src/features/content/presentation/understanding/understan
 import 'package:flutter/material.dart';
 
 class MainSelectionPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const MainSelectionPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const MainSelectionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +24,7 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            authRepository: authRepository,
-                            databaseRepository: databaseRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
               child: Column(
@@ -52,10 +41,7 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => LearnPage(databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const LearnPage()),
                 );
               },
               child: Column(
@@ -72,11 +58,7 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => HygienePage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const HygienePage()),
                 );
               },
               child: Column(
@@ -94,10 +76,7 @@ class MainSelectionPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => EntertainmentPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                      builder: (context) => const EntertainmentPage()),
                 );
               },
               child: Column(
@@ -114,11 +93,7 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => NaturePage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const NaturePage()),
                 );
               },
               child: Column(
@@ -135,10 +110,7 @@ class MainSelectionPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => StoryPage(databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const StoryPage()),
                 );
               },
               child: Column(
@@ -156,9 +128,7 @@ class MainSelectionPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => LogicalThinkingPage(databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                      builder: (context) => const LogicalThinkingPage()),
                 );
               },
               child: Column(
@@ -176,10 +146,7 @@ class MainSelectionPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => UnderstandingPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                      builder: (context) => const UnderstandingPage()),
                 );
               },
               child: Column(

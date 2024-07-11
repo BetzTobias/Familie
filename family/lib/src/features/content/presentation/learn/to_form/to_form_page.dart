@@ -1,18 +1,10 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/learn/to_form/to_form_page1.dart';
 import 'package:flutter/material.dart';
 
 class ToFormPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const ToFormPage({
-    super.key,
-    required this.authRepository,
-    required this.databaseRepository,
-  });
+  const ToFormPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +39,7 @@ class ToFormPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LearnPage(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
-                              ),
+                              builder: (context) => const LearnPage(),
                             ),
                           );
                         },
@@ -78,9 +67,7 @@ class ToFormPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ToFormPage1(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
+                              builder: (context) => const ToFormPage1(
                                 formNumber: 1,
                                 formTipps:
                                     'Alltägliche Objekte: Zeige dem Kind alltägliche Gegenstände mit verschiedenen Formen. Zum Beispiel: "Schau, die Uhr hat einen runden Kreis".',

@@ -1,15 +1,8 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:flutter/material.dart';
 
 class AmericanRecipe extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const AmericanRecipe(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const AmericanRecipe({super.key});
 
   @override
   Widget build(BuildContext context) {

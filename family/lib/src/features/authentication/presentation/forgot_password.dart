@@ -1,18 +1,9 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-
-  const ForgotPassword({
-    super.key,
-    required this.databaseRepository,
-    required this.authRepository,
-  });
+  const ForgotPassword({super.key});
 
   @override
   State<ForgotPassword> createState() => _ForgotPasswordState();
@@ -101,10 +92,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => LoginPage(
-                            databaseRepository: widget.databaseRepository,
-                            authRepository: widget.authRepository)),
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
                 style: ButtonStyle(

@@ -1,6 +1,4 @@
 import 'package:family/src/common/menue_button.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
@@ -10,13 +8,7 @@ import 'package:family/src/features/content/presentation/nature/trees/trees_page
 import 'package:flutter/material.dart';
 
 class NaturePage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const NaturePage({
-    super.key,
-    required this.authRepository,
-    required this.databaseRepository,
-  });
+  const NaturePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +26,7 @@ class NaturePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AnimalsPage(databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const AnimalsPage(),
                       ),
                     );
                   }),
@@ -45,9 +35,7 @@ class NaturePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TreesPage(databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const TreesPage(),
                       ),
                     );
                   }),
@@ -56,9 +44,7 @@ class NaturePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => FlowersPage(databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const FlowersPage(),
                       ),
                     );
                   }),
@@ -77,10 +63,7 @@ class NaturePage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MainSelectionPage(
-                        databaseRepository: databaseRepository,
-                        authRepository: authRepository,
-                      ),
+                      builder: (context) => const MainSelectionPage(),
                     ),
                   );
                 },
@@ -104,11 +87,7 @@ class NaturePage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
             ),

@@ -1,17 +1,10 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/understanding/regulate/regulate_page1.dart';
 import 'package:family/src/features/content/presentation/understanding/understanding.dart';
 import 'package:flutter/material.dart';
 
 class RegulatePage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const RegulatePage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const RegulatePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +39,7 @@ class RegulatePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => UnderstandingPage(
-                                authRepository: authRepository,
-                                databaseRepository: databaseRepository,
-                              ),
+                              builder: (context) => const UnderstandingPage(),
                             ),
                           );
                         },
@@ -77,9 +67,7 @@ class RegulatePage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => RegulatePage1(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
+                              builder: (context) => const RegulatePage1(
                                 regulateTipps:
                                     'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
                                 rulesNumber: 1,

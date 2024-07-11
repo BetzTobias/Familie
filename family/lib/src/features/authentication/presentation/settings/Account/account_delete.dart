@@ -1,17 +1,10 @@
-import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AccountDelete extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-
-  const AccountDelete({
-    super.key,
-    required this.databaseRepository,
-    required this.authRepository,
-  });
+  const AccountDelete({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +28,11 @@ class AccountDelete extends StatelessWidget {
               ElevatedButton(
                 onPressed: () async {
                   try {
-                    await databaseRepository.deleteAccount();
-                    Navigator.pushReplacement(
+                    await context.read<DatabaseRepository>().deleteAccount();
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginPage(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const LoginPage(),
                       ),
                     );
                   } catch (e) {

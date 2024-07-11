@@ -1,6 +1,4 @@
 import 'package:family/src/common/menue_button.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/brush_teeth/brush_teeth_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/toilet_training/toilet_training_page.dart';
@@ -10,12 +8,7 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class HygienePage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const HygienePage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const HygienePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +26,7 @@ class HygienePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BrushTeethPage(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const BrushTeethPage(),
                       ),
                     );
                   }),
@@ -45,9 +35,7 @@ class HygienePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ToiletTrainingPage(databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const ToiletTrainingPage(),
                       ),
                     );
                   }),
@@ -56,9 +44,7 @@ class HygienePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => WashPage(databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const WashPage(),
                       ),
                     );
                   }),
@@ -77,10 +63,7 @@ class HygienePage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MainSelectionPage(
-                        databaseRepository: databaseRepository,
-                        authRepository: authRepository,
-                      ),
+                      builder: (context) => const MainSelectionPage(),
                     ),
                   );
                 },
@@ -104,11 +87,7 @@ class HygienePage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
             ),

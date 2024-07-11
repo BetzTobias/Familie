@@ -1,17 +1,10 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
 import 'package:family/src/features/content/presentation/hygiene/wash/Wash_page1.dart';
 import 'package:flutter/material.dart';
 
 class WashPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const WashPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const WashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +39,7 @@ class WashPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HygienePage(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
-                              ),
+                              builder: (context) => const HygienePage(),
                             ),
                           );
                         },
@@ -77,9 +67,7 @@ class WashPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => WashPage1(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
+                              builder: (context) => const WashPage1(
                                 washTipps:
                                     'Wasch-Songs und Reime: Erfinde oder suche nach Wasch-Songs oder Reimen. Die Kinder können während des Waschens mitsingen oder sich die Lieder merken, um die empfohlene Dauer von mindestens 20 Sekunden einzuhalten.',
                                 washNumber: 1,

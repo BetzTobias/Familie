@@ -1,17 +1,10 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors__page1.dart';
 import 'package:flutter/material.dart';
 
 class LearnColorsPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const LearnColorsPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const LearnColorsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +39,7 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LearnPage(databaseRepository: databaseRepository,
-                                authRepository: authRepository,
-                              ),
+                              builder: (context) => const LearnPage(),
                             ),
                           );
                         },
@@ -76,9 +67,7 @@ class LearnColorsPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LearnColorsPage1(
-                                databaseRepository: databaseRepository,
-                                authRepository: authRepository,
+                              builder: (context) => const LearnColorsPage1(
                                 colorsNumber: 1,
                                 colorsTipps:
                                     'Bunte Gegenstände: Zeige deinem Kind verschiedene bunte Gegenstände wie Spielzeug, Kleidung oder Früchte. Benenne dabei die Farben deutlich. "Schau, das ist eine rote Erdbeere" oder "Dieses Auto ist blau".',

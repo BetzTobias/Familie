@@ -80,17 +80,16 @@ class FirestoreDatabase implements DatabaseRepository {
   @override
   Future<void> deleteAccount() async {
     try {
-      await FirebaseAuth.instance.currentUser!.delete();
-      // Löschen der Benutzerdaten aus Firestore
       await _firebaseFirestore
           .collection('User')
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .delete();
-
+      await FirebaseAuth.instance.currentUser!.delete();
+      // Löschen der Benutzerdaten aus Firestore
+      print('Geschafft');
       // Löschen des Benutzerkontos
     } catch (e) {
       print('Fehler beim Löschen des Accounts: $e');
-      throw e;
     }
   }
 }

@@ -1,5 +1,3 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/bake/american_recipe.dart';
 import 'package:family/src/features/content/presentation/entertainment/bake/cookies_recipe.dart';
@@ -8,14 +6,7 @@ import 'package:family/src/features/content/presentation/entertainment/entertain
 import 'package:flutter/material.dart';
 
 class RecipeList extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-
-  const RecipeList({
-    super.key,
-    required this.authRepository,
-    required this.databaseRepository,
-  });
+  const RecipeList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +24,7 @@ class RecipeList extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AmericanRecipe(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const AmericanRecipe(),
                       ),
                     );
                   }),
@@ -45,10 +33,7 @@ class RecipeList extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CookiesRecipe(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const CookiesRecipe(),
                       ),
                     );
                   }),
@@ -57,10 +42,7 @@ class RecipeList extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RainbowCakeRecipe(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const RainbowCakeRecipe(),
                       ),
                     );
                   }),
@@ -79,10 +61,7 @@ class RecipeList extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => EntertainmentPage(
-                        databaseRepository: databaseRepository,
-                        authRepository: authRepository,
-                      ),
+                      builder: (context) => const EntertainmentPage(),
                     ),
                   );
                 },

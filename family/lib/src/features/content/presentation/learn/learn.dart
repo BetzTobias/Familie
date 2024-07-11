@@ -1,6 +1,4 @@
 import 'package:family/src/common/menue_button.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors_page.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page.dart';
@@ -10,12 +8,7 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LearnPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const LearnPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const LearnPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +26,7 @@ class LearnPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MotorSkillsPage(
-                          authRepository: authRepository,
-                          databaseRepository: databaseRepository,
-                        ),
+                        builder: (context) => const MotorSkillsPage(),
                       ),
                     );
                   }),
@@ -45,10 +35,7 @@ class LearnPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LearnColorsPage(
-                          databaseRepository: databaseRepository,
-                          authRepository: authRepository,
-                        ),
+                        builder: (context) => const LearnColorsPage(),
                       ),
                     );
                   }),
@@ -57,10 +44,7 @@ class LearnPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ToFormPage(
-                          authRepository: authRepository,
-                          databaseRepository: databaseRepository,
-                        ),
+                        builder: (context) => const ToFormPage(),
                       ),
                     );
                   }),
@@ -79,10 +63,7 @@ class LearnPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MainSelectionPage(
-                        authRepository: authRepository,
-                        databaseRepository: databaseRepository,
-                      ),
+                      builder: (context) => const MainSelectionPage(),
                     ),
                   );
                 },
@@ -106,11 +87,7 @@ class LearnPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            authRepository: authRepository,
-                            databaseRepository: databaseRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
             ),

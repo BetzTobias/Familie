@@ -4,16 +4,10 @@ import 'package:family/src/features/authentication/presentation/forgot_password.
 import 'package:family/src/features/authentication/presentation/new_registration.dart';
 import 'package:family/src/features/welcome/presentation/patient.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-
-  const LoginPage({
-    super.key,
-    required this.databaseRepository,
-    required this.authRepository,
-  });
+  const LoginPage({super.key});
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -96,27 +90,26 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           try {
-                            await widget.authRepository
+                            await context
+                                .read<AuthRepository>()
                                 .loginWithEmailAndPassword(
                                   emailController.text,
                                   passwordController.text,
                                 );
 
-                            await widget.databaseRepository
+                            await context
+                                .read<DatabaseRepository>()
                                 .setEmail(emailController.text);
 
-                            await widget.databaseRepository
+                            await context
+                                .read<DatabaseRepository>()
                                 .setPassword(passwordController.text);
 
                             if (!mounted) return;
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PatientPage(
-                                  authRepository: widget.authRepository,
-                                  databaseRepository:
-                                      widget.databaseRepository,
-                                ),
+                                builder: (context) => const PatientPage(),
                               ),
                             );
                           } catch (e) {
@@ -126,10 +119,10 @@ class _LoginPageState extends State<LoginPage> {
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
+                        backgroundColor: WidgetStateProperty.all<Color>(
                           const Color(0XFFEBE216),
                         ),
-                        foregroundColor: MaterialStateProperty.all<Color>(
+                        foregroundColor: WidgetStateProperty.all<Color>(
                           Colors.black, // Schriftfarbe des Buttons
                         ),
                       ),
@@ -149,10 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ForgotPassword(
-                            databaseRepository: widget.databaseRepository,
-                            authRepository: widget.authRepository,
-                          ),
+                          builder: (context) => const ForgotPassword(),
                         ),
                       );
                     },
@@ -163,10 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => NewRegistration(
-                            databaseRepository: widget.databaseRepository,
-                            authRepository: widget.authRepository,
-                          ),
+                          builder: (context) => const NewRegistration(),
                         ),
                       );
                     },

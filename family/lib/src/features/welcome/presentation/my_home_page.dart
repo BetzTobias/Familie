@@ -1,16 +1,9 @@
 import 'package:family/src/common/logo.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/desicion.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const MyHomePage(
-      {super.key,
-      required this.databaseRepository,
-      required this.authRepository});
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -45,9 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DesicionPage(
-                                  databaseRepository: widget.databaseRepository,
-                                  authRepository: widget.authRepository)),
+                              builder: (context) => const DesicionPage()),
                         );
                       });
                     },

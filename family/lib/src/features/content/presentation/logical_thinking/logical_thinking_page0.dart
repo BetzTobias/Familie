@@ -1,6 +1,4 @@
 import 'package:family/src/common/menue_button.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking_page1.dart';
@@ -8,9 +6,7 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LogicalThinkingPage0 extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const LogicalThinkingPage0({super.key, required this.authRepository, required this.databaseRepository});
+  const LogicalThinkingPage0({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +40,8 @@ class LogicalThinkingPage0 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LogicalThinkingPage(
-                                  databaseRepository: databaseRepository,
-                                  authRepository: authRepository,
-                                ),
+                                builder: (context) =>
+                                    const LogicalThinkingPage(),
                               ),
                             );
                           },
@@ -71,9 +65,8 @@ class LogicalThinkingPage0 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LogicalThinkingPage1(
-                                  databaseRepository: databaseRepository,
-                                  authRepository: authRepository,
+                                builder: (context) =>
+                                    const LogicalThinkingPage1(
                                   logicNumber: 1,
                                   logicTipps:
                                       'Formen mit Händen und Füßen nachahmen: Lass das Kind Formen mit den Händen oder Füßen nachahmen. Zum Beispiel können sie versuchen, einen großen Kreis mit ihren Armen zu machen und einen kleinen Kreis mit ihren Fingern.',
@@ -107,11 +100,7 @@ class LogicalThinkingPage0 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
             ),

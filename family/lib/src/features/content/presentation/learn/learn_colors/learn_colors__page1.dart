@@ -1,6 +1,4 @@
 import 'package:family/src/common/menue_button.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -8,16 +6,10 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LearnColorsPage1 extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
   final int colorsNumber;
   final String colorsTipps;
   const LearnColorsPage1(
-      {super.key,
-      required this.colorsNumber,
-      required this.colorsTipps,
-      required this.authRepository,
-      required this.databaseRepository});
+      {super.key, required this.colorsNumber, required this.colorsTipps});
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +43,7 @@ class LearnColorsPage1 extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LearnColorsPage(
-                                  authRepository: authRepository,
-                                  databaseRepository: databaseRepository,
-                                ),
+                                builder: (context) => const LearnColorsPage(),
                               ),
                             );
                           },
@@ -81,55 +70,42 @@ class LearnColorsPage1 extends StatelessWidget {
                                 builder: (context) {
                                   if (colorsNumber == 1) {
                                     // wir befinden uns auf Colorsseite 1
-                                    return LearnColorsPage1(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
+                                    return const LearnColorsPage1(
                                       colorsNumber: 2,
                                       colorsTipps:
                                           "Farbige Bücher: Verwende Bücher mit dem lebendigen Farben und einfachen Illustrationen. Lese deinem Kind vor und betone die Farben in den Bildern. Frage es, welche Farben es sieht.",
                                     );
                                   } else if (colorsNumber == 2) {
                                     // wir befinden uns auf Colorseite 2
-                                    return LearnColorsPage1(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
+                                    return const LearnColorsPage1(
                                       colorsNumber: 3,
                                       colorsTipps:
                                           "Malen und Basteln: Lass dein Kind mit Fingerfarben, Buntstiften oder Kreide malen. Benutze Papier in verschiedenen Farben und erkläre, während es malt, welche Farben es gerade verwendet.",
                                     );
                                   } else if (colorsNumber == 3) {
                                     // wir befinden uns auf Colorsseite 3
-                                    return LearnColorsPage1(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
+                                    return const LearnColorsPage1(
                                       colorsNumber: 4,
                                       colorsTipps:
                                           "Farbige Bauklötze: Spiele mit Bauklötzen in verschiedenen Farben. Fordere dein Kind auf, Türme aus Blöcken in der selben Farbe zu bauen oder die Farben zu benennen, während es spielt.",
                                     );
                                   } else if (colorsNumber == 4) {
                                     // wir befinden uns auf Colorsseite 4
-                                    return LearnColorsPage1(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
+                                    return const LearnColorsPage1(
                                       colorsNumber: 5,
                                       colorsTipps:
                                           "Lieder und Reime: Singe Lieder oder sage Reime über Farben. Es gibt viele Kinderfreundliche Lieder, die sich auf Farben konzentrieren. Wiederhole sie gemeinsam und lass dein Kind mitsingen.",
                                     );
                                   } else if (colorsNumber == 5) {
                                     // wir befinden uns auf Colorsseite 5
-                                    return LearnColorsPage1(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
+                                    return const LearnColorsPage1(
                                       colorsNumber: 6,
                                       colorsTipps:
                                           "Sortierspiele: Verwende bunte Bauklötze, Spielfiguren oder andere Gegenstände und lass dein Kind sie nach Farben sortieren. Dies fördert nicht nur das Farbverständnis, sondern auch die Feinmotorik.",
                                     );
                                   } else {
                                     // wir befinden uns auf Colorsseite 6
-                                    return MainSelectionPage(
-                                      databaseRepository: databaseRepository,
-                                      authRepository: authRepository,
-                                    );
+                                    return const MainSelectionPage();
                                   }
                                 },
                               ),
@@ -161,11 +137,7 @@ class LearnColorsPage1 extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
             ),

@@ -1,6 +1,4 @@
 import 'package:family/src/common/menue_button.dart';
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page2.dart';
@@ -8,12 +6,7 @@ import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class MotorSkillsPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const MotorSkillsPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const MotorSkillsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +40,7 @@ class MotorSkillsPage extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LearnPage(
-                                  databaseRepository: databaseRepository,
-                                  authRepository: authRepository,
-                                ),
+                                builder: (context) => const LearnPage(),
                               ),
                             );
                           },
@@ -74,9 +64,7 @@ class MotorSkillsPage extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MotorSkillsPage2(
-                                  databaseRepository: databaseRepository,
-                                  authRepository: authRepository,
+                                builder: (context) => const MotorSkillsPage2(
                                   skillsNumber: 2,
                                   skillsTipps:
                                       'Feinmotorik fördern: Biete Aktivitäten an, die die Fingerfertigkeiten verbessern, wie z.B. Malen, Basteln oder das Spielen mit Bausteinen. Diese Aktivitäten stärken die Handmuskulatur und fördern die Hand-Auge-Koordination.',
@@ -110,11 +98,7 @@ class MotorSkillsPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository,
-                          )),
+                  MaterialPageRoute(builder: (context) => const MenuPage()),
                 );
               },
             ),

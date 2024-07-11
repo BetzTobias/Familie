@@ -1,20 +1,14 @@
 import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:family/src/features/authentication/presentation/settings/info.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-
-  const SettingsPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +29,7 @@ class SettingsPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => InfoPage(
-                            authRepository: authRepository,
-                            databaseRepository: databaseRepository,
-                          ),
+                          builder: (context) => const InfoPage(),
                         ),
                       );
                     },
@@ -51,10 +42,7 @@ class SettingsPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ManageProfilePage(
-                            authRepository: authRepository,
-                            databaseRepository: databaseRepository,
-                          ),
+                          builder: (context) => const ManageProfilePage(),
                         ),
                       );
                     },
@@ -64,14 +52,11 @@ class SettingsPage extends StatelessWidget {
                     context,
                     'Abmelden',
                     () async {
-                      await authRepository.logout();
+                      await context.read<AuthRepository>().logout();
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => LoginPage(
-                            authRepository: authRepository,
-                            databaseRepository: databaseRepository,
-                          ),
+                          builder: (context) => const LoginPage(),
                         ),
                         (Route<dynamic> route) => false,
                       );
@@ -82,9 +67,7 @@ class SettingsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginPage(
-                            databaseRepository: databaseRepository,
-                            authRepository: authRepository),
+                        builder: (context) => const LoginPage(),
                       ),
                     );
                   }),
@@ -101,10 +84,7 @@ class SettingsPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MenuPage(
-                        databaseRepository: databaseRepository,
-                        authRepository: authRepository,
-                      ),
+                      builder: (context) => const MenuPage(),
                     ),
                   );
                 },

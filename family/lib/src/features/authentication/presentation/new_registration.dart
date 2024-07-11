@@ -1,19 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class NewRegistration extends StatefulWidget {
-  final AuthRepository authRepository;
-  final DatabaseRepository databaseRepository;
-
-  const NewRegistration({
-    super.key,
-    required this.authRepository,
-    required this.databaseRepository,
-  });
+  const NewRegistration({super.key});
 
   @override
   _NewRegistrationState createState() => _NewRegistrationState();
@@ -155,9 +148,12 @@ class _NewRegistrationState extends State<NewRegistration> {
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       try {
-                        await widget.authRepository.signUpWithEmailAndPassword(
-                            emailController.text, passwordController.text);
-                        final user = widget.authRepository.getCurrentUser();
+                        await context
+                            .read<AuthRepository>()
+                            .signUpWithEmailAndPassword(
+                                emailController.text, passwordController.text);
+                        final user =
+                            context.read<AuthRepository>().getCurrentUser();
 
                         await FirebaseFirestore.instance
                             .collection('User')
@@ -171,9 +167,7 @@ class _NewRegistrationState extends State<NewRegistration> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginPage(
-                                  databaseRepository: widget.databaseRepository,
-                                  authRepository: widget.authRepository)),
+                              builder: (context) => const LoginPage()),
                         );
                       } catch (e) {
                         print('Fehler bei der Registrierung: $e');
@@ -199,9 +193,7 @@ class _NewRegistrationState extends State<NewRegistration> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => LoginPage(
-                              databaseRepository: widget.databaseRepository,
-                              authRepository: widget.authRepository)),
+                          builder: (context) => const LoginPage()),
                     );
                   },
                   style: ButtonStyle(

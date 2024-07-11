@@ -1,14 +1,10 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 
 class ManageProfileNumberPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-  const ManageProfileNumberPage({super.key, required this.authRepository, required this.databaseRepository});
+  const ManageProfileNumberPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +26,14 @@ class ManageProfileNumberPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            MainSelectionPage(authRepository: authRepository, databaseRepository: databaseRepository,)),
+                        builder: (context) => const MainSelectionPage()),
                   );
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color(0XFFEBE216),
                   ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
+                  foregroundColor: WidgetStateProperty.all<Color>(
                     Colors.black, // Schriftfarbe des Buttons
                   ),
                 ),
@@ -50,15 +45,14 @@ class ManageProfileNumberPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            ManageProfilePage(authRepository: authRepository, databaseRepository: databaseRepository,)),
+                        builder: (context) => const ManageProfilePage()),
                   );
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color(0XFF16972A),
                   ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
+                  foregroundColor: WidgetStateProperty.all<Color>(
                     Colors.black, // Schriftfarbe des Buttons
                   ),
                 ),

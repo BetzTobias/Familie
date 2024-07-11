@@ -1,5 +1,3 @@
-import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
 import 'package:flutter/material.dart';
@@ -77,13 +75,7 @@ class MyApp extends StatelessWidget {
 }
 
 class AllMyLittleDucksSongPage extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-  final AuthRepository authRepository;
-
-  const AllMyLittleDucksSongPage(
-      {super.key,
-      required this.authRepository,
-      required this.databaseRepository});
+  const AllMyLittleDucksSongPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -150,10 +142,7 @@ class AllMyLittleDucksSongPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => AllSongsPage(
-                      authRepository: authRepository,
-                      databaseRepository: databaseRepository,
-                    ),
+                    builder: (context) => const AllSongsPage(),
                   ),
                 );
               },
