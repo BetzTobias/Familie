@@ -1,14 +1,17 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
-import 'package:family/src/features/content/presentation/entertainment/bake/recipe_list.dart';
-import 'package:family/src/features/content/presentation/entertainment/craft/craft_list.dart';
+import 'package:family/src/features/content/presentation/entertainment/craft/autumn/autumn_list.dart';
+import 'package:family/src/features/content/presentation/entertainment/craft/carnival/carnival_list.dart';
+import 'package:family/src/features/content/presentation/entertainment/craft/easter/easter_list.dart';
+import 'package:family/src/features/content/presentation/entertainment/craft/generally/generally_list.dart';
+import 'package:family/src/features/content/presentation/entertainment/craft/spring/spring_list.dart';
+import 'package:family/src/features/content/presentation/entertainment/craft/winter/winter_list.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
 
-class EntertainmentPage extends StatelessWidget {
-  const EntertainmentPage({super.key});
+class CraftListPage extends StatelessWidget {
+  const CraftListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,29 +25,65 @@ class EntertainmentPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  buildMenuButton(context, 'Basteln', () {
+                  buildMenuButton(context, 'Frühling', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CraftListPage(),
+                        builder: (context) => const SpringListPage(),
                       ),
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildMenuButton(context, 'Backen', () {
+                  buildMenuButton(context, 'Sommer', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const RecipeList(),
+                        builder: (context) => const SpringListPage(),
                       ),
                     );
                   }),
                   const SizedBox(height: 10),
-                  buildMenuButton(context, 'Lieder', () {
+                  buildMenuButton(context, 'Herbst', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AllSongsPage(),
+                        builder: (context) => const AutumnListPage(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildMenuButton(context, 'Winter', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WinterListPage(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildMenuButton(context, 'Fashing', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CarnivalListPage(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildMenuButton(context, 'Ostern', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const EasterListPage(),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                  buildMenuButton(context, 'Allgemein', () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const GenerallyListPage(),
                       ),
                     );
                   }),

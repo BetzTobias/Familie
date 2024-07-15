@@ -1,5 +1,5 @@
 import 'package:family/src/common/logo.dart';
-import 'package:family/src/desicion.dart';
+import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const DesicionPage()),
+                              builder: (context) => const LoginPage()),
                         );
                       });
                     },

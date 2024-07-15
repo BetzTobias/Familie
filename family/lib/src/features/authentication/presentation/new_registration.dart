@@ -162,6 +162,7 @@ class _NewRegistrationState extends State<NewRegistration> {
                           'username': usernameController.text,
                           'phone': phoneController.text,
                           'email': emailController.text,
+                          'password': passwordController.text
                         });
 
                         Navigator.pushReplacement(

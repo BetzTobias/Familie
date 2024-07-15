@@ -1,5 +1,5 @@
 import 'package:family/src/data/auth_repository.dart';
-import 'package:family/src/features/authentication/presentation/login_page.dart';
+import 'package:family/src/desicion.dart';
 import 'package:family/src/features/welcome/presentation/my_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +21,7 @@ class App extends StatelessWidget {
               theme: ThemeData(
                 primaryColor: const Color.fromRGBO(207, 250, 255, 1),
               ),
-              home: user == null ? const LoginPage() : const MyHomePage());
+              home: user == null ? const MyHomePage() : const DesicionPage());
         });
   }
 }

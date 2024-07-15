@@ -1,14 +1,13 @@
 import 'package:family/src/common/menue_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/entertainment/all_songs_page.dart';
-import 'package:family/src/features/content/presentation/entertainment/bake/recipe_list.dart';
 import 'package:family/src/features/content/presentation/entertainment/craft/craft_list.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class EntertainmentPage extends StatelessWidget {
-  const EntertainmentPage({super.key});
+class CarnivalListPage extends StatelessWidget {
+  const CarnivalListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,29 +21,11 @@ class EntertainmentPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  buildMenuButton(context, 'Basteln', () {
+                  buildMenuButton(context, 'Faschingsfigur mit Krepppapier', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CraftListPage(),
-                      ),
-                    );
-                  }),
-                  const SizedBox(height: 10),
-                  buildMenuButton(context, 'Backen', () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RecipeList(),
-                      ),
-                    );
-                  }),
-                  const SizedBox(height: 10),
-                  buildMenuButton(context, 'Lieder', () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AllSongsPage(),
+                        builder: (context) => const MainSelectionPage(),
                       ),
                     );
                   }),
@@ -63,7 +44,7 @@ class EntertainmentPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MainSelectionPage(),
+                      builder: (context) => const CraftListPage(),
                     ),
                   );
                 },

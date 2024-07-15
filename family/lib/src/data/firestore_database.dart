@@ -93,18 +93,17 @@ class FirestoreDatabase implements DatabaseRepository {
     }
   }
 
- 
-    @override
-    Future<void> updateUser(String newEmail) async {
-      try {
-        await _firebaseFirestore
-            .collection('User')
-            .doc(FirebaseAuth.instance.currentUser!.uid)
-            .update({'email': newEmail});
-        print('Email ändern war erfolgreich');
-      } catch (e) {
-        print('Ändern der Email Fehlgeschlagen: $e');
-      }
+  @override
+  Future<void> updateUser(String newEmail) async {
+    try {
+      await _firebaseFirestore
+          .collection('User')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .update({'email': newEmail});
+
+      print('Email ändern war erfolgreich');
+    } catch (e) {
+      print('Ändern der Email Fehlgeschlagen: $e');
     }
   }
-
+}

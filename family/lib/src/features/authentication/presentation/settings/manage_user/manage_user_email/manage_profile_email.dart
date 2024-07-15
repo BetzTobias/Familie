@@ -1,7 +1,6 @@
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,18 +40,18 @@ class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
               //Aktion zur nächsten Seite
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () async {
+                onPressed: () {
                   if (_newEmailController.text ==
                       _confirmEmailController.text) {
-                    await context
+                    context
                         .read<DatabaseRepository>()
-                        .updateUser(_newEmailController.text);
-
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MainSelectionPage()),
-                    );
+                        .updateUser(_confirmEmailController.text);
+                    Navigator.pop(context);
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const MainSelectionPage()),
+                    // );
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text('Email Adresse stimmt nicht überein')));
