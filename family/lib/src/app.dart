@@ -18,9 +18,9 @@ class App extends StatelessWidget {
           return MaterialApp(
               key: user == null ? loginKey : overviewKey,
               title: 'Family',
-              theme: ThemeData(
-                primaryColor: const Color.fromRGBO(207, 250, 255, 1),
-              ),
+              theme: ThemeData.from(
+                  colorScheme: ColorScheme.fromSeed(
+                      seedColor: const Color.fromRGBO(207, 250, 255, 1))),
               home: user == null ? const MyHomePage() : const DesicionPage());
         });
   }
