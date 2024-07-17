@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isKeyboardExtended = MediaQuery.of(context).viewInsets.bottom > 0;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(207, 250, 255, 1),
       body: Center(
@@ -29,21 +30,21 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Logo im oberen Bereich
-              Container(
-                padding: const EdgeInsets.only(bottom: 100.0),
-                child: Image.asset(
-                  'assets/Logo_2.png', // Pfad zum Logo-Bild
-                  width: 600, // Breite des Logos
-                  height: 200, // Höhe des Logos
-                ),
-              ),
-
               // Email Eingabefeld
               Form(
                 key: _formKey,
                 child: Column(
                   children: [
+                    // Logo im oberen Bereich
+                    if (!isKeyboardExtended)
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 100.0),
+                        child: Image.asset(
+                          'assets/Logo_2.png', // Pfad zum Logo-Bild
+                          width: 600, // Breite des Logos
+                          height: 200, // Höhe des Logos
+                        ),
+                      ),
                     TextFormField(
                       controller: emailController,
                       decoration: const InputDecoration(
