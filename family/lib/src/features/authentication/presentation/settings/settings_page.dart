@@ -1,3 +1,4 @@
+import 'package:family/src/common/custom_back_button.dart';
 import 'package:family/src/common/primary_button.dart';
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
@@ -77,28 +78,12 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment.bottomRight,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const MenuPage(),
-                    ),
-                  );
-                },
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(
-                    const Color(0XFF16972A),
-                  ),
-                  foregroundColor: WidgetStateProperty.all<Color>(
-                    Colors.black, // Schriftfarbe des Buttons
-                  ),
-                ),
-                child: const Text('zurück'),
+              padding: EdgeInsets.all(16.0),
+              child: CustomBackButton(
+                destination: MenuPage(),
               ),
             ),
           ),
