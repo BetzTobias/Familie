@@ -9,7 +9,7 @@ class NewRegistration extends StatefulWidget {
   const NewRegistration({super.key});
 
   @override
-  _NewRegistrationState createState() => _NewRegistrationState();
+  State<NewRegistration> createState() => _NewRegistrationState();
 }
 
 class _NewRegistrationState extends State<NewRegistration> {
@@ -152,6 +152,8 @@ class _NewRegistrationState extends State<NewRegistration> {
                             .read<AuthRepository>()
                             .signUpWithEmailAndPassword(
                                 emailController.text, passwordController.text);
+                        if (!context.mounted) return;
+
                         final user =
                             context.read<AuthRepository>().getCurrentUser();
 
@@ -164,6 +166,7 @@ class _NewRegistrationState extends State<NewRegistration> {
                           'email': emailController.text,
                           'password': passwordController.text
                         });
+                        if (!context.mounted) return;
 
                         Navigator.pushReplacement(
                           context,
@@ -171,7 +174,7 @@ class _NewRegistrationState extends State<NewRegistration> {
                               builder: (context) => const LoginPage()),
                         );
                       } catch (e) {
-                        print('Fehler bei der Registrierung: $e');
+                        debugPrint('Fehler bei der Registrierung: $e');
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Fehler bei der Registrierung: $e'),

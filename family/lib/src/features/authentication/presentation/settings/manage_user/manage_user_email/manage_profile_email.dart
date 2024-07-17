@@ -8,7 +8,7 @@ class ManageProfileEmailPage extends StatefulWidget {
   const ManageProfileEmailPage({super.key});
 
   @override
-  _ManageProfileEmailPageState createState() => _ManageProfileEmailPageState();
+  State<ManageProfileEmailPage> createState() => _ManageProfileEmailPageState();
 }
 
 class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
@@ -99,20 +99,6 @@ class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(iconData),
-        border: const OutlineInputBorder(),
-      ),
-    );
-  }
-
-  Widget _buildTextFieldWithIconAndSuffix(
-      String labelText, IconData prefixIconData, IconData suffixIconData,
-      {required bool obscureText}) {
-    return TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: labelText,
-        prefixIcon: Icon(prefixIconData),
-        suffixIcon: Icon(suffixIconData),
         border: const OutlineInputBorder(),
       ),
     );

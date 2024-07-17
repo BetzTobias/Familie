@@ -10,7 +10,7 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -90,22 +90,23 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           try {
+                            if (!context.mounted) return;
                             await context
                                 .read<AuthRepository>()
                                 .loginWithEmailAndPassword(
                                   emailController.text,
                                   passwordController.text,
                                 );
-
+                            if (!context.mounted) return;
                             await context
                                 .read<DatabaseRepository>()
                                 .setEmail(emailController.text);
-
+                            if (!context.mounted) return;
                             await context
                                 .read<DatabaseRepository>()
                                 .setPassword(passwordController.text);
+                            if (!context.mounted) return;
 
-                            if (!mounted) return;
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -113,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             );
                           } catch (e) {
-                            if (!mounted) return;
+                            if (!context.mounted) return;
                             showErrorSnackbar(context, e.toString());
                           }
                         }

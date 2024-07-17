@@ -4,7 +4,6 @@ import 'package:family/src/features/content/presentation/entertainment/craft/cra
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CarnivalListPage extends StatelessWidget {
   const CarnivalListPage({super.key});
@@ -21,7 +20,8 @@ class CarnivalListPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  buildMenuButton(context, 'Faschingsfigur mit Krepppapier', () {
+                  buildMenuButton(context, 'Faschingsfigur mit Krepppapier',
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(

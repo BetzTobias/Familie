@@ -1,6 +1,6 @@
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
-import 'package:family/src/features/content/presentation/hygiene/wash/Wash_page1.dart';
+import 'package:family/src/features/content/presentation/hygiene/wash/wash_page1.dart';
 import 'package:flutter/material.dart';
 
 class WashPage extends StatelessWidget {

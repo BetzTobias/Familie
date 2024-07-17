@@ -76,18 +76,4 @@ class ManageProfileUserPage extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildTextFieldWithIconAndSuffix(
-      String labelText, IconData prefixIconData, IconData suffixIconData,
-      {required bool obscureText}) {
-    return TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: labelText,
-        prefixIcon: Icon(prefixIconData),
-        suffixIcon: Icon(suffixIconData),
-        border: const OutlineInputBorder(),
-      ),
-    );
-  }
 }

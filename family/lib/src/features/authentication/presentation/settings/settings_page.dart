@@ -53,6 +53,7 @@ class SettingsPage extends StatelessWidget {
                     'Abmelden',
                     () async {
                       await context.read<AuthRepository>().logout();
+                      if (!context.mounted) return;
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/domain/user.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide User;
+import 'package:flutter/foundation.dart';
 
 class FirestoreDatabase implements DatabaseRepository {
   final FirebaseFirestore _firebaseFirestore;
@@ -13,7 +14,7 @@ class FirestoreDatabase implements DatabaseRepository {
         .collection("info")
         .doc("ISdTXO37hHz9Tv0LWM2J")
         .get();
-    print(snapshot.data());
+    debugPrint(snapshot.data().toString());
     return List<String>.from(snapshot.data()!["update"]);
   }
 
@@ -37,7 +38,7 @@ class FirestoreDatabase implements DatabaseRepository {
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .set({'email': email}, SetOptions(merge: true));
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error: $e');
     }
   }
 
@@ -49,7 +50,7 @@ class FirestoreDatabase implements DatabaseRepository {
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .set({'password': password}, SetOptions(merge: true));
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error: $e');
     }
   }
 
@@ -61,7 +62,7 @@ class FirestoreDatabase implements DatabaseRepository {
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .set({'telefonnummer': number}, SetOptions(merge: true));
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error: $e');
     }
   }
 
@@ -73,7 +74,7 @@ class FirestoreDatabase implements DatabaseRepository {
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .set({'username': name}, SetOptions(merge: true));
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error: $e');
     }
   }
 
@@ -86,10 +87,10 @@ class FirestoreDatabase implements DatabaseRepository {
           .delete();
       await FirebaseAuth.instance.currentUser!.delete();
       // Löschen der Benutzerdaten aus Firestore
-      print('Geschafft');
+      debugPrint('Geschafft');
       // Löschen des Benutzerkontos
     } catch (e) {
-      print('Fehler beim Löschen des Accounts: $e');
+      debugPrint('Fehler beim Löschen des Accounts: $e');
     }
   }
 
@@ -101,9 +102,9 @@ class FirestoreDatabase implements DatabaseRepository {
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .update({'email': newEmail});
 
-      print('Email ändern war erfolgreich');
+      debugPrint('Email ändern war erfolgreich');
     } catch (e) {
-      print('Ändern der Email Fehlgeschlagen: $e');
+      debugPrint('Ändern der Email Fehlgeschlagen: $e');
     }
   }
 }

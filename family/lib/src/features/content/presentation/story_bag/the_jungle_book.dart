@@ -5,7 +5,7 @@ class TheJungleBook extends StatefulWidget {
   const TheJungleBook({super.key});
 
   @override
-  _TheJungleBookState createState() => _TheJungleBookState();
+  State<TheJungleBook> createState() => _TheJungleBookState();
 }
 
 class _TheJungleBookState extends State<TheJungleBook> {

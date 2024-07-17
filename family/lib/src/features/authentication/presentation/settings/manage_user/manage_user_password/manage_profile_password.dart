@@ -84,16 +84,6 @@ class ManageProfilePasswordPage extends StatelessWidget {
     );
   }
 
-  Widget _buildTextFieldWithIcon(String labelText, IconData iconData) {
-    return TextField(
-      decoration: InputDecoration(
-        labelText: labelText,
-        prefixIcon: Icon(iconData),
-        border: const OutlineInputBorder(),
-      ),
-    );
-  }
-
   Widget _buildTextFieldWithIconAndSuffix(
       String labelText, IconData prefixIconData, IconData suffixIconData,
       {required bool obscureText}) {
