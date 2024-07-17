@@ -13,6 +13,7 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundPage(
       child: MenuTemplatePage(
+        showMenuButton: false,
         content: [
           const SizedBox(height: 50),
           PrimaryButton(context, 'Hauptmenü', () {

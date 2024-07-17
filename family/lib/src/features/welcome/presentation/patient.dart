@@ -22,7 +22,6 @@ class PatientPage extends StatelessWidget {
             textAlign: TextAlign.justify,
           ),
           const SizedBox(height: 100),
-          // Zurück- und Vorwärts-Buttons
           Column(
             children: [
               SizedBox(
