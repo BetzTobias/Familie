@@ -44,171 +44,173 @@ class _NewRegistrationState extends State<NewRegistration> {
           ),
         ],
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 20),
-                _buildTextFieldWithIcon(
-                  "Benutzername",
-                  Icons.person,
-                  usernameController,
-                  (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Bitte Benutzername eingeben';
-                    }
-                    if (value.length < 6) {
-                      return 'Benutzername muss mindestens 6 Zeichen lang sein';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                _buildTextFieldWithIcon(
-                  "Telefonnummer",
-                  Icons.phone,
-                  phoneController,
-                  (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Bitte Telefonnummer eingeben';
-                    }
-                    if (!RegExp(r'^\+?[0-9]{7,15}$').hasMatch(value)) {
-                      return 'Bitte eine gültige Telefonnummer eingeben';
-                    }
-                    return null;
-                  },
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                ),
-                const SizedBox(height: 20),
-                _buildTextFieldWithIcon(
-                  "E-Mail Adresse",
-                  Icons.email,
-                  emailController,
-                  (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Bitte E-Mail Adresse eingeben';
-                    }
-                    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                      return 'Bitte eine gültige E-Mail Adresse eingeben';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                _buildTextFieldWithIconAndSuffix(
-                  "Passwort",
-                  Icons.lock,
-                  passwordController,
-                  _obscurePassword,
-                  () {
-                    setState(() {
-                      _obscurePassword = !_obscurePassword;
-                    });
-                  },
-                  (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Bitte Passwort eingeben';
-                    }
-                    if (value.length < 8) {
-                      return 'Passwort muss mindestens 8 Zeichen lang sein';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                _buildTextFieldWithIconAndSuffix(
-                  "Passwort wiederholen",
-                  Icons.lock,
-                  confirmPasswordController,
-                  _obscureConfirmPassword,
-                  () {
-                    setState(() {
-                      _obscureConfirmPassword = !_obscureConfirmPassword;
-                    });
-                  },
-                  (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Bitte Passwort wiederholen';
-                    }
-                    if (value != passwordController.text) {
-                      return 'Passwörter stimmen nicht überein';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () async {
-                    if (_formKey.currentState!.validate()) {
-                      try {
-                        await context
-                            .read<AuthRepository>()
-                            .signUpWithEmailAndPassword(
-                                emailController.text, passwordController.text);
-                        if (!context.mounted) return;
-
-                        final user =
-                            context.read<AuthRepository>().getCurrentUser();
-
-                        await FirebaseFirestore.instance
-                            .collection('User')
-                            .doc(user!.uid)
-                            .set({
-                          'username': usernameController.text,
-                          'phone': phoneController.text,
-                          'email': emailController.text,
-                          'password': passwordController.text
-                        });
-                        if (!context.mounted) return;
-
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginPage()),
-                        );
-                      } catch (e) {
-                        debugPrint('Fehler bei der Registrierung: $e');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Fehler bei der Registrierung: $e'),
-                          ),
-                        );
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 20),
+                  _buildTextFieldWithIcon(
+                    "Benutzername",
+                    Icons.person,
+                    usernameController,
+                    (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Bitte Benutzername eingeben';
                       }
-                    }
-                  },
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(const Color(0XFFEBE216)),
-                    foregroundColor: WidgetStateProperty.all<Color>(
-                        Colors.black), // Schriftfarbe des Buttons
+                      if (value.length < 6) {
+                        return 'Benutzername muss mindestens 6 Zeichen lang sein';
+                      }
+                      return null;
+                    },
                   ),
-                  child: const Text('Benutzer erstellen'),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginPage()),
-                    );
-                  },
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(const Color(0XFF16972A)),
-                    foregroundColor: WidgetStateProperty.all<Color>(
-                        Colors.black), // Schriftfarbe des Buttons
+                  const SizedBox(height: 20),
+                  _buildTextFieldWithIcon(
+                    "Telefonnummer",
+                    Icons.phone,
+                    phoneController,
+                    (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Bitte Telefonnummer eingeben';
+                      }
+                      if (!RegExp(r'^\+?[0-9]{7,15}$').hasMatch(value)) {
+                        return 'Bitte eine gültige Telefonnummer eingeben';
+                      }
+                      return null;
+                    },
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
                   ),
-                  child: const Text('Abbruch'),
-                ),
-              ],
+                  const SizedBox(height: 20),
+                  _buildTextFieldWithIcon(
+                    "E-Mail Adresse",
+                    Icons.email,
+                    emailController,
+                    (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Bitte E-Mail Adresse eingeben';
+                      }
+                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                        return 'Bitte eine gültige E-Mail Adresse eingeben';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  _buildTextFieldWithIconAndSuffix(
+                    "Passwort",
+                    Icons.lock,
+                    passwordController,
+                    _obscurePassword,
+                    () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                    (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Bitte Passwort eingeben';
+                      }
+                      if (value.length < 8) {
+                        return 'Passwort muss mindestens 8 Zeichen lang sein';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  _buildTextFieldWithIconAndSuffix(
+                    "Passwort wiederholen",
+                    Icons.lock,
+                    confirmPasswordController,
+                    _obscureConfirmPassword,
+                    () {
+                      setState(() {
+                        _obscureConfirmPassword = !_obscureConfirmPassword;
+                      });
+                    },
+                    (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Bitte Passwort wiederholen';
+                      }
+                      if (value != passwordController.text) {
+                        return 'Passwörter stimmen nicht überein';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        try {
+                          await context
+                              .read<AuthRepository>()
+                              .signUpWithEmailAndPassword(emailController.text,
+                                  passwordController.text);
+                          if (!context.mounted) return;
+
+                          final user =
+                              context.read<AuthRepository>().getCurrentUser();
+
+                          await FirebaseFirestore.instance
+                              .collection('User')
+                              .doc(user!.uid)
+                              .set({
+                            'username': usernameController.text,
+                            'phone': phoneController.text,
+                            'email': emailController.text,
+                            'password': passwordController.text
+                          });
+                          if (!context.mounted) return;
+
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginPage()),
+                          );
+                        } catch (e) {
+                          debugPrint('Fehler bei der Registrierung: $e');
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Fehler bei der Registrierung: $e'),
+                            ),
+                          );
+                        }
+                      }
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all<Color>(
+                          const Color(0XFFEBE216)),
+                      foregroundColor: WidgetStateProperty.all<Color>(
+                          Colors.black), // Schriftfarbe des Buttons
+                    ),
+                    child: const Text('Benutzer erstellen'),
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()),
+                      );
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all<Color>(
+                          const Color(0XFF16972A)),
+                      foregroundColor: WidgetStateProperty.all<Color>(
+                          Colors.black), // Schriftfarbe des Buttons
+                    ),
+                    child: const Text('Abbruch'),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
