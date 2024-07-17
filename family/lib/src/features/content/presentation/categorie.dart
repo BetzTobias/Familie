@@ -1,3 +1,4 @@
+import 'package:family/src/common/primary_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
@@ -24,7 +25,7 @@ class CategoriesPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Lernen',
                     () {
@@ -38,7 +39,7 @@ class CategoriesPage extends StatelessWidget {
                   const SizedBox(
                       height:
                           10), // Abstand zwischen dem Lernen und der Hygiene
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Hygiene',
                     () {
@@ -52,7 +53,7 @@ class CategoriesPage extends StatelessWidget {
                   const SizedBox(
                       height:
                           10), // Abstand zwischen der Hygiene und der Unterhaltung
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Unterhaltung',
                     () {
@@ -66,7 +67,7 @@ class CategoriesPage extends StatelessWidget {
                   const SizedBox(
                       height:
                           10), // Abstand zwischen der Unterhaltung und der Natur
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Natur',
                     () {
@@ -80,7 +81,7 @@ class CategoriesPage extends StatelessWidget {
                   const SizedBox(
                       height:
                           10), // Abstand zwischen der Natur und der Sprachentwicklung
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Sprachentwicklung',
                     () {
@@ -94,7 +95,7 @@ class CategoriesPage extends StatelessWidget {
                   const SizedBox(
                       height:
                           10), // Abstand zwischen der Sprachentwicklung und dem Logischen Denken
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Logisches Denken',
                     () {
@@ -108,7 +109,7 @@ class CategoriesPage extends StatelessWidget {
                   const SizedBox(
                       height:
                           10), // Abstand zwischen dem Logischen Denken und dem Verständnis
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Verständnis',
                     () {
@@ -152,28 +153,6 @@ class CategoriesPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget buildCategoryButton(
-      BuildContext context, String category, VoidCallback? onPressed) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.black,
-        backgroundColor: const Color.fromARGB(255, 239, 138, 138),
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-          side: const BorderSide(color: Colors.black),
-        ),
-      ),
-      child: Text(
-        category,
-        style: const TextStyle(
-          fontSize: 16,
-        ),
       ),
     );
   }

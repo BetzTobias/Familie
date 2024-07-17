@@ -1,3 +1,4 @@
+import 'package:family/src/common/primary_button.dart';
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:family/src/features/authentication/presentation/settings/info.dart';
@@ -22,7 +23,7 @@ class SettingsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Info',
                     () {
@@ -35,7 +36,7 @@ class SettingsPage extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 10),
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Profil verwalten',
                     () {
@@ -48,7 +49,7 @@ class SettingsPage extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 10),
-                  buildCategoryButton(
+                  PrimaryButton(
                     context,
                     'Abmelden',
                     () async {
@@ -64,7 +65,7 @@ class SettingsPage extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 10),
-                  buildCategoryButton(context, 'Account löschen', () {
+                  PrimaryButton(context, 'Account löschen', () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -102,28 +103,6 @@ class SettingsPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget buildCategoryButton(
-      BuildContext context, String category, VoidCallback? onPressed) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.black,
-        backgroundColor: const Color.fromARGB(255, 239, 138, 138),
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-          side: const BorderSide(color: Colors.black),
-        ),
-      ),
-      child: Text(
-        category,
-        style: const TextStyle(
-          fontSize: 16,
-        ),
       ),
     );
   }
