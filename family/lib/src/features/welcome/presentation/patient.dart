@@ -25,31 +25,27 @@ class PatientPage extends StatelessWidget {
           // Zurück- und Vorwärts-Buttons
           Column(
             children: [
-              Positioned(
-                top: 610,
-                right: 20,
-                child: SizedBox(
-                  height: 50,
-                  width: 100,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MainSelectionPage(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0XFFEBE216),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+              SizedBox(
+                height: 50,
+                width: 100,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MainSelectionPage(),
                       ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0XFFEBE216),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Text(
-                      'Weiter',
-                      style: TextStyle(fontSize: 16),
-                    ),
+                  ),
+                  child: const Text(
+                    'Weiter',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               ),

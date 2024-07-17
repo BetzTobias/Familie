@@ -7,16 +7,12 @@ class MenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 100,
-      left: 5,
-      child: GestureDetector(
-        onTap: onTap,
-        child: Column(
-          children: [
-            Image.asset('assets/Menue.png'),
-          ],
-        ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Image.asset('assets/Menue.png'),
+        ],
       ),
     );
   }
