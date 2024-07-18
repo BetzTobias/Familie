@@ -109,12 +109,12 @@ class FirestoreDatabase implements DatabaseRepository {
   }
 
   @override
-  Future<void> updateUser1(String newUser) async {
+  Future<void> updateUser1(String newUsername) async {
     try {
       await _firebaseFirestore
           .collection('User')
           .doc(FirebaseAuth.instance.currentUser!.uid)
-          .update({'user': newUser});
+          .update({'username': newUsername});
 
       debugPrint('Benutzername ändern war erfolgreich');
     } catch (e) {
@@ -137,12 +137,12 @@ class FirestoreDatabase implements DatabaseRepository {
   }
 
   @override
-  Future<void> updateUser3(String newNumber) async {
+  Future<void> updateUser3(String newPhone) async {
     try {
       await _firebaseFirestore
           .collection('User')
           .doc(FirebaseAuth.instance.currentUser!.uid)
-          .update({'phonenumber': newNumber});
+          .update({'phone': newPhone});
 
       debugPrint('Telefonnummer ändern war erfolgreich');
     } catch (e) {
