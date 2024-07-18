@@ -1,3 +1,4 @@
+import 'package:family/src/common/custom_back_button.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
@@ -8,7 +9,7 @@ class ManageProfileEmailPage extends StatefulWidget {
   const ManageProfileEmailPage({super.key});
 
   @override
-  _ManageProfileEmailPageState createState() => _ManageProfileEmailPageState();
+  State<ManageProfileEmailPage> createState() => _ManageProfileEmailPageState();
 }
 
 class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
@@ -68,23 +69,8 @@ class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
                 child: const Text('Profil speichern'),
               ),
               const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ManageProfilePage()),
-                  );
-                },
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(
-                    const Color(0XFF16972A),
-                  ),
-                  foregroundColor: WidgetStateProperty.all<Color>(
-                    Colors.black, // Schriftfarbe des Buttons
-                  ),
-                ),
-                child: const Text('Zurück'),
+              const CustomBackButton(
+                destination: ManageProfilePage(),
               ),
             ],
           ),
@@ -99,20 +85,6 @@ class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(iconData),
-        border: const OutlineInputBorder(),
-      ),
-    );
-  }
-
-  Widget _buildTextFieldWithIconAndSuffix(
-      String labelText, IconData prefixIconData, IconData suffixIconData,
-      {required bool obscureText}) {
-    return TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: labelText,
-        prefixIcon: Icon(prefixIconData),
-        suffixIcon: Icon(suffixIconData),
         border: const OutlineInputBorder(),
       ),
     );

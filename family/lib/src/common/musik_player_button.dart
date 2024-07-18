@@ -5,7 +5,7 @@ class MusikPlayButton extends StatefulWidget {
   const MusikPlayButton({super.key});
 
   @override
-  _MusikPlayButtonState createState() => _MusikPlayButtonState();
+  State<MusikPlayButton> createState() => _MusikPlayButtonState();
 }
 
 class _MusikPlayButtonState extends State<MusikPlayButton> {

@@ -1,3 +1,4 @@
+import 'package:family/src/common/custom_back_button.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
@@ -42,24 +43,7 @@ class ManageProfileUserPage extends StatelessWidget {
                 child: const Text('Profil speichern'),
               ),
               const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ManageProfilePage()),
-                  );
-                },
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(
-                    const Color(0XFF16972A),
-                  ),
-                  foregroundColor: WidgetStateProperty.all<Color>(
-                    Colors.black, // Schriftfarbe des Buttons
-                  ),
-                ),
-                child: const Text('Zurück'),
-              ),
+              const CustomBackButton(destination: ManageProfilePage()),
             ],
           ),
         ),
@@ -72,20 +56,6 @@ class ManageProfileUserPage extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(iconData),
-        border: const OutlineInputBorder(),
-      ),
-    );
-  }
-
-  Widget _buildTextFieldWithIconAndSuffix(
-      String labelText, IconData prefixIconData, IconData suffixIconData,
-      {required bool obscureText}) {
-    return TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: labelText,
-        prefixIcon: Icon(prefixIconData),
-        suffixIcon: Icon(suffixIconData),
         border: const OutlineInputBorder(),
       ),
     );

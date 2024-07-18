@@ -1,3 +1,4 @@
+import 'package:family/src/common/continue_back_row.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/understanding/regulate/regulate_page1.dart';
 import 'package:family/src/features/content/presentation/understanding/understanding.dart';
@@ -24,71 +25,27 @@ class RegulatePage extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
               const SizedBox(height: 100),
-              // Zurück- und Vorwärts-Buttons
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Positioned(
-                    bottom: 20,
-                    left: 20,
-                    child: SizedBox(
-                      height: 50,
-                      width: 100,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const UnderstandingPage(),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0XFF16972A),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        child: const Text(
-                          'Zurück',
-                          style: TextStyle(fontSize: 14),
-                        ),
+              ContinueBackRow(
+                onPressedBack: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const UnderstandingPage(),
+                    ),
+                  );
+                },
+                onPressedForward: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegulatePage1(
+                        regulateTipps:
+                            'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
+                        rulesNumber: 1,
                       ),
                     ),
-                  ),
-                  Positioned(
-                    bottom: 20,
-                    right: 20,
-                    child: SizedBox(
-                      height: 50,
-                      width: 100,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const RegulatePage1(
-                                regulateTipps:
-                                    'Regelgeschichten: Erzähle Geschichten, in denen die Regeln auf eine kindgerechte Weise erklärt werden. Verwende Charaktere oder Situationen, die für das Kind leicht nachvollziehbar sind.',
-                                rulesNumber: 1,
-                              ),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0XFFEBE216),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        child: const Text(
-                          'Weiter',
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  );
+                },
               ),
             ],
           ),

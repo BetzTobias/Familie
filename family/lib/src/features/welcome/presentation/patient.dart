@@ -14,7 +14,7 @@ class PatientPage extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Text(
-            'Seid Geduldig jedes Kind entwickelt sich unterschiedlich. Sei geduldig und ermutige das Kind, auch wenn es manche Dinge nicht sofort kann. Positive Verstärkung und Lob sind wichtig, um das Selbstvertrauen zu stärken.',
+            'Sei geduldig - jedes Kind entwickelt sich unterschiedlich. Geduld und Ermutigung sind wichtig, auch wenn das Kind manche Dinge nicht sofort kann. Positive Verstärkung und Lob sind entscheidend, um das Selbstvertrauen zu stärken.',
             style: TextStyle(
               fontSize: 21,
               fontWeight: FontWeight.bold,
@@ -22,34 +22,29 @@ class PatientPage extends StatelessWidget {
             textAlign: TextAlign.justify,
           ),
           const SizedBox(height: 100),
-          // Zurück- und Vorwärts-Buttons
           Column(
             children: [
-              Positioned(
-                top: 610,
-                right: 20,
-                child: SizedBox(
-                  height: 50,
-                  width: 100,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MainSelectionPage(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0XFFEBE216),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+              SizedBox(
+                height: 50,
+                width: 100,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MainSelectionPage(),
                       ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0XFFEBE216),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Text(
-                      'Weiter',
-                      style: TextStyle(fontSize: 16),
-                    ),
+                  ),
+                  child: const Text(
+                    'Weiter',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               ),

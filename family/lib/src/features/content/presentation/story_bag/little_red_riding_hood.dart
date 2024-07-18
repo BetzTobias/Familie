@@ -5,7 +5,7 @@ class LittleRedRidingHood extends StatefulWidget {
   const LittleRedRidingHood({super.key});
 
   @override
-  _LittleRedRidingHoodState createState() => _LittleRedRidingHoodState();
+  State<LittleRedRidingHood> createState() => _LittleRedRidingHoodState();
 }
 
 class _LittleRedRidingHoodState extends State<LittleRedRidingHood> {
