@@ -1,11 +1,23 @@
 import 'package:family/src/common/custom_back_button.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ManageProfileNumberPage extends StatelessWidget {
+class ManageProfileNumberPage extends StatefulWidget {
   const ManageProfileNumberPage({super.key});
+
+  @override
+  State<ManageProfileNumberPage> createState() =>
+      _ManageProfileNumberPageState();
+}
+
+class _ManageProfileNumberPageState extends State<ManageProfileNumberPage> {
+  final TextEditingController _oldNumberController = TextEditingController();
+  final TextEditingController _newNumberController = TextEditingController();
+  final TextEditingController _confirmNumberController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +30,32 @@ class ManageProfileNumberPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 10),
-              _buildTextFieldWithIcon("Alte Telefonnummer", Icons.phone),
+              buildTextFieldWithIcon(
+                  "Alte Telefonnummer", Icons.phone, _oldNumberController),
               const SizedBox(height: 10),
-              _buildTextFieldWithIcon("Neue Telefonnummer", Icons.phone),
+              buildTextFieldWithIcon(
+                  "Neue Telefonnummer", Icons.phone, _newNumberController),
+              const SizedBox(height: 10),
+              buildTextFieldWithIcon("Neue Telefonnummer wiederholen",
+                  Icons.phone, _confirmNumberController),
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage()),
-                  );
+                  if (_newNumberController.text ==
+                      _confirmNumberController.text) {
+                    context
+                        .read<DatabaseRepository>()
+                        .updateUser3(_confirmNumberController.text);
+                    Navigator.pop(context);
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const MainSelectionPage()),
+                    // );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Telefonnummer stimmt nicht überein')));
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all<Color>(
@@ -49,7 +76,8 @@ class ManageProfileNumberPage extends StatelessWidget {
     );
   }
 
-  Widget _buildTextFieldWithIcon(String labelText, IconData iconData) {
+  Widget buildTextFieldWithIcon(
+      String labelText, IconData iconData, TextEditingController controller) {
     return TextField(
       decoration: InputDecoration(
         labelText: labelText,

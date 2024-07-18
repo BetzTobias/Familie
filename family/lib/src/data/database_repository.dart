@@ -16,4 +16,10 @@ abstract class DatabaseRepository {
   Future<void> deleteAccount();
 
   Future<void> updateUser(String newEmail);
+
+  Future<void> updateUser1(String newUser);
+
+  Future<void> updateUser2(String newPassword);
+
+  Future<void> updateUser3(String newPhoneNumber);
 }

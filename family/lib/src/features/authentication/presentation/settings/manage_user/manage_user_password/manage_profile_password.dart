@@ -1,11 +1,23 @@
 import 'package:family/src/common/custom_back_button.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ManageProfilePasswordPage extends StatelessWidget {
+class ManageProfilePasswordPage extends StatefulWidget {
   const ManageProfilePasswordPage({super.key});
+
+  @override
+  State<ManageProfilePasswordPage> createState() =>
+      _ManageProfilePasswordPageState();
+}
+
+class _ManageProfilePasswordPageState extends State<ManageProfilePasswordPage> {
+  final TextEditingController _oldPasswordController = TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +36,7 @@ class ManageProfilePasswordPage extends StatelessWidget {
                 Icons.lock,
                 Icons.visibility,
                 obscureText: true,
+                _oldPasswordController,
               ),
               const SizedBox(height: 10),
               _buildTextFieldWithIconAndSuffix(
@@ -31,6 +44,7 @@ class ManageProfilePasswordPage extends StatelessWidget {
                 Icons.lock,
                 Icons.visibility,
                 obscureText: true,
+                _newPasswordController,
               ),
               const SizedBox(height: 10),
               _buildTextFieldWithIconAndSuffix(
@@ -38,16 +52,22 @@ class ManageProfilePasswordPage extends StatelessWidget {
                 Icons.lock,
                 Icons.visibility,
                 obscureText: true,
+                _confirmPasswordController,
               ),
               //Aktion zur nächsten Seite
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MainSelectionPage()),
-                  );
+                  if (_newPasswordController.text ==
+                      _confirmPasswordController.text) {
+                    context
+                        .read<DatabaseRepository>()
+                        .updateUser2(_confirmPasswordController.text);
+                    Navigator.pop(context);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Benutzername stimmt nicht überein')));
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all<Color>(
@@ -69,7 +89,10 @@ class ManageProfilePasswordPage extends StatelessWidget {
   }
 
   Widget _buildTextFieldWithIconAndSuffix(
-      String labelText, IconData prefixIconData, IconData suffixIconData,
+      String labelText,
+      IconData prefixIconData,
+      IconData suffixIconData,
+      TextEditingController controller,
       {required bool obscureText}) {
     return TextField(
       obscureText: true,
