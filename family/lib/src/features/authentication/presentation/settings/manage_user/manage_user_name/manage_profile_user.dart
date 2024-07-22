@@ -40,6 +40,8 @@ class _ManageProfileUserPageState extends State<ManageProfileUserPage> {
               ElevatedButton(
                 onPressed: () {
                   if (_newUserController.text == _confirmUserController.text) {
+                    print(
+                        _newUserController.text + _confirmUserController.text);
                     context
                         .read<DatabaseRepository>()
                         .updateUser1(_confirmUserController.text);
@@ -77,6 +79,7 @@ class _ManageProfileUserPageState extends State<ManageProfileUserPage> {
   Widget _buildTextFieldWithIcon(
       String labelText, IconData iconData, TextEditingController controller) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(iconData),

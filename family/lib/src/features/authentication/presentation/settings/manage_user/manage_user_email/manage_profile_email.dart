@@ -82,6 +82,7 @@ class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
   Widget _buildTextFieldWithIcon(
       String labelText, IconData iconData, TextEditingController controller) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(iconData),

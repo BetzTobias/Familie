@@ -87,10 +87,10 @@ class FirestoreDatabase implements DatabaseRepository {
           .delete();
       await FirebaseAuth.instance.currentUser!.delete();
       // Löschen der Benutzerdaten aus Firestore
-      debugPrint('Geschafft');
+      print('Geschafft');
       // Löschen des Benutzerkontos
     } catch (e) {
-      debugPrint('Fehler beim Löschen des Accounts: $e');
+      print('Fehler beim Löschen des Accounts: $e');
     }
   }
 

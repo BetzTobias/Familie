@@ -79,6 +79,7 @@ class _ManageProfileNumberPageState extends State<ManageProfileNumberPage> {
   Widget buildTextFieldWithIcon(
       String labelText, IconData iconData, TextEditingController controller) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(iconData),

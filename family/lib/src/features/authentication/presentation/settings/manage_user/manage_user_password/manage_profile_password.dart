@@ -95,6 +95,7 @@ class _ManageProfilePasswordPageState extends State<ManageProfilePasswordPage> {
       TextEditingController controller,
       {required bool obscureText}) {
     return TextField(
+      controller: controller,
       obscureText: true,
       decoration: InputDecoration(
         labelText: labelText,
