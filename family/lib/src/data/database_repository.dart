@@ -17,9 +17,9 @@ abstract class DatabaseRepository {
 
   Future<void> updateUser(String newEmail);
 
-  Future<void> updateUser1(String newUser);
+  Future<void> updateUser1(String newUsername);
 
   Future<void> updateUser2(String newPassword);
 
-  Future<void> updateUser3(String newPhoneNumber);
+  Future<void> updateUser3(String newPhone);
 }
