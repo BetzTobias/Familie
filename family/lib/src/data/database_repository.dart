@@ -1,7 +1,7 @@
 import 'package:family/src/domain/user.dart';
 
 abstract class DatabaseRepository {
-  Future<User?> getMyUser();
+  Future<MyUser?> getMyUser();
 
   Future<void> setUsername(String name);
 

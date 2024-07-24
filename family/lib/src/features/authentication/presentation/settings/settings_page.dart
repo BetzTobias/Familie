@@ -1,5 +1,6 @@
 import 'package:family/src/common/primary_button.dart';
 import 'package:family/src/data/auth_repository.dart';
+import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:family/src/features/authentication/presentation/settings/info.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
@@ -60,13 +61,24 @@ class SettingsPage extends StatelessWidget {
             },
           ),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Account löschen', () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const LoginPage(),
-              ),
-            );
+          PrimaryButton(context, 'Account löschen', () async {
+            try {
+              await context.read<DatabaseRepository>().deleteAccount();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginPage(),
+                ),
+              );
+            } catch (e) {
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //   SnackBar(
+              //     content: Text('Fehler beim Löschen des Accounts: $e'),
+              //     backgroundColor: Colors.red,
+              //   ),
+              // );
+              print(e);
+            }
           }),
         ],
       ),

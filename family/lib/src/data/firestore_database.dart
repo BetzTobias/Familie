@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/domain/user.dart';
-import 'package:firebase_auth/firebase_auth.dart' hide User;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 class FirestoreDatabase implements DatabaseRepository {
@@ -19,14 +19,14 @@ class FirestoreDatabase implements DatabaseRepository {
   }
 
   @override
-  Future<User?> getMyUser() async {
+  Future<MyUser?> getMyUser() async {
     final snapshot =
         await _firebaseFirestore.collection('user').doc('user.id').get();
     final map = snapshot.data();
     if (map == null) {
       return null;
     } else {
-      return User.fromMap(map);
+      return MyUser.fromMap(map);
     }
   }
 
@@ -85,7 +85,8 @@ class FirestoreDatabase implements DatabaseRepository {
           .collection('User')
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .delete();
-      await FirebaseAuth.instance.currentUser!.delete();
+      var user = FirebaseAuth.instance.currentUser;
+      user?.delete();
       // Löschen der Benutzerdaten aus Firestore
       print('Geschafft');
       // Löschen des Benutzerkontos

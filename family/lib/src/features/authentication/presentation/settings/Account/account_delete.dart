@@ -21,14 +21,14 @@ class AccountDelete extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Daten werden unwiederruflich gelöscht und können nicht mehr Wiederhergestellt werden.',
+                'Daten werden unwiederruflich gelöscht und können nicht mehr wiederhergestellt werden.',
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () async {
                   try {
-                    context.read<DatabaseRepository>().deleteAccount();
+                    await context.read<DatabaseRepository>().deleteAccount();
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -42,6 +42,7 @@ class AccountDelete extends StatelessWidget {
                         backgroundColor: Colors.red,
                       ),
                     );
+                    print(e);
                   }
                 },
                 style: ButtonStyle(
@@ -49,7 +50,7 @@ class AccountDelete extends StatelessWidget {
                     Colors.red,
                   ),
                   foregroundColor: WidgetStateProperty.all<Color>(
-                    Colors.white, // Schriftfarbe des Buttons
+                    Colors.white,
                   ),
                 ),
                 child: const Text('Account löschen'),
