@@ -34,7 +34,7 @@ class SettingsPage extends StatelessWidget {
           const SizedBox(height: 10),
           PrimaryButton(
             context,
-            'Profil verwalten',
+            'Login Daten verwalten',
             () {
               Navigator.push(
                 context,
