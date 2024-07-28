@@ -55,11 +55,6 @@ class EggCartonSharksPage extends StatelessWidget {
           Image.asset(
             'assets/Haie_aus_Eierkarton_Schritt_3.png',
           ),
-          const SizedBox(height: 20),
-          Text(
-            'Bilder:',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
           const SizedBox(height: 10),
           PrimaryButton(context, 'Zurück zu Auswahl', () {
             Navigator.push(
