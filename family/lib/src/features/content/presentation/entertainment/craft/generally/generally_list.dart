@@ -1,6 +1,7 @@
 import 'package:family/src/common/primary_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
-import 'package:family/src/features/content/presentation/main_selection_page.dart';
+import 'package:family/src/features/content/presentation/entertainment/craft/generally/kneading_soap.dart';
+import 'package:family/src/features/content/presentation/entertainment/craft/generally/mucus.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class GenerallyListPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const MainSelectionPage(),
+                builder: (context) => const KneadingSoapPage(),
               ),
             );
           }),
@@ -26,7 +27,7 @@ class GenerallyListPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const MainSelectionPage(),
+                builder: (context) => const MucusPage(),
               ),
             );
           }),
