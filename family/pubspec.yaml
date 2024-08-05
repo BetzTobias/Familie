@@ -42,6 +42,7 @@ dependencies:
   youtube_player_flutter: ^9.0.1
   cloud_firestore: ^5.0.2
   provider: ^6.1.2
+  firebase_analytics: ^11.2.1
 
 dev_dependencies:
   flutter_test:
@@ -56,7 +57,7 @@ dev_dependencies:
   # aktiviert in der Datei „analysis_options.yaml“ im Stammverzeichnis Ihres
   # Paket. Informationen zum Deaktivieren bestimmter Flusen finden Sie in dieser Datei
   # Regeln und Aktivierung weiterer Regeln.
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 flutter_launcher_icons:
   image_path: "assets/Hauptlogo.png"
   android: "launcher_icon"
