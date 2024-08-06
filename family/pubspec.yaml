@@ -36,13 +36,13 @@ dependencies:
   # Im Folgenden wird Ihrer Anwendung die Schriftart „Cupertino Icons“ hinzugefügt.
   # Verwendung mit der CupertinoIcons-Klasse für iOS-Stilsymbole.
   cupertino_icons: ^1.0.2
-  firebase_core: ^3.1.1
+  firebase_core: ^3.3.0
   firebase_auth: ^5.1.1
   audioplayers: ^6.0.0
   youtube_player_flutter: ^9.0.1
-  cloud_firestore: ^5.0.2
   provider: ^6.1.2
   firebase_analytics: ^11.2.1
+  cloud_firestore: ^5.2.0
 
 dev_dependencies:
   flutter_test:
