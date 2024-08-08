@@ -45,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       TextFormField(
+                        autocorrect: false,
                         controller: emailController,
                         decoration: const InputDecoration(
                           labelText: 'Email',

@@ -41,7 +41,7 @@ dependencies:
   audioplayers: ^6.0.0
   youtube_player_flutter: ^9.0.1
   provider: ^6.1.2
-  firebase_analytics: ^11.0.1
+  firebase_analytics: ^11.2.1
   cloud_firestore: ^5.0.0
 
 dev_dependencies:

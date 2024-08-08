@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -187,6 +188,8 @@ class _NewRegistrationState extends State<NewRegistration> {
                             'email': emailController.text,
                             'password': passwordController.text
                           });
+                          await FirebaseAnalytics.instance
+                              .logEvent(name: 'registration');
                           if (!context.mounted) return;
 
                           Navigator.pushReplacement(
@@ -246,6 +249,7 @@ class _NewRegistrationState extends State<NewRegistration> {
     List<TextInputFormatter>? inputFormatters,
   }) {
     return TextFormField(
+      autocorrect: false,
       controller: controller,
       decoration: InputDecoration(
         labelText: labelText,
