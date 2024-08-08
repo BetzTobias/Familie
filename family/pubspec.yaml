@@ -43,6 +43,8 @@ dependencies:
   provider: ^6.1.2
   firebase_analytics: ^11.2.1
   cloud_firestore: ^5.0.0
+  firebase_crashlytics: ^4.0.4
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   

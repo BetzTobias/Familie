@@ -1,8 +1,12 @@
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
+import 'package:family/src/features/authentication/domain/privacy_police_page.dart';
+import 'package:family/src/features/authentication/domain/terms_and_conditions_page.dart';
 import 'package:family/src/features/authentication/presentation/forgot_password.dart';
 import 'package:family/src/features/authentication/presentation/new_registration.dart';
 import 'package:family/src/features/welcome/presentation/patient.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -89,6 +93,8 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 40),
                       ElevatedButton(
                         onPressed: () async {
+                          await FirebaseAnalytics.instance
+                              .logEvent(name: 'logIn');
                           if (_formKey.currentState!.validate()) {
                             try {
                               if (!context.mounted) return;
@@ -162,6 +168,57 @@ class _LoginPageState extends State<LoginPage> {
                       child: const Text('Neuer Account'),
                     ),
                   ],
+                ),
+
+                const SizedBox(height: 40),
+                // AGBs und Datenschutzerklärung
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: 'Durch die Anmeldung akzeptierst du meine ',
+                    style: const TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: 'AGBs',
+                        style: const TextStyle(
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            // Aktion für AGBs
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const TermsAndConditionsPage(),
+                              ),
+                            );
+                          },
+                      ),
+                      const TextSpan(
+                        text: ' und ',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      TextSpan(
+                        text: 'Datenschutzerklärung',
+                        style: const TextStyle(
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            // Aktion für Datenschutzerklärung
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PrivacyPolicyPage(),
+                              ),
+                            );
+                          },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
