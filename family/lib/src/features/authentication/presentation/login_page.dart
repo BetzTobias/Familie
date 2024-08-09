@@ -1,7 +1,5 @@
 import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
-import 'package:family/src/features/authentication/domain/privacy_police_page.dart';
-import 'package:family/src/features/authentication/domain/terms_and_conditions_page.dart';
 import 'package:family/src/features/authentication/presentation/forgot_password.dart';
 import 'package:family/src/features/authentication/presentation/new_registration.dart';
 import 'package:family/src/features/welcome/presentation/patient.dart';
@@ -9,6 +7,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -179,42 +178,20 @@ class _LoginPageState extends State<LoginPage> {
                     style: const TextStyle(color: Colors.black),
                     children: [
                       TextSpan(
-                        text: 'AGBs',
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            // Aktion für AGBs
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const TermsAndConditionsPage(),
-                              ),
-                            );
-                          },
-                      ),
-                      const TextSpan(
-                        text: ' und ',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      TextSpan(
                         text: 'Datenschutzerklärung',
                         style: const TextStyle(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,
                         ),
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            // Aktion für Datenschutzerklärung
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PrivacyPolicyPage(),
-                              ),
-                            );
+                          ..onTap = () async {
+                            const url =
+                                'https://emerald-lanni-74.tiiny.site/'; // Hier die URL zur Datenschutzerklärung einfügen
+                            if (await canLaunch(url)) {
+                              await launch(url);
+                            } else {
+                              throw 'Could not launch $url';
+                            }
                           },
                       ),
                     ],
