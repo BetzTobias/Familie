@@ -50,6 +50,7 @@ class DefaultFirebaseOptions {
     projectId: 'family-betz',
     authDomain: 'family-betz.firebaseapp.com',
     storageBucket: 'family-betz.appspot.com',
+    measurementId: 'G-ET34WT4S76',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -77,4 +78,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'family-betz.appspot.com',
     iosBundleId: 'com.example.family',
   );
+
 }

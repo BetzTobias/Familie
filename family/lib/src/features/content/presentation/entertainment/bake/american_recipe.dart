@@ -8,6 +8,7 @@ class AmericanRecipe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundPage(
+      
       child: MenuTemplatePage(
         showMenuButton: false,
         content: [
