@@ -2,6 +2,7 @@ import 'package:family/src/common/primary_button.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/logical_thinking/logical_thinking_page0.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class LogicalThinkingPage extends StatelessWidget {
@@ -13,7 +14,8 @@ class LogicalThinkingPage extends StatelessWidget {
       child: MenuTemplatePage(
         content: [
           const SizedBox(height: 50),
-          PrimaryButton(context, 'Formen der Größe nach Sortieren', () {
+          PrimaryButton(context, 'Formen der Größe nach Sortieren', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'formen sortieren');
             Navigator.push(
               context,
               MaterialPageRoute(

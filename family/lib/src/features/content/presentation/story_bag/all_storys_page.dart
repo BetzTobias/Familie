@@ -4,6 +4,7 @@ import 'package:family/src/features/content/presentation/menu_template_page.dart
 import 'package:family/src/features/content/presentation/story_bag/little_red_riding_hood.dart';
 import 'package:family/src/features/content/presentation/story_bag/story_bags.dart';
 import 'package:family/src/features/content/presentation/story_bag/the_jungle_book.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class AllStorysPage extends StatelessWidget {
@@ -17,7 +18,8 @@ class AllStorysPage extends StatelessWidget {
         backButtonDestination: const StoryPage(),
         content: [
           const SizedBox(height: 50),
-          PrimaryButton(context, 'Das Dschungelbuch', () {
+          PrimaryButton(context, 'Das Dschungelbuch', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'dschungelbuch');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -26,7 +28,8 @@ class AllStorysPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Rotkäppchen', () {
+          PrimaryButton(context, 'Rotkäppchen', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'rotkäppchen');
             Navigator.push(
               context,
               MaterialPageRoute(

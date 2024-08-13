@@ -4,6 +4,7 @@ import 'package:family/src/features/content/presentation/hygiene/brush_teeth/bru
 import 'package:family/src/features/content/presentation/hygiene/toilet_training/toilet_training_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/wash/wash_page.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class HygienePage extends StatelessWidget {
@@ -15,7 +16,8 @@ class HygienePage extends StatelessWidget {
       child: MenuTemplatePage(
         content: [
           const SizedBox(height: 50),
-          PrimaryButton(context, 'Zähne putzen', () {
+          PrimaryButton(context, 'Zähne putzen', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'zähne putzen');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -24,7 +26,8 @@ class HygienePage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Toilettengang', () {
+          PrimaryButton(context, 'Toilettengang', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'toilettengang');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -33,7 +36,8 @@ class HygienePage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Waschen', () {
+          PrimaryButton(context, 'Waschen', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'waschen');
             Navigator.push(
               context,
               MaterialPageRoute(

@@ -4,6 +4,7 @@ import 'package:family/src/features/content/presentation/learn/learn_colors/lear
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page.dart';
 import 'package:family/src/features/content/presentation/learn/to_form/to_form_page.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class LearnPage extends StatelessWidget {
@@ -14,7 +15,8 @@ class LearnPage extends StatelessWidget {
     return BackgroundPage(
       child: MenuTemplatePage(content: [
         const SizedBox(height: 50),
-        PrimaryButton(context, 'Motorik', () {
+        PrimaryButton(context, 'Motorik', () async {
+          await FirebaseAnalytics.instance.logEvent(name: 'motorik');
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -23,7 +25,8 @@ class LearnPage extends StatelessWidget {
           );
         }),
         const SizedBox(height: 10),
-        PrimaryButton(context, 'Farben', () {
+        PrimaryButton(context, 'Farben', () async {
+          await FirebaseAnalytics.instance.logEvent(name: 'farben');
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -32,7 +35,8 @@ class LearnPage extends StatelessWidget {
           );
         }),
         const SizedBox(height: 10),
-        PrimaryButton(context, 'Formen', () {
+        PrimaryButton(context, 'Formen', () async {
+          await FirebaseAnalytics.instance.logEvent(name: 'formen');
           Navigator.push(
             context,
             MaterialPageRoute(

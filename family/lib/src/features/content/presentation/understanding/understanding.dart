@@ -3,6 +3,7 @@ import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
 import 'package:family/src/features/content/presentation/understanding/clean_table/clean_table_page.dart';
 import 'package:family/src/features/content/presentation/understanding/regulate/regulate_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class UnderstandingPage extends StatelessWidget {
@@ -14,7 +15,8 @@ class UnderstandingPage extends StatelessWidget {
       child: MenuTemplatePage(
         content: [
           const SizedBox(height: 50),
-          PrimaryButton(context, 'Regeln', () {
+          PrimaryButton(context, 'Regeln', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'regeln');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -23,7 +25,8 @@ class UnderstandingPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Tisch aufräumen', () {
+          PrimaryButton(context, 'Tisch aufräumen', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'tisch aufräumen');
             Navigator.push(
               context,
               MaterialPageRoute(
