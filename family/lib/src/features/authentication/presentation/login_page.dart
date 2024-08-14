@@ -188,8 +188,8 @@ class _LoginPageState extends State<LoginPage> {
                           ..onTap = () async {
                             const url =
                                 'https://emerald-lanni-74.tiiny.site/'; // Hier die URL zur Datenschutzerklärung einfügen
-                            if (await canLaunch(url)) {
-                              await launch(url);
+                            if (await canLaunchUrl(Uri.parse(url))) {
+                              await launchUrl(Uri.parse(url));
                             } else {
                               throw 'Could not launch $url';
                             }
