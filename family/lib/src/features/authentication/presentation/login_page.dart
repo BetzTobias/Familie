@@ -111,6 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                               await context
                                   .read<DatabaseRepository>()
                                   .setPassword(passwordController.text);
+
                               if (!context.mounted) return;
 
                               Navigator.pushReplacement(
