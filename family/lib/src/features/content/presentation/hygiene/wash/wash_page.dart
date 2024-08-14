@@ -2,6 +2,7 @@ import 'package:family/src/common/continue_back_row.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/hygiene/hygiene.dart';
 import 'package:family/src/features/content/presentation/hygiene/wash/wash_page1.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class WashPage extends StatelessWidget {
@@ -26,7 +27,9 @@ class WashPage extends StatelessWidget {
               ),
               const SizedBox(height: 100),
               ContinueBackRow(
-                onPressedBack: () {
+                onPressedBack: () async {
+                   await FirebaseAnalytics.instance
+                              .logEvent(name: 'waschen');
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(

@@ -6,6 +6,7 @@ import 'package:family/src/features/content/presentation/entertainment/songs/blu
 import 'package:family/src/features/content/presentation/entertainment/songs/hoppe_hoppe_reiter_song_page.dart';
 import 'package:family/src/features/content/presentation/entertainment/songs/sleep_kid_sleep_song_page.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class AllSongsPage extends StatelessWidget {
@@ -18,7 +19,9 @@ class AllSongsPage extends StatelessWidget {
         showMenuButton: false,
         content: [
           const SizedBox(height: 50),
-          PrimaryButton(context, 'Alle meine Entchen', () {
+          PrimaryButton(context, 'Alle meine Entchen', () async {
+            await FirebaseAnalytics.instance
+                .logEvent(name: 'alle meine entchen');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -27,7 +30,8 @@ class AllSongsPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Schlaf Kindlein, schlaf', () {
+          PrimaryButton(context, 'Schlaf Kindlein, schlaf', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'schlaf kindlein');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -36,7 +40,8 @@ class AllSongsPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Es tanzt ein Bi-Ba-Butzemann', () {
+          PrimaryButton(context, 'Es tanzt ein Bi-Ba-Butzemann', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'es tanzt ein');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -45,7 +50,9 @@ class AllSongsPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Hoppe, hoppe Reiter', () {
+          PrimaryButton(context, 'Hoppe, hoppe Reiter', () async {
+            await FirebaseAnalytics.instance
+                .logEvent(name: 'hoppe hoppe reiter');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -54,7 +61,9 @@ class AllSongsPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Von den blauen Bergen kommen wir', () {
+          PrimaryButton(context, 'Von den blauen Bergen kommen wir', () async {
+            await FirebaseAnalytics.instance
+                .logEvent(name: 'von den blauen bergen');
             Navigator.push(
               context,
               MaterialPageRoute(

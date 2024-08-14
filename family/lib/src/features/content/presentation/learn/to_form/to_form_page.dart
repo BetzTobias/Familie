@@ -2,6 +2,7 @@ import 'package:family/src/common/continue_back_row.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/learn/to_form/to_form_page1.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class ToFormPage extends StatelessWidget {
@@ -26,7 +27,9 @@ class ToFormPage extends StatelessWidget {
               ),
               const SizedBox(height: 100),
               ContinueBackRow(
-                onPressedBack: () {
+                onPressedBack: () async {
+                  await FirebaseAnalytics.instance
+                      .logEvent(name: 'formen tipps');
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(

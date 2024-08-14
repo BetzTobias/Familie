@@ -5,6 +5,7 @@ import 'package:family/src/features/content/presentation/entertainment/bake/cook
 import 'package:family/src/features/content/presentation/entertainment/bake/rainbow_cake_recipe.dart';
 import 'package:family/src/features/content/presentation/entertainment/entertainment.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class RecipeList extends StatelessWidget {
@@ -17,7 +18,9 @@ class RecipeList extends StatelessWidget {
         backButtonDestination: const EntertainmentPage(),
         content: [
           const SizedBox(height: 50),
-          PrimaryButton(context, 'Amerikaner', () {
+          PrimaryButton(context, 'Amerikaner', () async {
+            await FirebaseAnalytics.instance
+                .logEvent(name: 'amerikaner rezept');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -26,7 +29,8 @@ class RecipeList extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Cookies mit Smarties', () {
+          PrimaryButton(context, 'Cookies mit Smarties', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'cookies rezept');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -35,10 +39,10 @@ class RecipeList extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Regenbogenkuchen', () {
-            
+          PrimaryButton(context, 'Regenbogenkuchen', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'regenbogenkuchen');
+
             Navigator.push(
-              
               context,
               MaterialPageRoute(
                 builder: (context) => const RainbowCakeRecipe(),

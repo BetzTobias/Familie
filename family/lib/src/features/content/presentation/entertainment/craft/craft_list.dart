@@ -8,6 +8,7 @@ import 'package:family/src/features/content/presentation/entertainment/craft/spr
 import 'package:family/src/features/content/presentation/entertainment/craft/summer/summer_list.dart';
 import 'package:family/src/features/content/presentation/entertainment/craft/winter/winter_list.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class CraftListPage extends StatelessWidget {
@@ -19,7 +20,8 @@ class CraftListPage extends StatelessWidget {
       child: MenuTemplatePage(
         content: [
           const SizedBox(height: 50),
-          PrimaryButton(context, 'Frühling', () {
+          PrimaryButton(context, 'Frühling', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'frühling');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -28,7 +30,8 @@ class CraftListPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Sommer', () {
+          PrimaryButton(context, 'Sommer', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'sommer');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -37,7 +40,8 @@ class CraftListPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Herbst', () {
+          PrimaryButton(context, 'Herbst', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'herbst');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -46,7 +50,8 @@ class CraftListPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Winter', () {
+          PrimaryButton(context, 'Winter', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'winter');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -55,7 +60,8 @@ class CraftListPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Fashing', () {
+          PrimaryButton(context, 'Fashing', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'fashing');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -64,7 +70,8 @@ class CraftListPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Ostern', () {
+          PrimaryButton(context, 'Ostern', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'ostern');
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -73,7 +80,8 @@ class CraftListPage extends StatelessWidget {
             );
           }),
           const SizedBox(height: 10),
-          PrimaryButton(context, 'Allgemein', () {
+          PrimaryButton(context, 'Allgemein', () async {
+            await FirebaseAnalytics.instance.logEvent(name: 'allgemein');
             Navigator.push(
               context,
               MaterialPageRoute(

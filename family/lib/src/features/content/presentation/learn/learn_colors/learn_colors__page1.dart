@@ -3,6 +3,7 @@ import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn_colors/learn_colors_page.dart';
 import 'package:family/src/features/content/presentation/main_selection_page.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class LearnColorsPage1 extends StatelessWidget {
@@ -27,7 +28,9 @@ class LearnColorsPage1 extends StatelessWidget {
           ),
           const SizedBox(height: 100),
           ContinueBackRow(
-            onPressedBack: () {
+            onPressedBack: ()async {
+               await FirebaseAnalytics.instance
+                              .logEvent(name: 'farben tipps');
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(

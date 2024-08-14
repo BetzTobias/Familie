@@ -3,6 +3,7 @@ import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/learn/learn.dart';
 import 'package:family/src/features/content/presentation/learn/motorskills/motor_skills_page2.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class MotorSkillsPage extends StatelessWidget {
@@ -24,7 +25,8 @@ class MotorSkillsPage extends StatelessWidget {
           ),
           const SizedBox(height: 100),
           ContinueBackRow(
-            onPressedBack: () {
+            onPressedBack: () async {
+              await FirebaseAnalytics.instance.logEvent(name: 'motorik tipps');
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
