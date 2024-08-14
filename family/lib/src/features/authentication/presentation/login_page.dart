@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: const TextStyle(color: Colors.black),
                     children: [
                       TextSpan(
-                        text: 'Datenschutzerklärung',
+                        text: 'Datenschutzrichtlinien',
                         style: const TextStyle(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,
