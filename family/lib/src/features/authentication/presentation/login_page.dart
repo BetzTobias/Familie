@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         validator: (value) {
-                          if (value == null || value.length < 11) {
+                          if (value == null || value.length < 8) {
                             return 'Passwort ist zu klein';
                           }
                           return null;
