@@ -39,7 +39,7 @@ class AmericanRecipe extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Text(
-            '- 50g Marganrine\n- 100g Puderzucker\n- 1 Pck. Vanillezucker\n- 2 Eier\n- 1 Päckchen Vanillezucker\n- 3Tl. Backpulver\n- 5 El. Milch',
+            '- 50g Margarine\n- 100g Puderzucker\n- 1 Pck. Vanillezucker\n- 2 Eier\n- 1 Päckchen Vanillezucker\n- 3Tl. Backpulver\n- 5 El. Milch',
             style: TextStyle(fontSize: 18),
           ),
           const SizedBox(height: 16),

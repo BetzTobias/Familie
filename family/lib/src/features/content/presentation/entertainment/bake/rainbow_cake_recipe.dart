@@ -94,7 +94,7 @@ class RainbowCakeRecipe extends StatelessWidget {
             style: TextStyle(fontSize: 18),
           ),
           const Text(
-            'Jetzt verteilt ihr den Teig gleichmäßig auf eure 4-6 Schalen. Dafür könnt ihr euch eine Küchenwaage zur Hilfe nehmen oder ihr verteilt den Teig löffel- oder kellenweise auf eure Schalen.',
+            'Jetzt verteilt ihr den Teig gleichmäßig auf eure 4-6 Schalen. Dafür könnt ihr euch eine Küchenwaage zur Hilfe nehmen oder ihr verteilt den Teig Löffel- oder kellenweise auf eure Schalen.',
             style: TextStyle(fontSize: 18),
           ),
           const SizedBox(height: 8),
