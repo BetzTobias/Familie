@@ -14,7 +14,7 @@ class DragonWindowPicturesPage extends StatelessWidget {
         content: [
           const SizedBox(height: 50),
           Text(
-            'Drachen Fensterbild uas Eisstäbchen',
+            'Drachen Fensterbild aus Eisstäbchen',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           Image.asset(

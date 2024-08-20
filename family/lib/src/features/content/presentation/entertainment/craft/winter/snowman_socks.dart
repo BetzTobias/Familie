@@ -14,7 +14,7 @@ class SnowmannSocksPage extends StatelessWidget {
         content: [
           const SizedBox(height: 50),
           Text(
-            'Drachen Fensterbild uas Eisstäbchen',
+            'Schneemann aus alten Socken',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           Image.asset(
