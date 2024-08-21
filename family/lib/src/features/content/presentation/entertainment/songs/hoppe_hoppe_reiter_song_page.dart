@@ -78,7 +78,7 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
           ),
           const SizedBox(height: 30.0),
           Image.asset(
-            'assets/Schlaf Kindlein schlaf Noten.png', // Image Pfad
+            'assets/Hoppe hoppe Reiter Noten.png', // Image Pfad
             height: 200.0,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -100,10 +100,10 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
                 'Fällt er in den Graben, fressen ihn die Raben.'
                 'Fällt er in den Sumpf, macht der Reiter plumps.'
                 'Hoppe, hoppe Reiter, wenn er fällt. dann schreit er.'
-                'Fällt er in die Hecken,fressen ihn die Schnecken.'
+                'Fällt er in die Hecken, fressen ihn die Schnecken.'
                 'Fällt er in den Sumpf, macht der Reiter plumps'
-                'Hoppe, hoppe, Reiter,wenn er fällt, dann schreit er'
-                'Fällt er auf die Steine,tun ihm weh die Beine'
+                'Hoppe, hoppe Reiter, wenn er fällt, dann schreit er'
+                'Fällt er auf die Steine, tun ihm weh die Beine'
                 'Fällt er in den Sumpf, macht der Reiter plumps'
                 'Hoppe, hoppe, Reiter, wenn er fällt, dann schreit er.'
                 'Fällt er in den Teich, find’t ihn keiner gleich. '
@@ -111,7 +111,7 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
                 'Hoppe, hoppe, Reiter, wenn er fällt, dann schreit er.'
                 'Fällt er in das grüne Gras, Macht er sich die Hosen nass'
                 'Fällt er in den Sumpf, macht der Reiter plumps'
-                'Hoppe, hoppe, Reiter, wenn er fällt, dann schreit er.'
+                'Hoppe, hoppe Reiter, wenn er fällt, dann schreit er.'
                 'Fällt er in das Wasser, Wird er noch viel nasser'
                 'Fällt er in den Sumpf, macht der Reiter plumps',
                 style: TextStyle(

@@ -15,7 +15,10 @@ class EggCartonSharksPage extends StatelessWidget {
           const SizedBox(height: 50),
           Text(
             'Haie aus Eierkarton',
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context)
+                .textTheme
+                .headlineMedium
+                ?.copyWith(fontWeight: FontWeight.bold),
           ),
           Image.asset(
             'assets/Haie_aus_Eierkarton.png',
@@ -23,35 +26,52 @@ class EggCartonSharksPage extends StatelessWidget {
           const SizedBox(height: 20),
           Text(
             'Materialien:',
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
-          const Text('• Kartonpapier (Blau)'),
-          const Text('• Schere'),
-          const Text('• Bastelkleber, Heißkleber'),
-          const Text('• Farbe (blau und weiß)'),
-          const Text('• Pinsel'),
-          const Text('• Schwarzer Stift'),
-          const Text('• Kulleraugen'),
-          const Text('• Eierkarton'),
+          const Text('• Kartonpapier (Blau)',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• Schere',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• Bastelkleber, Heißkleber',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• Farbe (blau und weiß)',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• Pinsel',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• Schwarzer Stift',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• Kulleraugen',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• Eierkarton',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 20),
           Text(
             'Anleitung:',
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           const Text(
-              '1. Um dieses Hai-Handwerk herzustellen, benötigen wir die stacheligen Teile im Eierkarton. Besorgen Sie sich zunächst einen Eierkarton und schneiden Sie zwei Stacheln daraus aus, wie unten gezeigt. Schneiden Sie einen davon etwas kürzer als den anderen.'),
+              '1. Um dieses Hai-Handwerk herzustellen, benötigen wir die stacheligen Teile im Eierkarton. Besorgen Sie sich zunächst einen Eierkarton und schneiden Sie zwei Stacheln daraus aus, wie unten gezeigt. Schneiden Sie einen davon etwas kürzer als den anderen.',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           Image.asset(
             'assets/Haie_aus_Eierkarton_schritt_1.png',
           ),
           const Text(
-              '2. Jetzt müssen wir diese Teile zusammenkleben. Tragen Sie etwas Kleber auf den größeren Teil auf und kleben Sie den kleineren Teil hinein, wie unten gezeigt. Malen Sie nun eine Seite davon blau und die andere Seite weiß.'),
+              '2. Jetzt müssen wir diese Teile zusammenkleben. Tragen Sie etwas Kleber auf den größeren Teil auf und kleben Sie den kleineren Teil hinein, wie unten gezeigt. Malen Sie nun eine Seite davon blau und die andere Seite weiß.',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           Image.asset(
             'assets/Haie_aus_Eierkarton_Schritt_2.png',
           ),
           const Text(
-              '3. Sobald die Farbe getrocknet ist, kleben Sie auf beiden Seiten Kulleraugen auf. Schneiden Sie Flossen und Schwanz aus blauem Karton aus und kleben Sie sie (bitte nur für Erwachsene) mit Heißkleber auf den Körper des Hais.'),
+              '3. Sobald die Farbe getrocknet ist, kleben Sie auf beiden Seiten Kulleraugen auf. Schneiden Sie Flossen und Schwanz aus blauem Karton aus und kleben Sie sie (bitte nur für Erwachsene) mit Heißkleber auf den Körper des Hais.',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           Image.asset(
             'assets/Haie_aus_Eierkarton_Schritt_3.png',
           ),

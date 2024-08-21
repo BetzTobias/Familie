@@ -15,7 +15,7 @@ class MucusPage extends StatelessWidget {
           const SizedBox(height: 50),
           Text(
             'Schleim aus Duschgel und Stärke',
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           Image.asset(
             'assets/Schleim.png',
@@ -23,25 +23,31 @@ class MucusPage extends StatelessWidget {
           const SizedBox(height: 20),
           Text(
             'Materialien:',
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold
+            ),
           ),
           const SizedBox(height: 10),
-          const Text('• Duschgel oder Cremeseife'),
-          const Text('• Stärke'),
-          const Text('• optional Farbe oder Glitzer'),
+          const Text('• Duschgel oder Cremeseife',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• Stärke',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const Text('• optional Farbe oder Glitzer',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 20),
           Text(
             'Anleitung:',
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           const Text(
-              '1. Und so wird Schleim aus Duschgel und Stärke selber gemacht: Füllt Duschgel in eine Schüssel und gebt so viel Stärke dazu, bis die gewünschte schleimige Konsistenz erreicht ist. Ist der Schleim zu trocken, gebt mehr Duschgel dazu. Ist der Schleim zu klebrig - etwas mehr Stärke. Optional könnt ihr Farbe oder Glitzer hinzufügen'),
+              '1. Und so wird Schleim aus Duschgel und Stärke selber gemacht: Füllt Duschgel in eine Schüssel und gebt so viel Stärke dazu, bis die gewünschte schleimige Konsistenz erreicht ist. Ist der Schleim zu trocken, gebt mehr Duschgel dazu. Ist der Schleim zu klebrig - etwas mehr Stärke. Optional könnt ihr Farbe oder Glitzer hinzufügen',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           Image.asset(
             'assets/Schleim_1.png',
           ),
           const Text(
-              '2. Tipp: Wenn ihr noch mehr Stärke dazugebt, könnt ihr aus eurem Schleim Knetseife machen.'),
+              '2. Tipp: Wenn ihr noch mehr Stärke dazugebt, könnt ihr aus eurem Schleim Knetseife machen.',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           Image.asset(
             'assets/Schleim_2.png',
           ),
