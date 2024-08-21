@@ -41,7 +41,7 @@ class MotorSkillsPage extends StatelessWidget {
                   builder: (context) => const MotorSkillsPage2(
                     skillsNumber: 2,
                     skillsTipps:
-                        'Feinmotorik fördern: Biete Aktivitäten an, die die Fingerfertigkeiten verbessern, wie z.B. Malen, Basteln oder das Spielen mit Bausteinen. Diese Aktivitäten stärken die Handmuskulatur und fördern die Hand-Auge-Koordination.',
+                        'Feinmotorik fördern: Biete Aktivitäten an, die die Fingerfertigkeiten verbessern, wie z.B. Malen, Basteln oder das Spielen mit Bausteinen. Diese Aktivitäten stärken die Handmuskulatur und fördern die Hand-Augen-Koordination.',
                   ),
                 ),
               );

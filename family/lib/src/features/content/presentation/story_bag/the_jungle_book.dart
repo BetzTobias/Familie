@@ -70,19 +70,19 @@ class _TheJungleBookState extends State<TheJungleBook> {
             children: <Widget>[
               const Text(
                 'Fröhlich wandern unsere beiden Freunde durch den Dschungel. Doch wird Mogli, als er erfahren hat, dass er zu den Menschen soll. traurig und zweifelt an Baghiras Freundschaft. Kaa, die listige Schlange, auf der Suche nach einem Zeitvertreib, versucht, sein Vertrauen zu erlangen.',
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 18),
               ),
               const Text(
                 'Aber Mogli ist Misstrauisch geworden. Er möchte zwar gern im Dschungel bleiben, aber nicht bei Kaa. Erst als er Colonel Hathi und seiner Frühpatrouille über den Weg läuft, scheint sich sein Schicksal zu entscheiden. Der aufgeblasene Colonel Hathi duldet kein Meschenkind im Dschungel. Genau so wie er seine Elephanten herumkommandiert, befiehlt er, Mogli unverzüglich zur Menschensiedlung zu schaffen. Baghira, der Panther, versucht wieder, dieser Aufgabe mit viel Takt und Mitgefühl gerecht zu werden, aber Mogli hat sich nun in den Kopf gesetzt, im Dschungel zu bleiben, koste es, was es wolle. Er will einfach nicht einsehen, dass er ein Menschenkind ist. So erklärt er trotzig, nicht mehr mit Baghira weiterzuziehen, sondern läuft alleine davon.',
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 18),
               ),
               const Text(
                 'Baghira, der die Verantwortung für Mogli übernommen hat, folgt ihm von fern und freut sich, als sich der Junge mit Balu, dem Bären, anfreundet. Balu, ein richtiger Nichtsnutz, Herumtreiber und liebenswerter Faulpelz, sorgt ausreichend dafür, dass Mogli wieder lachen kann. Nun beginnt eine herrliche, sorglose und wunderschöne Zeit. Balu und Mogli wollen immer zusammenbleiben, und Mogli lernt von seinem neuen freund, wie leicht und schön das Leben im Dschungel sein kann.',
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 18),
               ),
               const Text(
                 'Finde Balu und Mogli. Du hast 3 Versuche',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               SizedBox(

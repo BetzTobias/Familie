@@ -66,7 +66,7 @@ class AnimalsPage1 extends StatelessWidget {
                       return const AnimalsPage1(
                         animalsNumber: 5,
                         animalsTipps:
-                            "Tierfilme und -dokumentationen: Schau kinderfreundliche Tierfilme oder -dokumentationen. Dies kann das Interesse am Lernen über Tiere vertiefen und visuelle Eindrücke vermitteln.",
+                            "Tierfilme und -Dokumentationen: Schau kinderfreundliche Tierfilme oder -Dokumentationen. Dies kann das Interesse am Lernen über Tiere vertiefen und visuelle Eindrücke vermitteln.",
                       );
                     } else {
 // wir befinden uns auf Brushseite 6

@@ -70,15 +70,15 @@ class _LittleRedRidingHoodState extends State<LittleRedRidingHood> {
             children: <Widget>[
               const Text(
                 'Es war einmal ein kleines, süßes Mädchen. Jeder liebte sie. Am meisten ihre Großmutter. Eines Tages gab sie ihr eine rote Mütze aus Samt. Das Mädchen trug diese Mütze seitdem immer und wurde daher Rotkäppchen genannt.',
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 18),
               ),
               const Text(
                 'Eines Tages war ihre Großmutter krank. Also machte sich Rotkäppchen auf den Weg, um ihr Wein und Kekse zu bringen. Das würde sicherlich zu ihrem Wohlbefinden beitragen. Ihre Mutter sagte ihr, dass sie nicht den Weg verlassen und vorsichtig sein soll. Sie sollte außerdem höflich sein und sich von ihrer Großmutter verabschieden.',
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 18),
               ),
               const Text(
                 'Finde Rotkäppchen auf einem Weg. Du hast 3 Versuche',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               SizedBox(

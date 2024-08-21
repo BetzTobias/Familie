@@ -17,7 +17,7 @@ class TreesPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Das Waschen kann für Kinder durch spielerische und kreative Methoden zu einer unterhaltsamen Gewohnheit werden.Indem du das Waschen mit Spaß verbindest, kannstDas Beibringen über Bäume der Natur kann für Kinder durch spielerische und kreative Methoden unterhaltsam und leicht verständlich gestaltet werden. Indem du spielerische Elemente in das Lernen über Bäume integrierst, kannst du die Neugier und das Verständnis des Kindes fördern. Dies ermöglicht es ihnen, die Schönheit und Bedeutung der Bäume in der Natur zu schätzen.Hier sind einige Tipps: du es für Kinder leicht verständlich machen und sie dazu ermutigen, diese wichtige Hygienemaßnahme als Teil ihrer täglichen Routine zu akzeptieren. Hier sind einige Tipps:',
+                'Das Beibringen über Bäume der Natur kann für Kinder durch spielerische und kreative Methoden unterhaltsam und leicht verständlich gestaltet werden. Indem du spielerische Elemente in das Lernen über Bäume integrierst, kannst du die Neugier und das Verständnis des Kindes fördern. Dies ermöglicht es ihnen, die Schönheit und Bedeutung der Bäume in der Natur zu schätzen. Hier sind einige Tipps:',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

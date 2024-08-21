@@ -59,7 +59,7 @@ class MotorSkillsPage2 extends StatelessWidget {
                       return const MotorSkillsPage2(
                         skillsNumber: 5,
                         skillsTipps:
-                            "Gemeinsame Aktivitäten: Beteilige dich aktiv an den Aktivitäten des Kindes. Gemeinsame Spiele wie Simon sagt oder das Nachahmen von Tieren können die Koordination verbessern und die Kinder dazu ermutigen, sich zu bewegen.",
+                            "Gemeinsame Aktivitäten: Beteilige dich aktiv an den Aktivitäten des Kindes. Gemeinsame Spiele wie Simon sagt oder das Nachahmen von Tieren, können die Koordination verbessern und die Kinder dazu ermutigen, sich zu bewegen.",
                       );
                     } else if (skillsNumber == 5) {
 // wir befinden uns auf Brushseite 4

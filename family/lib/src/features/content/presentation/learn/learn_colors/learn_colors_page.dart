@@ -17,7 +17,7 @@ class LearnColorsPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Das Lernen von Farben mit unseren kleinen Sprösslinge kann durch kreative und spielerische Aktivitäten erfolgen. Hier sind einige Tipps, wie du Farben auf eine leicht verständliche Weise vermitteln kannst:',
+                'Das Lernen von Farben mit unseren kleinen Sprösslingen kann durch kreative und spielerische Aktivitäten erfolgen. Hier sind einige Tipps, wie du Farben auf eine leicht verständliche Weise vermitteln kannst:',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
