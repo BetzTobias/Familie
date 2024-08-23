@@ -39,13 +39,14 @@ dependencies:
   firebase_core: ^3.0.0
   firebase_auth: ^5.0.0
   audioplayers: ^6.0.0
-  youtube_player_flutter: ^9.0.1
+  youtube_player_flutter: ^9.0.3
   provider: ^6.1.2
   firebase_analytics: ^11.2.1
   cloud_firestore: ^5.0.0
   firebase_crashlytics: ^4.0.4
   url_launcher: ^6.3.0
   shared_preferences: ^2.3.1
+  youtube: ^2.0.0
 
 dev_dependencies:
   

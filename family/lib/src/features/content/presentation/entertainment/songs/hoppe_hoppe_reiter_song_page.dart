@@ -17,7 +17,8 @@ class _MusikPlayButtonState extends State<MusikPlayButton> {
   @override
   void initState() {
     super.initState();
-    const videoUrl = 'https://youtu.be/yM87KmxXfwI?si=r2orWx7pxawjkX3S'; // URL
+    const videoUrl = 'https://youtu.be/yM87KmxXfwI?si=rs20a91dRLWQaFhF';
+    // URL
     _controller = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(videoUrl) ?? '',
       flags: const YoutubePlayerFlags(
@@ -89,7 +90,7 @@ class HoppeHoppeReiterSongPage extends StatelessWidget {
             height: 15,
           ),
           AnimatedContainer(
-            duration: const Duration(milliseconds: 30),
+            duration: const Duration(milliseconds: 10),
             transform: Matrix4.translationValues(0.0, 0.0, 0.0),
             child: GestureDetector(
               onTap: () {

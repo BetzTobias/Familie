@@ -150,4 +150,14 @@ class FirestoreDatabase implements DatabaseRepository {
       debugPrint('Ändern der Telefonnummer Fehlgeschlagen: $e');
     }
   }
+  @override
+    Future<DocumentSnapshot> _getUserData() async {
+    User? user = _auth.currentUser;
+
+    if (user != null) {
+      return await _firestore.collection('users').doc(user.uid).get();
+    } else {
+      throw Exception('No user is currently signed in.');
+    }
+  }
 }

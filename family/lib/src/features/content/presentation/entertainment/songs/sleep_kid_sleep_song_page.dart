@@ -17,7 +17,7 @@ class _MusikPlayButtonState extends State<MusikPlayButton> {
   @override
   void initState() {
     super.initState();
-    const videoUrl = 'https://youtu.be/b6K3a_ug9JE?si=7FgToLkPv9U3MKSU'; // URL
+    const videoUrl = 'https://youtu.be/b6K3a_ug9JE?si=BH-0NXSUy-h5ekZm'; // URL
     _controller = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(videoUrl) ?? '',
       flags: const YoutubePlayerFlags(
@@ -69,52 +69,41 @@ class SleepKidSleepSongPage extends StatelessWidget {
         showMenuButton: false,
         backButtonDestination: const AllSongsPage(),
         content: [
-          const SizedBox(
-            height: 20,
+          const Text(
+            'Schlaf Kindlein Schlaf',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          Container(
-            padding: const EdgeInsets.all(60.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Schlaf Kindlein Schlaf',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+          const SizedBox(height: 30.0),
+          Image.asset(
+            'assets/Schlaf Kindlein schlaf Noten.png', // Image Pfad
+            height: 200.0,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          const SizedBox(height: 15.0),
+          const MusikPlayButton(),
+          const SizedBox(
+            height: 15,
+          ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 30),
+            transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+            child: GestureDetector(
+              onTap: () {
+                // Animations Bereich
+              },
+              child: const Text(
+                'Schlaf, Kindlein, schlaf. Der Vater hüt die Schaf, die Mutter schüttelt’s Bäumelein, da fällt herab ein Träumelein. Schlaf, Kindlein, schlaf.'
+                'Schlaf, Kindlein, schlaf. Am Himmel zieh’n die Schaf, die Sternlein sind die Lämmerlein, der Mond, der ist das Schäferlein. Schlaf, Kindlein, schlaf.'
+                'Schlaf, Kindlein, schlaf. So schenk ich dir ein Schaf mit einer gold’nen Schelle fein, das soll dein Spielgeselle sein. Schlaf, Kindlein, schlaf.',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
                 ),
-                const SizedBox(height: 30.0),
-                Image.asset(
-                  'assets/Schlaf Kindlein schlaf Noten.png', // Image Pfad
-                  height: 200.0,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-                const SizedBox(height: 15.0),
-                const MusikPlayButton(),
-                const SizedBox(
-                  height: 15,
-                ),
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 30),
-                  transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      // Animations Bereich
-                    },
-                    child: const Text(
-                      'Schlaf, Kindlein, schlaf. Der Vater hüt die Schaf, die Mutter schüttelt’s Bäumelein, da fällt herab ein Träumelein. Schlaf, Kindlein, schlaf.'
-                      'Schlaf, Kindlein, schlaf. Am Himmel zieh’n die Schaf, die Sternlein sind die Lämmerlein, der Mond, der ist das Schäferlein. Schlaf, Kindlein, schlaf.'
-                      'Schlaf, Kindlein, schlaf. So schenk ich dir ein Schaf mit einer gold’nen Schelle fein, das soll dein Spielgeselle sein. Schlaf, Kindlein, schlaf.',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ],

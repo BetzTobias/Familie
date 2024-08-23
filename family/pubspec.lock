@@ -829,14 +829,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
+  youtube:
+    dependency: "direct main"
+    description:
+      name: youtube
+      sha256: "1c414ad17c83eba1ff87399c9f89f7ce85396a714810cffcd8adb8dc453598c7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   youtube_player_flutter:
     dependency: "direct main"
     description:
       name: youtube_player_flutter
-      sha256: "583305a34c6dd1f32e453e04e23fd0f3d47152c83d3214a2be557c75e669c595"
+      sha256: b670314008a9abd051f01f82df754d76fd1366340f03f4f8ff86fc3d6b03080c
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.2"
+    version: "9.0.3"
 sdks:
   dart: ">=3.4.0 <4.0.0"
   flutter: ">=3.22.0"
