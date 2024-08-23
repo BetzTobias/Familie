@@ -3,7 +3,7 @@ import 'package:family/src/data/auth_repository.dart';
 import 'package:family/src/data/database_repository.dart';
 import 'package:family/src/features/authentication/presentation/login_page.dart';
 import 'package:family/src/features/authentication/presentation/settings/info.dart';
-import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
+import 'package:family/src/features/authentication/presentation/settings/manage_user/profil_user/user_profil.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:family/src/features/content/presentation/menu_template_page.dart';
 import 'package:flutter/material.dart';
@@ -34,12 +34,12 @@ class SettingsPage extends StatelessWidget {
           const SizedBox(height: 10),
           PrimaryButton(
             context,
-            'Login Daten verwalten',
+            'Profil',
             () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ManageProfilePage(),
+                  builder: (context) => UserProfileScreen(),
                 ),
               );
             },

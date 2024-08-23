@@ -1,6 +1,6 @@
 import 'package:family/src/common/custom_back_button.dart';
 import 'package:family/src/data/database_repository.dart';
-import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
+import 'package:family/src/features/authentication/presentation/settings/manage_user/profil_user/user_profil.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -80,7 +80,7 @@ class _ManageProfilePasswordPageState extends State<ManageProfilePasswordPage> {
                 child: const Text('Profil speichern'),
               ),
               const SizedBox(height: 10),
-              const CustomBackButton(destination: ManageProfilePage()),
+              CustomBackButton(destination: UserProfileScreen()),
             ],
           ),
         ),

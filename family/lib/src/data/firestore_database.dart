@@ -19,9 +19,9 @@ class FirestoreDatabase implements DatabaseRepository {
   }
 
   @override
-  Future<MyUser?> getMyUser() async {
+  Future<MyUser?> getMyUser(String userId) async {
     final snapshot =
-        await _firebaseFirestore.collection('user').doc('user.id').get();
+        await _firebaseFirestore.collection('User').doc(userId).get();
     final map = snapshot.data();
     if (map == null) {
       return null;
@@ -150,14 +150,5 @@ class FirestoreDatabase implements DatabaseRepository {
       debugPrint('Ändern der Telefonnummer Fehlgeschlagen: $e');
     }
   }
-  @override
-    Future<DocumentSnapshot> _getUserData() async {
-    User? user = _auth.currentUser;
 
-    if (user != null) {
-      return await _firestore.collection('users').doc(user.uid).get();
-    } else {
-      throw Exception('No user is currently signed in.');
-    }
-  }
 }
