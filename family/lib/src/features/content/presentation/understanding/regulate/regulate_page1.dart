@@ -23,7 +23,7 @@ class RegulatePage1 extends StatelessWidget {
               fontSize: 17,
               fontWeight: FontWeight.bold,
             ),
-            textAlign: TextAlign.justify,
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 100),
           ContinueBackRow(

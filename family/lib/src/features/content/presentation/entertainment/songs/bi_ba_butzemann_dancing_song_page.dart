@@ -17,9 +17,9 @@ class _MusikPlayButtonState extends State<MusikPlayButton> {
   @override
   void initState() {
     super.initState();
-    const videoUrl = 'https://youtu.be/0cSI4_WeSCk?si=krbpxz9A5axkMQiW'; // URL
+     // URL
     _controller = YoutubePlayerController(
-      initialVideoId: YoutubePlayer.convertUrlToId(videoUrl) ?? '',
+      initialVideoId: '0cSI4_WeSCk',
       flags: const YoutubePlayerFlags(
         autoPlay: false,
         mute: false,

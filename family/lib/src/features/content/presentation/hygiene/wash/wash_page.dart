@@ -23,13 +23,12 @@ class WashPage extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 100),
               ContinueBackRow(
                 onPressedBack: () async {
-                   await FirebaseAnalytics.instance
-                              .logEvent(name: 'waschen');
+                  await FirebaseAnalytics.instance.logEvent(name: 'waschen');
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(

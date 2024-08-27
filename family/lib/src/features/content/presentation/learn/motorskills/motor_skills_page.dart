@@ -21,7 +21,7 @@ class MotorSkillsPage extends StatelessWidget {
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
-            textAlign: TextAlign.justify,
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 100),
           ContinueBackRow(
