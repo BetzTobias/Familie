@@ -17,7 +17,7 @@ class _MusikPlayButtonState extends State<MusikPlayButton> {
   @override
   void initState() {
     super.initState();
-     // URL
+    // URL
     _controller = YoutubePlayerController(
       initialVideoId: '0cSI4_WeSCk',
       flags: const YoutubePlayerFlags(
@@ -94,10 +94,7 @@ class BiBaButzemannSongPage extends StatelessWidget {
                 // Animations Bereich
               },
               child: const Text(
-                'Es tanz ein Bi-Ba- Butzemann in unserm Haus herum, dideldum. Es tanzt ein Bi- Ba- Butzemann in unserm Haus herum. Er rüttelt sich, er schüttelt sich, Er wirft sein Säcklein hinter sich. Es tanzt ein Bi- Ba- Butzemann in unsrem Haus herum.'
-                'Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum, dideldum, Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum. Er wirft sein Säcklein her und hin, Was ist wohl in dem Säcklein drin? Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum.'
-                'Es tanz ein Bi-Ba- Butzemann in unserm Haus herum, dideldum. Es tanzt ein Bi- Ba- Butzemann in unserm Haus herum. Er bringt zur Nacht dem guten Kind, Die Äpfel, die im Säcklein sind. Es tanzt ein Bi- Ba- Butzemann in unserm Haus herum.'
-                'Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum, dideldum, Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum. Er wirft sein Säcklein hin und her, Am Morgen ist es wieder leer. Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum.',
+                'Es tanz ein Bi-Ba- Butzemann in unserm Haus herum, dideldum. Es tanzt ein Bi- Ba- Butzemann in unserm Haus herum. Er rüttelt sich, er schüttelt sich, Er wirft sein Säcklein hinter sich. Es tanzt ein Bi- Ba- Butzemann in unsrem Haus herum. Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum, dideldum, Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum. Er wirft sein Säcklein her und hin, Was ist wohl in dem Säcklein drin? Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum. Es tanz ein Bi-Ba- Butzemann in unserm Haus herum, dideldum. Es tanzt ein Bi- Ba- Butzemann in unserm Haus herum. Er bringt zur Nacht dem guten Kind, Die Äpfel, die im Säcklein sind. Es tanzt ein Bi- Ba- Butzemann in unserm Haus herum. Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum, dideldum, Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum. Er wirft sein Säcklein hin und her, Am Morgen ist es wieder leer. Es tanzt ein Bi-Ba-Butzemann in unserm Haus herum.',
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,

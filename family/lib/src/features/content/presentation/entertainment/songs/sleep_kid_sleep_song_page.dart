@@ -96,9 +96,7 @@ class SleepKidSleepSongPage extends StatelessWidget {
                 // Animations Bereich
               },
               child: const Text(
-                'Schlaf, Kindlein, schlaf. Der Vater hüt die Schaf, die Mutter schüttelt’s Bäumelein, da fällt herab ein Träumelein. Schlaf, Kindlein, schlaf.'
-                'Schlaf, Kindlein, schlaf. Am Himmel zieh’n die Schaf, die Sternlein sind die Lämmerlein, der Mond, der ist das Schäferlein. Schlaf, Kindlein, schlaf.'
-                'Schlaf, Kindlein, schlaf. So schenk ich dir ein Schaf mit einer gold’nen Schelle fein, das soll dein Spielgeselle sein. Schlaf, Kindlein, schlaf.',
+                'Schlaf, Kindlein, schlaf. Der Vater hüt die Schaf, die Mutter schüttelt’s Bäumelein, da fällt herab ein Träumelein. Schlaf, Kindlein, schlaf. Schlaf, Kindlein, schlaf. Am Himmel zieh’n die Schaf, die Sternlein sind die Lämmerlein, der Mond, der ist das Schäferlein. Schlaf, Kindlein, schlaf. Schlaf, Kindlein, schlaf. So schenk ich dir ein Schaf mit einer gold’nen Schelle fein, das soll dein Spielgeselle sein. Schlaf, Kindlein, schlaf.',
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,

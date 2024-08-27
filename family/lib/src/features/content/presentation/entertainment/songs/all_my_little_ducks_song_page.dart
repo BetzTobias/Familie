@@ -109,10 +109,7 @@ class AllMyLittleDucksSongPage extends StatelessWidget {
                 // Animations Bereich
               },
               child: const Text(
-                'Alle meine Entchen, schwimmen auf dem See, schwimmen auf dem See, Köpfchen in das Wasser, Schwänzchen in die Höh.'
-                'Alle meine Täubchen, gurren auf dem Dach, gurren auf dem Dach, fliegt eins in die Lüfte, fliegen alle nach.'
-                'Alle meine Hühner, scharren in dem Stroh, scharren in dem Stroh, finden sie ein Körnchen, sind sie alle froh.'
-                'Alle meine Gänschen, watscheln durch den Grund, watscheln durch den Grund, suchen in dem Tümpel, werden kugelrund.',
+                'Alle meine Entchen, schwimmen auf dem See, schwimmen auf dem See, Köpfchen in das Wasser, Schwänzchen in die Höh. Alle meine Täubchen, gurren auf dem Dach, gurren auf dem Dach, fliegt eins in die Lüfte, fliegen alle nach. Alle meine Hühner, scharren in dem Stroh, scharren in dem Stroh, finden sie ein Körnchen, sind sie alle froh. Alle meine Gänschen, watscheln durch den Grund, watscheln durch den Grund, suchen in dem Tümpel, werden kugelrund.',
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
