@@ -1,6 +1,5 @@
 import 'package:family/src/common/custom_back_button.dart';
 import 'package:family/src/data/database_repository.dart';
-import 'package:family/src/features/authentication/presentation/settings/manage_user/manage_profile.dart';
 import 'package:family/src/features/authentication/presentation/settings/manage_user/profil_user/user_profil.dart';
 import 'package:family/src/features/content/presentation/background_page.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +69,7 @@ class _ManageProfileEmailPageState extends State<ManageProfileEmailPage> {
                 child: const Text('Profil speichern'),
               ),
               const SizedBox(height: 10),
-               CustomBackButton(
+              CustomBackButton(
                 destination: UserProfileScreen(),
               ),
             ],
