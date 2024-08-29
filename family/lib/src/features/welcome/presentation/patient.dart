@@ -19,7 +19,7 @@ class PatientPage extends StatelessWidget {
               fontSize: 21,
               fontWeight: FontWeight.bold,
             ),
-            textAlign: TextAlign.justify,
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 100),
           Column(
