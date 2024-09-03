@@ -14,6 +14,15 @@ class LogicalThinkingPage extends StatelessWidget {
       child: MenuTemplatePage(
         content: [
           const SizedBox(height: 50),
+          const Text(
+            'Logisches Denken', // Die Überschrift
+            style: TextStyle(
+              fontSize: 24, // Größe der Schrift
+              fontWeight: FontWeight.bold, // Fettgedruckt
+            ),
+            textAlign: TextAlign.center, // Zentriert den Text
+          ),
+          const SizedBox(height: 30), // Abstand nach der Überschrift
           PrimaryButton(context, 'Formen der Größe nach Sortieren', () async {
             await FirebaseAnalytics.instance.logEvent(name: 'formen sortieren');
             Navigator.push(

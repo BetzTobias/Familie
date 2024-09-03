@@ -18,6 +18,7 @@ class RecipeList extends StatelessWidget {
         backButtonDestination: const EntertainmentPage(),
         content: [
           const SizedBox(height: 50),
+          
           PrimaryButton(context, 'Amerikaner', () async {
             await FirebaseAnalytics.instance
                 .logEvent(name: 'amerikaner rezept');

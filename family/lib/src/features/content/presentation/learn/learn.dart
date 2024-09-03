@@ -15,6 +15,15 @@ class LearnPage extends StatelessWidget {
     return BackgroundPage(
       child: MenuTemplatePage(content: [
         const SizedBox(height: 50),
+        const Text(
+          'Lernen', // Die Überschrift
+          style: TextStyle(
+            fontSize: 24, // Größe der Schrift
+            fontWeight: FontWeight.bold, // Fettgedruckt
+          ),
+          textAlign: TextAlign.center, // Zentriert den Text
+        ),
+        const SizedBox(height: 30), // Abstand nach der Überschrift
         PrimaryButton(context, 'Motorik', () async {
           await FirebaseAnalytics.instance.logEvent(name: 'motorik');
           Navigator.push(

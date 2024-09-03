@@ -16,6 +16,15 @@ class EntertainmentPage extends StatelessWidget {
       child: MenuTemplatePage(
         content: [
           const SizedBox(height: 50),
+          const Text(
+            'Unterhaltung', // Die Überschrift
+            style: TextStyle(
+              fontSize: 24, // Größe der Schrift
+              fontWeight: FontWeight.bold, // Fettgedruckt
+            ),
+            textAlign: TextAlign.center, // Zentriert den Text
+          ),
+          const SizedBox(height: 30), // Abstand nach der Überschrift
           PrimaryButton(context, 'Basteln', () async {
             await FirebaseAnalytics.instance.logEvent(name: 'basteln');
             Navigator.push(

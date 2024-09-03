@@ -16,6 +16,15 @@ class NaturePage extends StatelessWidget {
       child: MenuTemplatePage(
         content: [
           const SizedBox(height: 50),
+          const Text(
+            'Natur', // Die Überschrift
+            style: TextStyle(
+              fontSize: 24, // Größe der Schrift
+              fontWeight: FontWeight.bold, // Fettgedruckt
+            ),
+            textAlign: TextAlign.center, // Zentriert den Text
+          ),
+          const SizedBox(height: 30), // Abstand nach der Überschrift
           PrimaryButton(context, 'Tiere', () async {
             await FirebaseAnalytics.instance.logEvent(name: 'tiere');
             Navigator.push(

@@ -18,6 +18,15 @@ class AllStorysPage extends StatelessWidget {
         backButtonDestination: const StoryPage(),
         content: [
           const SizedBox(height: 50),
+          const Text(
+            'Geschichtensäckchen', // Die Überschrift
+            style: TextStyle(
+              fontSize: 24, // Größe der Schrift
+              fontWeight: FontWeight.bold, // Fettgedruckt
+            ),
+            textAlign: TextAlign.center, // Zentriert den Text
+          ),
+          const SizedBox(height: 30), // Abstand nach der Überschrift
           PrimaryButton(context, 'Das Dschungelbuch', () async {
             await FirebaseAnalytics.instance.logEvent(name: 'dschungelbuch');
             Navigator.push(
